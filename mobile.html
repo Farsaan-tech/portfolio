@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&family=Montserrat:wght@400;700&family=Comic+Neue:wght@400;700&family=Oswald:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&family=Montserrat:wght@400;700&family=Comic+Neue:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -38,7 +37,7 @@
         .hero {
             background: linear-gradient(to right, rgba(255, 78, 80, 0.5), rgba(252, 145, 58, 0.5)); /* Lighter gradient colors */
             color: #fff;
-            padding: 40px 20px; /* Adjusted padding for mobile */
+            padding: 30px 20px; /* Reduced padding */
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center items */
@@ -48,14 +47,21 @@
         .hero img {
             width: 80%; /* Make image responsive */
             max-width: 250px; /* Limit max width */
-            border: 10px solid white; /* Added white border */
+            border: 5px solid white; /* Added white border */
             border-radius: 7px; /* Rounded corners */
-            box-shadow: 0 8px 10px rgba(144, 58, 58, 0.5); /* Shadow for 3D effect */
-            margin-bottom: 20px; /* Space below image */
+            box-shadow: 0 4px 5px rgba(144, 58, 58, 0.5); /* Shadow for 3D effect */
+            margin-bottom: 15px; /* Space below image */
+        }
+
+        .hero h1 {
+            font-size: 2rem; /* Decreased size for name */
+            font-weight: bold;
+            color: #61190c;
+            margin-bottom: 5px; /* Reduced margin */
         }
 
         .section-header {
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Reduced margin */
             font-family: 'Oswald', sans-serif; /* Sharp font for headers */
             font-size: 1.8rem; /* Adjusted font size for mobile */
             font-weight: bold; /* Bold text */
@@ -63,29 +69,39 @@
 
         .section-description {
             font-size: 1rem; /* Adjusted size for section description */
-            margin-bottom: 10px; /* Spacing below descriptions */
+            margin-bottom: 5px; /* Reduced spacing below descriptions */
             color: #b09999; /* Dark maroon color */
+        }
+
+        .experience-section {
+            background: linear-gradient(to right, rgba(75, 0, 130, 0.3), rgba(75, 0, 130, 0.5)); /* Dim gradient color */
+            color: white; /* White text for contrast */
+            padding: 20px; /* Reduced padding for the Experience section */
+        }
+
+        .experience-section h5 {
+            font-size: 0.9rem; /* Smaller font size for dates */
+        }
+
+        .experience-section ul li {
+            font-size: 0.9rem; /* Smaller font size for list items */
         }
 
         .skill-icon {
             text-align: center;
-            margin: 10px; /* Reduced margin for mobile */
+            margin: 5px; /* Reduced margin for mobile */
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .skill-icon img,
         .skill-icon i {
-            font-size: 40px; /* Smaller icon size for mobile */
+            font-size: 40px; /* Smaller icon size for skills */
             margin-bottom: 5px; /* Space between icon and text */
         }
 
         .project-card {
-            background: linear-gradient(white, #f0f0f0); /* White and grey gradient */
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px; /* Reduced padding for mobile */
-            margin-bottom: 20px; /* Space between project cards */
+            padding: 10px; /* Reduced padding for card content */
+            margin-bottom: 15px; /* Space between project cards */
         }
 
         nav, footer {
@@ -95,17 +111,6 @@
             font-size: 1rem; /* Adjusted font size for mobile */
             font-weight: bold; /* Bold text */
             text-align: center; /* Center text */
-        }
-
-        .contact-links {
-            font-size: 16px; /* Adjusted size for visibility */
-            margin: 5px; /* Reduced margin */
-            color: #007bff; /* Changed color for visibility */
-            text-decoration: none; /* Remove underline */
-        }
-
-        .contact-links:hover {
-            text-decoration: underline; /* Underline on hover */
         }
 
         footer {
@@ -144,11 +149,9 @@
     <div class="container-fluid">
         <section id="home" class="hero">
             <img src="code.jpg" alt="Profile Picture"> <!-- Profile picture path -->
-            <div class="text-content">
-                <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
-                <p class="text-white section-description">DevOps and Cloud Engineer with 3+ years of experience in designing, implementing, and managing scalable, secure cloud systems.</p>
-                <p class="text-white section-description">Passionate about leveraging technology to drive business success and streamline operations.</p>
-            </div>
+            <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
+            <p class="text-white section-description">DevOps and Cloud Engineer with 3+ years of experience in designing, implementing, and managing scalable, secure cloud systems.</p>
+            <p class="text-white section-description">Passionate about leveraging technology to drive business success.</p>
         </section>
 
         <section id="technical-skills" class="mt-5 pt-5">
@@ -160,17 +163,17 @@
                     <p>GIT</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 50px;">
                     <h5>Build Tool</h5>
                     <p>Maven</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 50px;">
                     <h5>CI/CD Tool</h5>
                     <p>Argo CD</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 50px;">
                     <h5>CI/CD Tool</h5>
                     <p>Jenkins</p>
                 </div>
@@ -180,12 +183,12 @@
                     <p>Docker</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 70px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 50px;">
                     <h5>Orchestration</h5>
                     <p>Kubernetes</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 70px;">
+                    <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 50px;">
                     <h5>Configuration Management</h5>
                     <p>Ansible</p>
                 </div>
@@ -195,27 +198,27 @@
                     <p>AWS Cloud</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 70px;">
-                    <h5>Application Server</h5>
+                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 50px;"> 
+                    <h5>App Server</h5>
                     <p>Apache Tomcat, Nginx</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 70px;">
-                    <h5>Application Server</h5>
+                    <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 50px;"> 
+                    <h5>App Server</h5>
                     <p>Nginx</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 50px;"> 
                     <h5>IAC</h5>
                     <p>Terraform</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 50px;"> 
                     <h5>Operating System</h5>
                     <p>Linux, CentOS</p>
                 </div>
                 <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 70px;">
+                    <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 50px;"> 
                     <h5>Operating System</h5>
                     <p>Windows, Ubuntu</p>
                 </div>
@@ -231,7 +234,6 @@
                 </div>
             </div>
         </section>
-
         <section id="professional-experience" class="mt-5 pt-5 experience-section">
             <h2 class="text-center text-dark fw-bold section-header">Professional Experience</h2>
             <div class="row mt-3">
@@ -239,61 +241,55 @@
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     DevOps Engineer at Frontline Login System Private Limited
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <h5>December 2021 - Present</h5>
+                                    <h5>Dec 2021 - Present</h5>
                                     <ul>
-                                        <li>Coordinated with client teams to understand deployment requests and ensured no resource conflicts.</li>
-                                        <li>Designed, implemented, and managed scalable, secure, and efficient cloud-based systems using AWS and Kubernetes.</li>
-                                        <li>Implemented CI/CD pipelines using Jenkins and Argo CD, improving deployment efficiency by 30%.</li>
-                                        <li>Conducted training sessions for team members on best practices in cloud architecture and automation.</li>
-                                        <li>Worked collaboratively with development teams to ensure smooth deployment and operation of applications.</li>
-                                        <li>Monitored and optimized system performance, ensuring high availability and reliability of services.</li>
+                                        <li>Coordinated with client teams to understand deployment requests.</li>
+                                        <li>Designed and managed scalable, secure cloud-based systems.</li>
+                                        <li>Implemented CI/CD pipelines using Jenkins and Argo CD.</li>
+                                        <li>Conducted training sessions on cloud architecture.</li>
+                                        <li>Worked with development teams for smooth application deployment.</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Additional experience can be added here -->
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="projects" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">Projects</h2>
             <div class="row mt-3">
                 <div class="col-md-12">
                     <div class="project-card p-3">
                         <h3 class="text-center">Kubernetes Cluster Deployment</h3>
-                        <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
+                        <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible.</p>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="project-card p-3">
                         <h3 class="text-center">AWS Cloud Migration</h3>
-                        <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
+                        <p class="text-center">Migrated an application to AWS using AWS Migration Hub and Database Migration Service.</p>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="project-card p-3">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
-                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment. Implemented security and monitoring using Jenkins and Argo CD plugins.</p>
+                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD.</p>
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="about" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">About</h2>
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <p class="text-center">I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am proficient in automating processes and ensuring efficient deployment of applications.</p>
+                    <p class="text-center">I am Farsaan Siddiqui Syed, a skilled DevOps Engineer with expertise in cloud services and CI/CD implementation.</p>
                 </div>
             </div>
         </section>
@@ -318,14 +314,14 @@
         window.addEventListener('scroll', () => {
             const doodle = document.querySelector('.doodle');
             const scrollY = window.scrollY;
-            doodle.style.transform = `translateY(${scrollY * 0.1}px)`; // Adjust the multiplier for speed
+            doodle.style.transform = `translateY(${scrollY * 0.1}px)`;
         });
 
         // Continuous upward movement for the doodle
         setInterval(() => {
             const doodle = document.querySelector('.doodle');
-            doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`; // Move the doodle up slightly
-        }, 1000 / 60); // 60 FPS
+            doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`;
+        }, 1000 / 60); 
     </script>
 </body>
 
