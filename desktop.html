@@ -14,7 +14,7 @@
             font-family: 'Montserrat', sans-serif;
             color: #444;
             background-color: #e8f0fe; /* Light background */
-            padding-bottom: 80px; /* Space for the footer */
+            padding-bottom: 10px; /* Space for the footer */
             overflow-x: hidden; /* Prevent horizontal scrolling */
             position: relative; /* For positioning the doodle */
         }
@@ -32,28 +32,43 @@
             transition: transform 0.5s ease; /* Smooth transition */
         }
         .hero {
-            background: linear-gradient(to right, rgba(245, 102, 74, 0.5), rgba(5, 129, 40, 0.5)); /* Lighter gradient colors */
-            color: #fff;
-            padding: 100px 50px; /* Reduced padding */
-            display: flex; /* Flexbox for layout */
-            align-items: center; /* Center vertically */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: rgba(236, 250, 203, 0.173);
+            backdrop-filter: blur(1px);
+            padding: 20px;
         }
-        .hero .text-content {
-            flex: 1; /* Allow text content to take available space */
-            padding-left: 20px; /* Add space for the text */
-        }
-        .hero h1 {
-            font-size: 4rem; /* Increased size for name */
-            font-weight: bold; /* Bold text */
-            color: #61190c; /* Light red color */
-        }
+
         .hero img {
-            width: 400px; /* Increased image size */
-            border: 7px solid transparent; /* Base for zig-zag effect */
-            border-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Zigzag_pattern.svg') 12 stretch; /* border */
-            border-radius: 7px; /* Rounded corners */
-            box-shadow: 0 8px 10px rgba(144, 58, 58, 0.5); /* Shadow for 3D effect */
-            border: 10px solid white; /* Added white border */
+            width: 350px; /* Increased Profile picture size */
+            border-radius: 80%;
+            box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .hero img:hover {
+            transform: scale(1.1);
+        }
+
+        .hero h1 {
+            font-size: 4rem; /* Increased size */
+            text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 30px 0;
+        }
+        .hero h1:hover {
+            transform: scale(1.01);
+        }
+
+
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 2px 1px 3px rgba(14, 187, 109, 0.825);
         }
         .section-header {
             margin-bottom: 20px;
@@ -151,11 +166,10 @@
     </nav>
     <div class="container-fluid">
         <section id="home" class="hero">
-            <img src="code.jpg" alt="Profile Picture"> <!-- Profile picture path -->
-            <div class="text-content">
-                <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
-                <p class="text-white section-description">DevOps and Cloud Engineer with 3+ years of experience in designing, implementing, and managing scalable, secure cloud systems. Skilled in leveraging cutting-edge technology to enhance business performance and streamline operations. Proficient in collaborating with cross-functional teams to deliver optimized, reliable, and secure solutions. Dedicated to continuous improvement and technological advancement.</p>
-                <p class="text-white section-description">Passionate about leveraging technology to drive business success and streamline operations.</p>
+            <div class="text-content fade-in visible">
+                <img src="code.jpg" alt="Profile Picture"> <!-- Your profile picture -->
+                <h1>Farsaan Siddiqui Syed</h1>
+                <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
             </div>
         </section>
         <section id="technical-skills" class="mt-5 pt-5">
@@ -269,8 +283,8 @@
                 </div>
             </div>
         </section>
-        <section id="projects" class="mt-5 pt-5">
-            <h2 class="text-center text-dark fw-bold section-header">Projects</h2>
+        <section id="projects" class="mt-5 pt-5 section">
+            <h2 class="text-center">Projects</h2>
             <div class="row mt-3">
                 <div class="col-md-4">
                     <div class="project-card p-3">
@@ -287,16 +301,35 @@
                 <div class="col-md-4">
                     <div class="project-card p-3">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
-                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment. Implemented security and monitoring using Jenkins and Argo CD plugins.</p>
+                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Monitoring and Logging System</h3>
+                        <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Serverless Application</h3>
+                        <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Infrastructure as Code</h3>
+                        <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="about" class="mt-5 pt-5">
-            <h2 class="text-center text-dark fw-bold section-header">About</h2>
+        <section id="about" class="mt-5 pt-5 section">
+            <h2 class="text-center">About</h2>
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <p class="text-center">I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am proficient in automating processes and ensuring efficient deployment of applications.</p>
+                    <p class="text-center">I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.</p>
+                    <p class="text-center">In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!</p>
                 </div>
             </div>
         </section>
