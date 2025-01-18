@@ -14,113 +14,109 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: #444;
-            background-color: #e8f0fe; /* Light background */
-            padding-bottom: 80px; /* Space for the footer */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            position: relative; /* For positioning the doodle */
+            background-color: #e8f0fe;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+            position: relative;
         }
 
         .doodle {
-            position: fixed; /* Fix position to cover entire viewport */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Behind the content */
-            opacity: 0.07; /* Dimmed opacity for background */
-            background-image: url('mmn.jpg'); /* Doodle image path */
-            background-size: cover; /* Ensure it covers the entire background */
+            z-index: -1;
+            opacity: 0.15; /* Adjusted opacity for better visibility */
+            background-image: url('mmn.jpg'); /* Ensure the image path is correct */
+            background-size: cover;
             background-repeat: no-repeat;
-            transition: transform 0.5s ease; /* Smooth transition */
+            transition: transform 0.5s ease;
         }
 
         .hero {
-            background: linear-gradient(to right, rgba(255, 78, 80, 0.5), rgba(252, 145, 58, 0.5)); /* Lighter gradient colors */
+            background: linear-gradient(to right, rgba(255, 78, 80, 0.5), rgba(252, 145, 58, 0.5));
             color: #fff;
-            padding: 30px 20px; /* Reduced padding */
-            display: flex; /* Flexbox for layout */
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items */
-            text-align: center; /* Center text */
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .hero img {
-            width: 80%; /* Make image responsive */
-            max-width: 250px; /* Limit max width */
-            border: 5px solid white; /* Added white border */
-            border-radius: 7px; /* Rounded corners */
-            box-shadow: 0 4px 5px rgba(144, 58, 58, 0.5); /* Shadow for 3D effect */
-            margin-bottom: 15px; /* Space below image */
-        }
-
-        .hero h1 {
-            font-size: 2rem; /* Decreased size for name */
-            font-weight: bold;
-            color: #61190c;
-            margin-bottom: 5px; /* Reduced margin */
+            width: 80%;
+            max-width: 250px;
+            border: 5px solid white;
+            border-radius: 7px;
+            box-shadow: 0 4px 5px rgba(144, 58, 58, 0.5);
+            margin-bottom: 15px;
         }
 
         .section-header {
-            margin-bottom: 10px; /* Reduced margin */
-            font-family: 'Oswald', sans-serif; /* Sharp font for headers */
-            font-size: 1.8rem; /* Adjusted font size for mobile */
-            font-weight: bold; /* Bold text */
+            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
         }
 
         .section-description {
-            font-size: 1rem; /* Adjusted size for section description */
-            margin-bottom: 5px; /* Reduced spacing below descriptions */
-            color: #b09999; /* Dark maroon color */
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #b09999;
         }
 
         .experience-section {
-            background: linear-gradient(to right, rgba(75, 0, 130, 0.3), rgba(75, 0, 130, 0.5)); /* Dim gradient color */
-            color: white; /* White text for contrast */
-            padding: 20px; /* Reduced padding for the Experience section */
+            background: linear-gradient(to right, rgba(75, 0, 130, 0.3), rgba(75, 0, 130, 0.5));
+            color: white;
+            padding: 20px;
         }
 
         .experience-section h5 {
-            font-size: 0.9rem; /* Smaller font size for dates */
+            font-size: 0.9rem;
         }
 
         .experience-section ul li {
-            font-size: 0.9rem; /* Smaller font size for list items */
+            font-size: 0.9rem;
         }
 
         .skill-icon {
             text-align: center;
-            margin: 5px; /* Reduced margin for mobile */
+            margin: 5px;
             transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .skill-icon img,
         .skill-icon i {
-            font-size: 40px; /* Smaller icon size for skills */
-            margin-bottom: 5px; /* Space between icon and text */
+            font-size: 40px;
+            margin-bottom: 5px;
         }
 
         .project-card {
-            padding: 10px; /* Reduced padding for card content */
+            background-color: #f9f9f9; /* Light background for project cards */
+            padding: 20px; /* Padding for project cards */
             margin-bottom: 15px; /* Space between project cards */
+            border-radius: 10px; /* Rounded corners for project cards */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
         }
 
         nav, footer {
-            background: none; /* No background color */
-            color: #000; /* Black text */
-            font-family: 'Comic Neue', cursive; /* Funny font for header and footer */
-            font-size: 1rem; /* Adjusted font size for mobile */
-            font-weight: bold; /* Bold text */
-            text-align: center; /* Center text */
+            background: none;
+            color: #000;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
         }
 
         footer {
-            padding: 10px 0; /* Padding for footer */
+            padding: 10px 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="doodle"></div> <!-- Doodle Background -->
+    <div class="doodle"></div>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -148,7 +144,7 @@
 
     <div class="container-fluid">
         <section id="home" class="hero">
-            <img src="code.jpg" alt="Profile Picture"> <!-- Profile picture path -->
+            <img src="code.jpg" alt="Profile Picture">
             <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
             <p class="text-white section-description">DevOps and Cloud Engineer with 3+ years of experience in designing, implementing, and managing scalable, secure cloud systems.</p>
             <p class="text-white section-description">Passionate about leveraging technology to drive business success.</p>
@@ -234,6 +230,7 @@
                 </div>
             </div>
         </section>
+        
         <section id="professional-experience" class="mt-5 pt-5 experience-section">
             <h2 class="text-center text-dark fw-bold section-header">Professional Experience</h2>
             <div class="row mt-3">
@@ -262,29 +259,31 @@
                 </div>
             </div>
         </section>
+
         <section id="projects" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">Projects</h2>
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="project-card p-3">
+                    <div class="project-card">
                         <h3 class="text-center">Kubernetes Cluster Deployment</h3>
                         <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible.</p>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="project-card p-3">
+                    <div class="project-card">
                         <h3 class="text-center">AWS Cloud Migration</h3>
                         <p class="text-center">Migrated an application to AWS using AWS Migration Hub and Database Migration Service.</p>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="project-card p-3">
+                    <div class="project-card">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
                         <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD.</p>
                     </div>
                 </div>
             </div>
         </section>
+
         <section id="about" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">About</h2>
             <div class="row mt-3">
@@ -310,18 +309,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Doodle movement on scroll
         window.addEventListener('scroll', () => {
             const doodle = document.querySelector('.doodle');
             const scrollY = window.scrollY;
             doodle.style.transform = `translateY(${scrollY * 0.1}px)`;
         });
 
-        // Continuous upward movement for the doodle
         setInterval(() => {
             const doodle = document.querySelector('.doodle');
             doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`;
-        }, 1000 / 60); 
+        }, 1000 / 60);
     </script>
 </body>
 
