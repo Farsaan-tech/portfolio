@@ -35,31 +35,44 @@
         }
 
         .hero {
-            background: linear-gradient(to right, rgba(245, 102, 74, 0.5), rgba(5, 129, 40, 0.5));
-            color: #fff;
-            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
             text-align: center;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to right, rgba(245, 102, 74, 0.5), rgba(5, 129, 40, 0.5));
+            backdrop-filter: blur(1px);
+            padding: 20px;
         }
 
         .hero img {
-            width: 80%;
-            max-width: 250px;
-            border: 5px solid white;
-            border-radius: 7px;
-            box-shadow: 0 4px 5px rgba(144, 58, 58, 0.5);
-            margin-bottom: 15px;
+            width: 400px; /* Increased Profile picture size */
+            border-radius: 80%;
+            box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
         }
 
-        .section-header {
-            margin-bottom: 10px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            font-weight: bold;
+        .hero img:hover {
+            transform: scale(1.1);
         }
 
+        .hero h1 {
+            font-size: 4rem; /* Increased size */
+            text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 30px 0;
+        }
+        .hero h1:hover {
+            transform: scale(1.01);
+        }
+
+
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 2px 1px 3px rgba(14, 187, 109, 0.825);
+        }
         .section-description {
             font-size: 1rem;
             margin-bottom: 5px;
@@ -268,35 +281,53 @@
             </div>
         </section>
 
-        <section id="projects" class="mt-5 pt-5">
-            <h2 class="text-center text-dark fw-bold section-header">Projects</h2>
+        <section id="projects" class="mt-5 pt-5 section">
+            <h2 class="text-center">Projects</h2>
             <div class="row mt-3">
-                <div class="col-md-12">
-                    <div class="project-card">
+                <div class="col-md-4">
+                    <div class="project-card p-3">
                         <h3 class="text-center">Kubernetes Cluster Deployment</h3>
-                        <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible.</p>
+                        <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="project-card">
+                <div class="col-md-4">
+                    <div class="project-card p-3">
                         <h3 class="text-center">AWS Cloud Migration</h3>
-                        <p class="text-center">Migrated an application to AWS using AWS Migration Hub and Database Migration Service.</p>
+                        <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="project-card">
+                <div class="col-md-4">
+                    <div class="project-card p-3">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
-                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD.</p>
+                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Monitoring and Logging System</h3>
+                        <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Serverless Application</h3>
+                        <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card p-3">
+                        <h3 class="text-center">Infrastructure as Code</h3>
+                        <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="about" class="mt-5 pt-5">
-            <h2 class="text-center text-dark fw-bold section-header">About</h2>
+        <section id="about" class="mt-5 pt-5 section">
+            <h2 class="text-center">About</h2>
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <p class="text-center">I am Farsaan Siddiqui Syed, a skilled DevOps Engineer with expertise in cloud services and CI/CD implementation.</p>
+                    <p class="text-center">I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.</p>
+                    <p class="text-center">In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!</p>
                 </div>
             </div>
         </section>
