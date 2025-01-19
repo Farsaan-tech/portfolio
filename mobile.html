@@ -27,8 +27,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.03; /* Further dimmed opacity for doodle */
-            background-image: url('mmn.jpg'); /* Ensure the image path is correct */
+            opacity: 0.03; 
+            background-image: url('mmn.jpg'); 
             background-size: cover;
             background-repeat: no-repeat;
             transition: transform 0.5s ease;
@@ -48,7 +48,8 @@
         }
 
         .hero img {
-            width: 400px; /* Increased Profile picture size */
+            width: 80%; /* Responsive size for mobile */
+            max-width: 400px; /* Limit max size */
             background: linear-gradient(to right, rgba(103, 230, 196, 0.603), rgb(255, 255, 255));
             border-radius: 80%;
             box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.5);
@@ -56,27 +57,18 @@
         }
 
         .hero img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .hero h1 {
-            font-size: 4rem; /* Increased size */
+            font-size: 2.5rem; /* Reduced size for mobile */
             text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.7);
-            margin: 30px 0;
+            margin: 15px 0;
         }
-        .hero h1:hover {
-            transform: scale(1.01);
-        }
-
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Reduced size for mobile */
             text-shadow: 2px 1px 3px rgba(14, 187, 109, 0.825);
-        }
-        .section-description {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: #b09999;
         }
 
         .experience-section {
@@ -85,48 +77,35 @@
             padding: 20px;
         }
 
-        .experience-section h5 {
-            font-size: 0.9rem;
-        }
-
-        .experience-section ul li {
-            font-size: 0.9rem;
-        }
-
         .skill-icon {
             text-align: center;
             margin: 5px;
-            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .skill-icon img,
         .skill-icon i {
-            font-size: 25px; /* Further reduced icon size for skills */
+            font-size: 20px; /* Reduced icon size for mobile */
             margin-bottom: 5px;
         }
 
-        .skill-icon h5 {
-            font-size: 0.7rem; /* Further reduced font size for skill titles */
-        }
-
+        .skill-icon h5,
         .skill-icon p {
-            font-size: 0.6rem; /* Further reduced font size for skill descriptions */
+            font-size: 0.8rem; /* Reduced font size for mobile */
         }
 
         .project-card {
-            background-color: #f9f9f9; /* Light background for project cards */
-            padding: 20px; /* Padding for project cards */
-            margin-bottom: 15px; /* Space between project cards */
-            border-radius: 10px; /* Rounded corners for project cards */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+            background-color: #f9f9f9; 
+            padding: 15px; /* Reduced padding for mobile */
+            margin-bottom: 15px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav, footer {
             background: none;
             color: #000;
             font-family: 'Comic Neue', cursive;
-            font-size: 1rem;
-            font-weight: bold;
+            font-size: 0.9rem; /* Reduced font size for mobile */
             text-align: center;
         }
 
@@ -156,8 +135,8 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="contact-links" href="mailto:syedfarsaan@gmail.com">syedfarsaan@gmail.com</a></li>
                     <li class="nav-item"><a class="contact-links" href="tel:+91-9533891979">+91-9533891979</a></li>
-                    <li class="nav-item"><a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 50px; vertical-align: middle;"></a></li>
-                    <li class="nav-item"><a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 30px; vertical-align: middle;"></a></li>
+                    <li class="nav-item"><a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 30px; vertical-align: middle;"></a></li>
+                    <li class="nav-item"><a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 25px; vertical-align: middle;"></a></li>
                 </ul>
             </div>
         </div>
@@ -167,83 +146,83 @@
         <section id="home" class="hero">
             <img src="code.jpg" alt="Profile Picture">
             <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
-                            <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
+            <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
         </section>
 
         <section id="technical-skills" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">Technical Skills</h2>
             <div class="row mt-3 justify-content-center">
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <i class="fab fa-git-alt" style="color: #F05032;"></i>
                     <h5>Version Control</h5>
                     <p>GIT</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 30px;">
                     <h5>Build Tool</h5>
                     <p>Maven</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 30px;">
                     <h5>CI/CD Tool</h5>
                     <p>Argo CD</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 30px;">
                     <h5>CI/CD Tool</h5>
                     <p>Jenkins</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <i class="fab fa-docker" style="color: #2496ED;"></i>
                     <h5>Containerization</h5>
                     <p>Docker</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 30px;">
                     <h5>Orchestration</h5>
                     <p>Kubernetes</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 30px;">
                     <h5>Configuration Management</h5>
                     <p>Ansible</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <i class="fab fa-aws" style="color: #FF9900;"></i>
                     <h5>Cloud Platform</h5>
                     <p>AWS Cloud</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 30px;"> 
                     <h5>App Server</h5>
                     <p>Apache Tomcat</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 30px;"> 
                     <h5>App Server</h5>
                     <p>Nginx</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 30px;"> 
                     <h5>IAC</h5>
                     <p>Terraform</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 30px;"> 
                     <h5>Operating System</h5>
                     <p>Linux, CentOS</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 30px;"> 
                     <h5>Operating System</h5>
                     <p>Windows, Ubuntu</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <i class="fas fa-database" style="color: #00758F;"></i>
                     <h5>Database</h5>
                     <p>MySQL, RDS</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-4 skill-icon">
                     <i class="fas fa-terminal" style="color: #4EAA41;"></i>
                     <h5>Scripting Language</h5>
                     <p>Bash / Shell</p>
@@ -283,37 +262,37 @@
         <section id="projects" class="mt-5 pt-5 section">
             <h2 class="text-center">Projects</h2>
             <div class="row mt-3">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">Kubernetes Cluster Deployment</h3>
                         <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">AWS Cloud Migration</h3>
                         <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
                         <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">Monitoring and Logging System</h3>
                         <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">Serverless Application</h3>
                         <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="project-card p-3">
                         <h3 class="text-center">Infrastructure as Code</h3>
                         <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
@@ -339,9 +318,9 @@
             <span> | </span>
             <a class="contact-links" href="tel:+91-9533891979">+91-9533891979</a>
             <span> | </span>
-            <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 50px; vertical-align: middle;"></a>
+            <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 30px; vertical-align: middle;"></a>
             <span> | </span>
-            <a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 30px; vertical-align: middle;"></a>
+            <a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 25px; vertical-align: middle;"></a>
         </p>
     </footer>
 
@@ -362,6 +341,3 @@
 </body>
 
 </html>
-
-
-
