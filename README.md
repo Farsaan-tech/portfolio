@@ -6,12 +6,12 @@
 
 ### 🛠️ **Technologies I Use**
 
-- **Version Control**: ![Git](https://img.icons8.com/ios/50/000000/git.png)
-- **CI/CD**: ![Jenkins](https://img.icons8.com/ios/50/000000/jenkins.png) ![Argo](https://img.icons8.com/ios/50/000000/argo-cd.png)
-- **Containers**: ![Docker](https://img.icons8.com/ios/50/000000/docker.png) ![Kubernetes](https://img.icons8.com/ios/50/000000/kubernetes.png)
-- **Cloud**: ![AWS](https://img.icons8.com/ios/50/000000/amazon-web-services.png)
-- **IAC**: ![Terraform](https://img.icons8.com/ios/50/000000/terraform.png)
-- **Automation**: ![Ansible](https://img.icons8.com/ios/50/000000/ansible.png)
+- **Version Control**: 🟩 Git
+- **CI/CD**: ⚙️ Jenkins, 🔁 Argo CD
+- **Containers**: 🐋 Docker, ☸️ Kubernetes
+- **Cloud**: ☁️ AWS
+- **IAC**: 🏗️ Terraform
+- **Automation**: 🤖 Ansible
 
 ---
 
@@ -20,7 +20,7 @@
 - **DevOps Engineer** @ Frontline Login System  
   - 📅 **Dec 2021 - Present**
   - 🔧 Automated CI/CD with **Jenkins** & **Argo CD**
-  - ☁️ Managed AWS cloud systems
+  - ☁️ Managed **AWS** cloud systems
 
 ---
 
