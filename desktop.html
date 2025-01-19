@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farsaan Siddiqui Syed</title>
+    <title>Farsaan Siddiqui</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,39 +14,53 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: #444;
-            background-color: #e8f0fe; /* Light background */
-            padding-bottom: 10px; /* Space for the footer */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            position: relative; /* For positioning the doodle */
+            background-color: #e8f0fe;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+            position: relative;
         }
+
         .doodle {
-            position: fixed; /* Fix position to cover entire viewport */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Behind the content */
-            opacity: 0.07; /* Dimmed opacity for background */
-            background-image: url('mmn.jpg'); /* Doodle image path */
-            background-size: cover; /* Ensure it covers the entire background */
+            z-index: -1;
+            opacity: 0.03; 
+            background-image: url('mmn.jpg'); 
+            background-size: cover;
             background-repeat: no-repeat;
-            transition: transform 0.5s ease; /* Smooth transition */
+            transition: transform 0.5s ease;
         }
+
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 90vh; /* Increased height for a more spacious view */
             text-align: center;
             position: relative;
             z-index: 1;
             backdrop-filter: blur(1px);
-            padding: 5px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Fade In Animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .hero img {
-            width: 400px; /* Increased Profile picture size */
+            width: 50%; 
+            max-width: 400px; 
             background: linear-gradient(to right, rgba(103, 230, 196, 0.603), rgb(255, 255, 255));
             border-radius: 80%;
             box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.5);
@@ -53,206 +68,206 @@
         }
 
         .hero img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .hero h1 {
-            font-size: 4rem; /* Increased size */
+            font-size: 3rem; 
             text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.7);
-            margin: 30px 0;
+            margin: 15px 0;
         }
-        .hero h1:hover {
-            transform: scale(1.01);
-        }
-
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.5rem; 
             text-shadow: 2px 1px 3px rgba(14, 187, 109, 0.825);
         }
-        .section-header {
-            margin-bottom: 20px;
-            font-family: 'Oswald', sans-serif; /* Sharp font for headers */
-            font-size: 2.5rem; /* Large font size for headers */
-            font-weight: bold; /* Bold text */
-        }
-        .section-description {
-            font-size: 1.5rem; /* Increased size for section description */
-            margin-bottom: 10px; /* Spacing below descriptions */
-            color: #b09999; /* Dark maroon color */
-        }
-        .experience-section {
-            background: linear-gradient(to right, rgba(75, 0, 130, 0.3), rgba(75, 0, 130, 0.5)); /* Dim gradient color */
-            color: white; /* White text for contrast */
-            padding: 30px; /* Padding for the Experience section */
-        }
+
         .about-section {
-            padding: 20px; /* Padding for the About section */
-        }
-        .skill-icon {
-            text-align: center;
-            margin: 20px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            perspective: 1000px; /* Adds perspective for 3D effect */
-        }
-        .skill-icon:hover {
-            transform: scale(1.1); /* Slightly smaller increase scale on hover */
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
-        }
-        .skill-icon i {
-            font-size: 80px; /* Smaller icon size for skills */
-        }
-        .project-card {
-            background: linear-gradient(white, #f0f0f0); /* White and grey gradient */
+            background: linear-gradient(to right, rgba(75, 0, 130, 0.1), rgba(75, 0, 130, 0.3));
+            color: #222; 
+            padding: 40px 40px; /* Reduced padding to decrease space */
             border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px; /* Padding for card content */
-            margin-bottom: 20px; /* Space between project cards */
+            margin: 0; /* Removed margin to eliminate gap */
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            z-index: 1;
         }
+
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 20px; 
+            margin-bottom: 30px;
+        }
+        
+        .project-1 { background: linear-gradient(to right, rgba(255, 223, 186, 0.1), rgba(255, 223, 186, 0.1)); }
+        .project-2 { background: linear-gradient(to right, rgba(186, 255, 255, 0.1), rgba(186, 255, 255, 0.1)); }
+        .project-3 { background: linear-gradient(to right, rgba(186, 255, 186, 0.1), rgba(186, 255, 186, 0.1)); }
+        .project-4 { background: linear-gradient(to right, rgba(255, 186, 255, 0.1), rgba(255, 186, 255, 0.1)); }
+        .project-5 { background: linear-gradient(to right, rgba(186, 186, 255, 0.1), rgba(186, 186, 255, 0.1)); }
+        .project-6 { background: linear-gradient(to right, rgba(255, 255, 186, 0.1), rgba(255, 255, 186, 0.1)); }
+
         .project-card:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
         }
-        nav, footer {
-            background: none; /* No background color */
-            color: #000; /* Black text */
-            font-family: 'Comic Neue', cursive; /* Funny font for header and footer */
-            font-size: 1.5rem; /* Increased font size */
-            font-weight: bold; /* Bold text */
-        }
-        .contact-links {
-            font-size: 20px; /* Adjusted size for visibility */
-            margin: 10px;
-            color: #007bff; /* Changed color for visibility */
-            text-decoration: none; /* Remove underline */
-        }
-        .contact-links:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
+
         footer {
-            text-align: center; /* Center copyright text */
-            position: relative; /* Position footer at the bottom */
-            bottom: 0;
-            width: 100%; /* Full width */
-            padding: 10px 0; /* Padding for footer */
+            padding: 20px 0;
+            text-align: center; /* Centered footer content */
+        }
+
+        .skill-icon h5, .skill-icon p {
+            font-size: 1rem; 
         }
     </style>
 </head>
+
 <body>
-    <div class="doodle"></div> <!-- Doodle Background -->
+    <div class="doodle"></div>
+
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Farsaan Siddiqui Syed</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#technical-skills">Technical Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#professional-experience">Professional Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="contact-links" href="mailto:syedfarsaan@gmail.com">syedfarsaan@gmail.com</a></li>
-                    <li class="nav-item"><a class="contact-links" href="tel:+91-9533891979">+91-9533891979</a></li>
-                    <li class="nav-item"><a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 70px; vertical-align: middle;"></a></li>
-                    <li class="nav-item"><a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 30px; vertical-align: middle;"></a></li>
+                    <li class="nav-item">
+                        <a class="contact-icon" href="mailto:syedfarsaan@gmail.com">
+                            <i class="fas fa-envelope"></i> syedfarsaan@gmail.com
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="contact-icon" href="tel:+91-9533891979">
+                            <i class="fas fa-phone"></i> +91-9533891979
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 30px; vertical-align: middle;">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="contact-links" href="https://github.com/farsaan-tech">
+                            <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 25px; vertical-align: middle;">
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container-fluid">
         <section id="home" class="hero">
-            <div class="text-content fade-in visible">
-                <img src="code.jpg" alt="Profile Picture"> <!-- Your profile picture -->
-                <h1>Farsaan Siddiqui Syed</h1>
-                <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
-            </div>
+            <img src="code.jpg" alt="Profile Picture">
+            <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
+            <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
         </section>
+
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.</p>
+            <p>In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!</p>
+        </section>
+
         <section id="technical-skills" class="mt-5 pt-5">
             <h2 class="text-center text-dark fw-bold section-header">Technical Skills</h2>
             <div class="row mt-3 justify-content-center">
-                <div class="col-auto skill-icon">
+                <div class="col-md-3 skill-icon text-center">
                     <i class="fab fa-git-alt" style="color: #F05032;"></i>
                     <h5>Version Control</h5>
                     <p>GIT</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 80px;">
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 40px;">
                     <h5>Build Tool</h5>
                     <p>Maven</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 80px;">
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 40px;">
                     <h5>CI/CD Tool</h5>
                     <p>Argo CD</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 80px;">
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 40px;">
                     <h5>CI/CD Tool</h5>
                     <p>Jenkins</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-md-3 skill-icon text-center">
                     <i class="fab fa-docker" style="color: #2496ED;"></i>
                     <h5>Containerization</h5>
                     <p>Docker</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 80px;">
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 40px;">
                     <h5>Orchestration</h5>
                     <p>Kubernetes</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 80px;"> <!-- Ansible logo -->
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 40px;">
                     <h5>Configuration Management</h5>
                     <p>Ansible</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-md-3 skill-icon text-center">
                     <i class="fab fa-aws" style="color: #FF9900;"></i>
                     <h5>Cloud Platform</h5>
                     <p>AWS Cloud</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 80px;"> 
-                    <h5>Application Server</h5>
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 40px;"> 
+                    <h5>App Server</h5>
                     <p>Apache Tomcat</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 80px;"> 
-                    <h5>Application Server</h5>
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 40px;"> 
+                    <h5>App Server</h5>
                     <p>Nginx</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 80px;"> 
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 40px;"> 
                     <h5>IAC</h5>
                     <p>Terraform</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 80px;"> 
-
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 40px;"> 
                     <h5>Operating System</h5>
                     <p>Linux, CentOS</p>
                 </div>
-                <div class="col-auto skill-icon">
-                    <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 80px;"> 
+                <div class="col-md-3 skill-icon text-center">
+                    <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 40px;"> 
                     <h5>Operating System</h5>
                     <p>Windows, Ubuntu</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-md-3 skill-icon text-center">
                     <i class="fas fa-database" style="color: #00758F;"></i>
                     <h5>Database</h5>
                     <p>MySQL, RDS</p>
                 </div>
-                <div class="col-auto skill-icon">
+                <div class="col-md-3 skill-icon text-center">
                     <i class="fas fa-terminal" style="color: #4EAA41;"></i>
                     <h5>Scripting Language</h5>
                     <p>Bash / Shell</p>
                 </div>
             </div>
         </section>
+
         <section id="professional-experience" class="mt-5 pt-5 experience-section">
             <h2 class="text-center text-dark fw-bold section-header">Professional Experience</h2>
             <div class="row mt-3">
@@ -266,100 +281,106 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <h5>December 2021 - Present</h5>
+                                    <h5>Dec 2021 - Present</h5>
                                     <ul>
-                                        <li>Coordinated with client teams to understand deployment requests and ensured no resource conflicts.</li>
-                                        <li>Designed, implemented, and managed scalable, secure, and efficient cloud-based systems using AWS and Kubernetes.</li>
-                                        <li>Implemented CI/CD pipelines using Jenkins and Argo CD, improving deployment efficiency by 30%.</li>
-                                        <li>Conducted training sessions for team members on best practices in cloud architecture and automation.</li>
-                                        <li>Worked collaboratively with development teams to ensure smooth deployment and operation of applications.</li>
-                                        <li>Monitored and optimized system performance, ensuring high availability and reliability of services.</li>
+                                        <li>Coordinated with client teams to understand deployment requests.</li>
+                                        <li>Designed and managed scalable, secure cloud-based systems.</li>
+                                        <li>Implemented CI/CD pipelines using Jenkins and Argo CD.</li>
+                                        <li>Conducted training sessions on cloud architecture.</li>
+                                        <li>Worked with development teams for smooth application deployment.</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Additional experience can be added here -->
                     </div>
                 </div>
             </div>
         </section>
+
         <section id="projects" class="mt-5 pt-5 section">
             <h2 class="text-center">Projects</h2>
             <div class="row mt-3">
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-1">
                         <h3 class="text-center">Kubernetes Cluster Deployment</h3>
                         <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-2">
                         <h3 class="text-center">AWS Cloud Migration</h3>
                         <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-3">
                         <h3 class="text-center">CI/CD Pipeline Implementation</h3>
                         <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-4">
                         <h3 class="text-center">Monitoring and Logging System</h3>
                         <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-5">
                         <h3 class="text-center">Serverless Application</h3>
                         <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card p-3">
+                    <div class="project-card project-6">
                         <h3 class="text-center">Infrastructure as Code</h3>
                         <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="about" class="mt-5 pt-5 section">
-            <h2 class="text-center">About</h2>
-            <div class="row mt-3">
-                <div class="col-md-12">
-                    <p class="text-center">I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.</p>
-                    <p class="text-center">In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!</p>
-                </div>
-            </div>
-        </section>
     </div>
+
     <footer>
         <h2>&copy; 2024 Farsaan Siddiqui Syed</h2>
-        <p class="text-center">Get in Touch: 
-            <a class="contact-links" href="mailto:syedfarsaan@gmail.com">syedfarsaan@gmail.com</a>
+        <p class="text-center">Get in Touch:
+            <span class="contact-icon" onclick="window.location.href='mailto:syedfarsaan@gmail.com';">
+                <i class="fas fa-envelope"></i> syedfarsaan@gmail.com
+            </span>
+            <span class="contact-icon" onclick="window.location.href='tel:+91-9533891979';">
+                <i class="fas fa-phone"></i> +91-9533891979
+            </span>
             <span> | </span>
-            <a class="contact-links" href="tel:+91-9533891979">+91-9533891979</a>
+            <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 30px; vertical-align: middle;">
+            </a>
             <span> | </span>
-            <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 70px; vertical-align: middle;"></a>
-            <span> | </span>
-            <a class="contact-links" href="https://github.com/farsaan-tech"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 40px; vertical-align: middle;"></a>
+            <a class="contact-links" href="https://github.com/farsaan-tech">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 25px; vertical-align: middle;">
+            </a>
         </p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Doodle movement on scroll
         window.addEventListener('scroll', () => {
             const doodle = document.querySelector('.doodle');
             const scrollY = window.scrollY;
-            doodle.style.transform = `translateY(${scrollY * 0.1}px)`; // Adjust the multiplier for speed
+            doodle.style.transform = `translateY(${scrollY * 0.1}px)`;
         });
 
-        // Continuous upward movement for the doodle
         setInterval(() => {
             const doodle = document.querySelector('.doodle');
-            doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`; // Move the doodle up slightly
-        }, 1000 / 60); // 60 FPS
+            doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`;
+        }, 1000 / 60);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutSection = document.querySelector('.about-section');
+            setTimeout(() => {
+                aboutSection.classList.add('visible');
+            }, 100); 
+        });
     </script>
+ 
 </body>
+
 </html>
