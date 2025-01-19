@@ -33,7 +33,8 @@ Welcome to my **Portfolio Website Template**! This repository provides a simple,
 Feel free to reach out to me:
 
 ✉️ **Email**: syedfarsaan@gmail.com
-🌍 **LinkedIn**: linkedin.com/in/farsaan-siddiqui
+
+🌍 **LinkedIn**: https://linkedin.com/in/farsaan-siddiqui
 
 🔥 Happy Customizing!
 Make this portfolio your own, and showcase your skills to the world. 🚀
