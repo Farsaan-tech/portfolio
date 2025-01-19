@@ -1,42 +1,44 @@
-# Farsaan Siddiqui Syed 🌐
+# Portfolio Website Template
 
-👨‍💻 **DevOps Engineer** | ☁️ **Cloud Enthusiast** | 🚀 **Tech Innovator**
-
----
-
-### 🛠️ **Technologies I Use**
-
-- **Version Control**: 🟩 Git
-- **CI/CD**: ⚙️ Jenkins, 🔁 Argo CD
-- **Containers**: 🐋 Docker, ☸️ Kubernetes
-- **Cloud**: ☁️ AWS
-- **IAC**: 🏗️ Terraform
-- **Automation**: 🤖 Ansible
+Welcome to my **Portfolio Website Template**! This repository provides a simple, customizable template for building your own personal portfolio website. Feel free to fork this repo and make it your own!
 
 ---
 
-### 💼 **Experience**
-
-- **DevOps Engineer** @ Frontline Login System  
-  - 📅 **Dec 2021 - Present**
-  - 🔧 Automated CI/CD with **Jenkins** & **Argo CD**
-  - ☁️ Managed **AWS** cloud systems
+### 🚀 **Technologies Used**
+- **Frontend**: HTML, CSS, JavaScript
+- **Version Control**: Git, GitHub
+- **Deployment**: Can be hosted on **GitHub Pages**, **Netlify**, **Vercel**, or **AWS**
 
 ---
 
-### 🌟 **Projects**
+### ⚙️ **How to Use**
 
-1. **Kubernetes Cluster** - 🚀 Deployed on **AWS**
-2. **AWS Migration** - ☁️ Migrated apps with **IAM** & **CloudWatch**
-3. **CI/CD Pipeline** - 🔧 Implemented with **Jenkins** & **Argo CD**
+1. **Fork or Clone** this repository:
+   ```bash
+   git clone https://github.com/Farsaan-tech/portfolio.git
+2. Navigate to the project directory:
+    ```bash
+    cd portfolio
+3. Customize the following files to personalize your portfolio:
+- `index.html`: The main landing page for desktop users.
+- `desktop.html`: The desktop-specific version of your portfolio (you can edit and modify as needed).
+- `mobile.html`: The mobile-specific version of your portfolio (for responsive design and mobile-first experience).
+- `styles.css`: Modify the design and layout to suit your style.
 
----
+4. Deploy your portfolio website:
+- Host it on GitHub Pages, Netlify, or Vercel.
+- For GitHub Pages, follow this GitHub Pages guide.
 
-### 📧 **Contact**
+📬 **Contact**
+Feel free to reach out to me:
 
-- 📧 Email: syedfarsaan@gmail.com  
-- 📱 Phone: +91-9533891979
+✉️ **Email**: syedfarsaan@gmail.com
+🌍 **LinkedIn**: linkedin.com/in/farsaan-siddiqui
 
----
+🔥 Happy Customizing!
+Make this portfolio your own, and showcase your skills to the world. 🚀
 
-Thanks for visiting! 🚀 Let's build something amazing together! 💻✨
+
+This version of the **README.md** now includes the specific file names (`desktop.html`, `mobile.html`, `index.html`) and instructions to customize the portfolio for both desktop and mobile views. You can just copy and paste it directly! Let me know if anything else needs to be updated! 😊
+
+
