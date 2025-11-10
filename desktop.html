@@ -70,9 +70,10 @@ body.dark .section-header{color:#fff;text-shadow:0 0 6px rgba(142,45,226,.6),0 0
 body.dark footer, body.dark nav{color:#e6e6e6}
 
 /* Dark mode toggle button */
-.theme-toggle{border:none;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:8px 12px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;color:#111}
+.theme-toggle{border:none;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:2px 6px !important;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:4px;color:#111;transition:filter .3s ease, box-shadow .3s ease;}
+.theme-toggle:hover{filter:drop-shadow(0 0 8px rgba(0,255,120,.75)) drop-shadow(0 0 14px rgba(0,255,120,.55));}
 body.dark .theme-toggle{background:rgba(0,0,0,0.35);color:#fff}
-.theme-toggle i{font-size:16px}
+.theme-toggle i{font-size:10px !important;}
 
 /* Tilt subtle transitions */
 .hero-tilt{transform-style:preserve-3d;transition:transform .12s ease-out}
