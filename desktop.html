@@ -1,392 +1,432 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farsaan Siddiqui</title>
+    <title>Farsaan Siddiqui Syed</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&family=Montserrat:wght@400;700&family=Comic+Neue:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #444;
-            background-color: #e8f0fe;
-            padding-bottom: 80px;
-            overflow-x: hidden;
-            position: relative;
-        }
+        body {font-family: 'Montserrat', sans-serif;color:#444;background-color:#f4f7fd;padding-bottom:80px;overflow-x:hidden;position:relative}
+        .doodle{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.15;background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 12px), repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 2px, transparent 2px, transparent 10px);background-size:auto;background-repeat:repeat;transition:transform .5s ease;}
+        .hero{background:linear-gradient(135deg,#0a1e17,#0f3a2a);color:#fff;padding:80px 40px;display:flex;align-items:center;perspective:1000px;}
+        .hero .text-content{flex:1;padding-left:20px}
+        .hero h1{font-size:3.2rem;font-weight:800;color:#61190c}
+        .hero img{width:340px;border:7px solid transparent;border-image:url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Zigzag_pattern.svg') 12 stretch;border-radius:7px;box-shadow:0 8px 10px rgba(144,58,58,.5);border:10px solid #fff}
+        .section-header{margin-bottom:20px;font-family:'Oswald', sans-serif;font-size:2.2rem;font-weight:800;color:#0b1220;text-shadow:none;} 
+        .section-description{font-size:1.25rem;margin-bottom:10px;color:#b09999}
+        .experience-section{background:linear-gradient(to right, rgba(75,0,130,.3), rgba(75,0,130,.5));color:#fff;padding:30px} .experience-section .section-header{color:#ffffff !important;text-shadow:none;} 
+        .about-section{padding:60px 20px;background:transparent; position:relative; z-index:0;}{padding:20px}
+        .skill-icon{text-align:center;margin:20px;padding:25px;border-radius:14px;background:linear-gradient(135deg,#ffffff,#e3f0ff);box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .3s ease, box-shadow .3s ease;}
+        .skill-icon:hover{transform:translateY(-8px) scale(1.05) rotate(0deg); box-shadow:0 16px 34px rgba(142,45,226,0.35);} 
+        .skill-icon:hover{transform:translateY(-8px) scale(1.05) rotate(0deg); box-shadow:0 16px 34px rgba(142,45,226,0.35);} 
+        .skill-icon i{font-size:38px}
+        .project-card{background:linear-gradient(#fff,#f3f3f3);border-radius:12px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:22px;margin-bottom:22px}
+        .project-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 16px 36px rgba(0,0,0,0.26);}
+        nav, footer{background:none;color:#000;font-family:'Comic Neue', cursive;font-size:1.3rem;font-weight:700}
+        .contact-links{font-size:18px;margin:10px;color:#007bff;text-decoration:none}
+        .contact-links:hover{text-decoration:underline}
+        footer{text-align:center;position:relative;bottom:0;width:100%;padding:10px 0}/* Professional Hover Enhancements */
+    .project-card:hover{transform:translateY(-10px) scale(1.02); box-shadow:0 14px 28px rgba(0,0,0,0.25);}        
+    .cert-card{transition:transform .35s ease, box-shadow .35s ease !important; border-radius:14px !important;}
+    .cert-card:hover{transform:translateY(-10px)!important; box-shadow:0 14px 30px rgba(0,0,0,0.3)!important;}
+    @media (max-width: 768px) {
+    .hero {flex-direction: column !important; text-align:center; padding:60px 20px;}
+    .hero img {margin:0 0 20px 0; width:220px !important;}
+    .hero .text-content {padding-left:0 !important;}
+    .navbar-brand {font-size:1.1rem;}
+}
+/* Smooth reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.show{opacity:1;transform:none;}
 
-        .doodle {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.03; 
-            background-image: url('mmn.jpg'); 
-            background-size: cover;
-            background-repeat: no-repeat;
-            transition: transform 0.5s ease;
-        }
+.skill-icon{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;} .skill-icon.stagger-show{opacity:1;transform:none;} /* micro-motion on icon & label */ .skill-icon img,.skill-icon i{transition:transform .5s ease} .skill-icon:hover img,.skill-icon:hover i{transform:rotate(1.2deg) scale(1.03)} @media (prefers-reduced-motion: reduce){ .skill-icon,.skill-icon {transition:none !important} } / Glass panel for About text */ .about-glass{background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.28);box-shadow:0 8px 24px rgba(0,0,0,0.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:14px;padding:16px 18px;margin-top:14px}
 
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 90vh; /* Increased height for a more spacious view */
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(1px);
-            padding: 20px;
-            opacity: 0;
-            animation: fadeIn 1s forwards; /* Fade In Animation */
-        }
+/* Dark mode overrides */ body.dark .about-neon{background:rgba(20,20,20,0.35)!important;color:#e6e6e6!important;border:1px solid rgba(0,255,120,.65)!important;box-shadow:0 0 26px rgba(0,255,120,.35), inset 0 0 14px rgba(0,255,120,.22)!important;}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+.dark body{background-color:#0d1117} body.dark{background-color:#0d1117;color:#e6e6e6} body.dark .navbar-brand, body.dark .nav-link, body.dark .contact-links{color:#e6e6e6 !important} body.dark .hero{background:linear-gradient(135deg,#062118,#0b3b29);} body.dark .skill-icon{background:linear-gradient(135deg,#1f1f1f,#292929);box-shadow:0 0 15px rgba(142,45,226,0.45);} body.dark .project-card{background:linear-gradient(#1b1b1b,#262626);box-shadow:0 10px 24px rgba(0,0,0,0.35)} body.dark .section-header{color:#fff;text-shadow:0 0 6px rgba(142,45,226,.6),0 0 14px rgba(78,0,224,.7)} body.dark footer, body.dark nav{color:#e6e6e6}
 
-        .hero img {
-            width: 50%; 
-            max-width: 400px; 
-            background: linear-gradient(to right, rgba(103, 230, 196, 0.603), rgb(255, 255, 255));
-            border-radius: 80%;
-            box-shadow: 3px 8px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.2s;
-        }
+/* Dark mode toggle button */ .theme-toggle{border:none;background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:8px 12px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;color:#111} body.dark .theme-toggle{background:rgba(0,0,0,0.35);color:#fff} .theme-toggle i{font-size:16px}
 
-        .hero img:hover {
-            transform: scale(1.05);
-        }
+/* Tilt subtle transitions / .hero-tilt{transform-style:preserve-3d;transition:transform .12s ease-out} .about-neon{background:rgba(255,255,255,0.15);border:1px solid rgba(0,255,120,.45);box-shadow:0 0 20px rgba(0,255,120,.25), inset 0 0 10px rgba(0,255,120,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:14px;padding:32px;animation:neonBreathe 3.6s ease-in-out infinite;} .hero .text-content h1{font-size:3.2rem;font-weight:800;color:#eafff1;text-shadow:none;}
+@keyframes neonBreathe{0%{box-shadow:0 0 14px rgba(0,255,120,.25), inset 0 0 6px rgba(0,255,120,.12)}50%{box-shadow:0 0 28px rgba(0,255,120,.45), inset 0 0 14px rgba(0,255,120,.22)}100%{box-shadow:0 0 14px rgba(0,255,120,.25), inset 0 0 6px rgba(0,255,120,.12)}} / Dark mode header fix / body.dark .section-header, body.dark h2.section-header{color:#eafff1 !important;text-shadow:0 0 6px rgba(0,255,120,.6),0 0 14px rgba(0,180,90,.7)!important;} / Ensure hero title is readable / / removed overpowering white color / / Neon divider under section headers / .section-header{position:relative} .section-header::after{content:"";display:block;width:72px;height:3px;margin:10px auto 0 auto;border-radius:999px;background:linear-gradient(90deg, rgba(0,255,120,.95), rgba(0,180,90,.9), rgba(0,255,120,.95));background-size:200% 100%;animation:shimmer 3s linear infinite;box-shadow:0 0 10px rgba(0,255,120,.5);} body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,120,1) 0%, rgba(0,180,90,1) 100%);box-shadow:0 0 12px rgba(0,255,120,.7);} @keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:100% 50%;}} / Neon button styles (border breathe + shimmer) / .btn-neon{position:relative;overflow:hidden;border:1px solid rgba(0,255,120,.55);border-radius:999px;padding:8px 14px;background:transparent;box-shadow:0 0 10px rgba(0,255,120,.35);transition:box-shadow .3s ease, transform .2s ease;} .btn-neon:hover{box-shadow:0 0 18px rgba(0,255,120,.55);transform:translateY(-1px)} .btn-neon::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(0,255,120,.35),transparent);background-size:200% 100%;opacity:0;transition:opacity .2s ease} .btn-neon:hover::before{opacity:1;animation:btnShimmer 1.6s linear infinite} @keyframes btnShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}} / Ripple effect / .ripple{position:relative;overflow:hidden} .ripple-ink{position:absolute;border-radius:50%;transform:scale(0);background:rgba(0,255,120,.35);animation:ripple .6s linear;pointer-events:none} @keyframes ripple{to{transform:scale(3.5);opacity:0}} / Subtle scroll-reveal for individual cards/items / .sr{opacity:0; transform: translateY(18px) scale(.98); transition: opacity .6s ease, transform .6s ease;} .sr.in-view{opacity:1; transform: none;} @media (prefers-reduced-motion: reduce){ .sr{transition:none} } / Smooth page fade transition / html{scroll-behavior:smooth} body.page-fade{opacity:0;transition:opacity .2s ease} body.page-fade.loaded{opacity:1} body.page-fade.fade-out{opacity:0} @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} body.page-fade, body.page-fade.loaded, body.page-fade.fade-out{transition:none} } @keyframes nameShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}} .hero .text-content p{background:linear-gradient(90deg, rgba(0,255,120,.2), rgba(0,255,120,.95), rgba(0,255,120,.2));background-size:200% 100%;-webkit-background-clip:text;color:transparent;animation:nameShimmer 7s linear infinite;font-weight:500;} / Generic shimmer utilities / .shimmer-always{color:#eafff1;} @supports (-webkit-background-clip:text) { .shimmer-always{background:linear-gradient(90deg, rgba(0,255,120,.25), rgba(0,255,120,1), rgba(0,255,120,.25));background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:nameShimmer 7s linear infinite;text-shadow:none;} .hero .text-content h1{background:linear-gradient(90deg, rgba(0,255,120,.25), rgba(0,255,120,1), rgba(0,255,120,.25));background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:nameShimmer 7s linear infinite;} } / Icon/link shimmer sweep (like theme button) */ .shimmer-icon{position:relative;overflow:hidden} .shimmer-icon::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(0,255,120,.35),transparent);background-size:200% 100%;opacity:0;transition:opacity .2s ease} .shimmer-icon:hover::before{opacity:1;animation:btnShimmer 1.6s linear infinite} .hero-load{opacity:0;animation:heroIntro .9s ease-out forwards;}@keyframes heroIntro{0%{opacity:0;transform:translateY(14px);}100%{opacity:1;transform:none;}} </style>
 
-        .hero h1 {
-            font-size: 3rem; 
-            text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.7);
-            margin: 15px 0;
-        }
-
-        .hero p {
-            font-size: 1.5rem; 
-            text-shadow: 2px 1px 3px rgba(14, 187, 109, 0.825);
-        }
-
-        .about-section {
-            background: linear-gradient(to right, rgba(75, 0, 130, 0.1), rgba(75, 0, 130, 0.3));
-            color: #222; 
-            padding: 40px 40px; /* Reduced padding to decrease space */
-            border-radius: 10px;
-            margin: 0; /* Removed margin to eliminate gap */
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-card {
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            padding: 20px; 
-            margin-bottom: 30px;
-        }
-        
-        .project-1 { background: linear-gradient(to right, rgba(255, 223, 186, 0.1), rgba(255, 223, 186, 0.1)); }
-        .project-2 { background: linear-gradient(to right, rgba(186, 255, 255, 0.1), rgba(186, 255, 255, 0.1)); }
-        .project-3 { background: linear-gradient(to right, rgba(186, 255, 186, 0.1), rgba(186, 255, 186, 0.1)); }
-        .project-4 { background: linear-gradient(to right, rgba(255, 186, 255, 0.1), rgba(255, 186, 255, 0.1)); }
-        .project-5 { background: linear-gradient(to right, rgba(186, 186, 255, 0.1), rgba(186, 186, 255, 0.1)); }
-        .project-6 { background: linear-gradient(to right, rgba(255, 255, 186, 0.1), rgba(255, 255, 186, 0.1)); }
-
-        .project-card:hover {
-            transform: scale(1.02);
-        }
-
-        footer {
-            padding: 20px 0;
-            text-align: center; /* Centered footer content */
-        }
-
-        .skill-icon h5, .skill-icon p {
-            font-size: 1rem; 
-        }
-    </style>
 </head>
-
-<body>
+<body class="page-fade">
     <div class="doodle"></div>
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Farsaan Siddiqui Syed</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#technical-skills">Technical Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#professional-experience">Professional Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="contact-icon" href="mailto:syedfarsaan@gmail.com">
-                            <i class="fas fa-envelope"></i> syedfarsaan@gmail.com
-                        </a>
-                         <span> | </span>
-           
-                    </li>
-                    <li class="nav-item">
-                        <a class="contact-icon" href="tel:+91-9533891979">
-                            <i class="fas fa-phone"></i> +91-9533897979
+                    <li class="nav-item"><a class="nav-link" href="#technical-skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#professional-experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li></ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- If you want to add email/phone later, place them here. Using only LinkedIn since that's confirmed. -->
+                <li class="nav-item"><a class="contact-links" href="mailto:syedfarsaan@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                <li class="nav-item"><a class="contact-links" href="tel:+91-9533891979" title="Call"><i class="fa-solid fa-phone"></i></a></li>
+                <li class="nav-item"><a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li class="nav-item"><a class="contact-links" href="https://github.com/Farsaan-tech" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+            <button id="themeBtn" class="theme-toggle btn-neon ripple ms-2" title="Toggle theme"><i class="fa-regular fa-moon"></i><span class="d-none d-md-inline">Theme</span></button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <section id="home" class="hero">
+        <img src="YOUR_IMAGE_HERE" alt="Profile Picture" style="width:340px;border-radius:12px;margin-right:30px;object-fit:cover;">
         
-                             <span> | </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 70px; vertical-align: middle;">
-                         <span> | </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="contact-links" href="https://github.com/farsaan-tech">
-                            <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" style="width: 22px; vertical-align: middle;">
-                        </a>
-                    </li>
-                </ul>
+        <div class="text-content hero-tilt">
+            <h1 class="text-white fw-bold shimmer-always hero-load">Farsaan Siddiqui Syed</h1>
+            <p class="text-white section-description mb-2">DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
+            
+        </div>
+    </section>
+
+    <section id="about" class="about-section reveal">
+        <h2 class="text-center fw-bold section-header">About</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-neon neon-breathe">
+                        <p class="mb-0" style="line-height:1.75; font-size:1.05rem;">
+                            I am <strong>Farsaan Siddiqui Syed</strong>, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.
+                            <br><br>
+                            In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <div class="container-fluid">
-        <section id="home" class="hero">
-            <img src="code.jpg" alt="Profile Picture">
-            <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
-            <p>DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>About Me</h2>
-            <p>I am Farsaan Siddiqui Syed, a highly skilled DevOps Engineer with expertise in cloud services, CI/CD implementation, and container orchestration using AWS, Docker, and Kubernetes. I am driven by a passion for automating processes and ensuring efficient deployment of applications. I enjoy collaborating with cross-functional teams to deliver robust solutions that enhance business performance.</p>
-            <p>In my spare time, I love to explore new technologies, contribute to open-source projects, and share knowledge through blogging and mentoring. Let's connect and collaborate!</p>
-        </section>
-
-        <section id="technical-skills" class="mt-5 pt-5">
-            <h2 class="text-center text-dark fw-bold section-header">Technical Skills</h2>
-            <div class="row mt-3 justify-content-center">
-                <div class="col-md-3 skill-icon text-center">
-                    <i class="fab fa-git-alt" style="color: #F05032;"></i>
-                    <h5>Version Control</h5>
-                    <p>GIT</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt="Apache-Maven" style="width: 40px;">
-                    <h5>Build Tool</h5>
-                    <p>Maven</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt="Argo-CD" style="width: 40px;">
-                    <h5>CI/CD Tool</h5>
-                    <p>Argo CD</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/Jenkins.svg" alt="Jenkins" style="width: 40px;">
-                    <h5>CI/CD Tool</h5>
-                    <p>Jenkins</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <i class="fab fa-docker" style="color: #2496ED;"></i>
-                    <h5>Containerization</h5>
-                    <p>Docker</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes" style="width: 40px;">
-                    <h5>Orchestration</h5>
-                    <p>Kubernetes</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://www.svgrepo.com/show/349298/ansible.svg" alt="Ansible" style="width: 40px;">
-                    <h5>Configuration Management</h5>
-                    <p>Ansible</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <i class="fab fa-aws" style="color: #FF9900;"></i>
-                    <h5>Cloud Platform</h5>
-                    <p>AWS Cloud</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt="Apache-Tomcat" style="width: 40px;"> 
-                    <h5>App Server</h5>
-                    <p>Apache Tomcat</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/NGINX.svg" alt="Nginx" style="width: 40px;"> 
-                    <h5>App Server</h5>
-                    <p>Nginx</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" alt="Terraform" style="width: 40px;"> 
-                    <h5>IAC</h5>
-                    <p>Terraform</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/png-shadow-512/Linux.png" alt="Linux" style="width: 40px;"> 
-                    <h5>Operating System</h5>
-                    <p>Linux, CentOS</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <img src="https://icon.icepanel.io/Technology/svg/Ubuntu.svg" alt="Ubuntu" style="width: 40px;"> 
-                    <h5>Operating System</h5>
-                    <p>Windows, Ubuntu</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <i class="fas fa-database" style="color: #00758F;"></i>
-                    <h5>Database</h5>
-                    <p>MySQL, RDS</p>
-                </div>
-                <div class="col-md-3 skill-icon text-center">
-                    <i class="fas fa-terminal" style="color: #4EAA41;"></i>
-                    <h5>Scripting Language</h5>
-                    <p>Bash / Shell</p>
-                </div>
+    <section id="technical-skills" class="mt-5 pt-5 reveal">
+        <h2 class="text-center fw-bold section-header">Technical Skills</h2>
+        <div class="row mt-4 justify-content-center">
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="width:40px;" alt="Git" />
+                <h5>Version Control — Git</h5>
+                
             </div>
-        </section>
+            <div class="col-auto skill-icon">
+                <img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" style="width:40px;" alt="Maven" />
+                <h5>Build Tool — Maven</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" style="width:40px;" alt="Argo CD" />
+                <h5>CI/CD — Argo CD</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" style="width:40px;" alt="Jenkins" />
+                <h5>CI/CD — Jenkins</h5>
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" style="width:40px;" alt="Docker" />
+                <h5>Containerization — Docker</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" style="width:40px;" alt="Kubernetes" />
+                <h5>Orchestration — Kubernetes</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://www.svgrepo.com/show/349298/ansible.svg" style="width:40px;" alt="Ansible" />
+                <h5>Configuration — Ansible</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <i class="fab fa-aws" style="color:#FF9900;font-size:48px;"></i>
+                <h5>Cloud — AWS</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" style="width:40px;" alt="Tomcat" />
+                <h5>App Server — Apache Tomcat</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" style="width:40px;" alt="Nginx" />
+                <h5>App Server — Nginx</h5>
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" style="width:40px;" alt="Terraform" />
+                <h5>IaC — Terraform</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg" style="width:40px;" alt="Linux" />
+                <h5>OS — Linux, CentOS</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" style="width:40px;" alt="Ubuntu" />
+                <h5>OS — Windows, Ubuntu</h5>
+            </div>
+            <div class="col-auto skill-icon">
+                <i class="fas fa-database" style="font-size:48px;color:#00758F;"></i>
+                <h5>Database — MySQL, RDS</h5>
+                
+            </div>
+            <div class="col-auto skill-icon">
+                <i class="fas fa-terminal" style="font-size:48px;color:#4EAA41;"></i>
+                <h5>Scripting — Bash / Shell</h5>
+                
+            </div>
+        </div>
+    </section>
 
-        <section id="professional-experience" class="mt-5 pt-5 experience-section">
-            <h2 class="text-center text-dark fw-bold section-header">Professional Experience</h2>
-            <div class="row mt-3">
-                <div class="col-md-12">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    DevOps Engineer at Frontline Login System Private Limited
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <h5>Dec 2021 - Present</h5>
-                                    <ul>
-                                        <li>Coordinated with client teams to understand deployment requests.</li>
-                                        <li>Designed and managed scalable, secure cloud-based systems.</li>
-                                        <li>Implemented CI/CD pipelines using Jenkins and Argo CD.</li>
-                                        <li>Conducted training sessions on cloud architecture.</li>
-                                        <li>Worked with development teams for smooth application deployment.</li>
-                                    </ul>
-                                </div>
+    
+
+    <section id="professional-experience" class="mt-5 pt-5 experience-section reveal" class="mt-5 pt-5 experience-section">
+        <h2 class="text-center fw-bold section-header">Professional Experience</h2>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item sr">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                DevOps Engineer at Frontline Login System Private Limited
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <h5>Dec 2021 - Present</h5>
+                                <ul>
+                                    <li>Coordinated with client teams to understand deployment requests and ensured no resource conflicts.</li>
+                                    <li>Designed, implemented, and managed scalable, secure cloud-based systems using AWS and Kubernetes.</li>
+                                    <li>Implemented CI/CD pipelines using Jenkins and Argo CD, improving deployment efficiency.</li>
+                                    <li>Conducted training sessions for team members on best practices in cloud architecture and automation.</li>
+                                    <li>Worked collaboratively with development teams to ensure smooth deployment and operation of applications.</li>
+                                    <li>Monitored and optimized system performance, ensuring high availability and reliability of services.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="mt-5 pt-5 section">
-            <h2 class="text-center">Projects</h2>
-            <div class="row mt-3">
-                <div class="col-md-4">
-                    <div class="project-card project-1">
-                        <h3 class="text-center">Kubernetes Cluster Deployment</h3>
-                        <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card project-2">
-                        <h3 class="text-center">AWS Cloud Migration</h3>
-                        <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card project-3">
-                        <h3 class="text-center">CI/CD Pipeline Implementation</h3>
-                        <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card project-4">
-                        <h3 class="text-center">Monitoring and Logging System</h3>
-                        <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card project-5">
-                        <h3 class="text-center">Serverless Application</h3>
-                        <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project-card project-6">
-                        <h3 class="text-center">Infrastructure as Code</h3>
-                        <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
-                    </div>
+    
+
+    <section id="projects" class="mt-5 pt-5 section reveal" class="mt-5 pt-5 section">
+        <h2 class="text-center">Projects</h2>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="project-card sr project-1">
+                    <h3 class="text-center">Kubernetes Cluster Deployment</h3>
+                    <p class="text-center">Deployed a Kubernetes cluster on AWS using Terraform and Ansible. Implemented CI/CD pipelines using Jenkins and Argo CD.</p>
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="col-md-4">
+                <div class="project-card sr project-2">
+                    <h3 class="text-center">AWS Cloud Migration</h3>
+                    <p class="text-center">Migrated an on-premises application to AWS using AWS Migration Hub and AWS Database Migration Service. Implemented security and monitoring using AWS IAM, AWS CloudTrail, and AWS CloudWatch.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card sr project-3">
+                    <h3 class="text-center">CI/CD Pipeline Implementation</h3>
+                    <p class="text-center">Implemented a CI/CD pipeline using Jenkins and Argo CD. Integrated with Docker and Kubernetes for deployment.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card sr project-4">
+                    <h3 class="text-center">Monitoring and Logging System</h3>
+                    <p class="text-center">Set up a comprehensive monitoring and logging system using Prometheus and Grafana to visualize system performance metrics.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card sr project-5">
+                    <h3 class="text-center">Serverless Application</h3>
+                    <p class="text-center">Developed a serverless application using AWS Lambda and API Gateway to provide scalable web services.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card sr project-6">
+                    <h3 class="text-center">Infrastructure as Code</h3>
+                    <p class="text-center">Created reusable infrastructure components using Terraform to automate cloud resource management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <h2>&copy; 2024 Farsaan Siddiqui Syed</h2>
-        <p class="text-center">Get in Touch:
-            <span class="contact-icon" onclick="window.location.href='mailto:syedfarsaan@gmail.com';">
-                <i class="fas fa-envelope"></i>
-            </span>
-            <span> | </span>
-            <span class="contact-icon" onclick="window.location.href='tel:+91-9533891979';">
-                <i class="fas fa-phone"></i> 
-            </span>
-            <span> | </span>
-            <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 70px; vertical-align: middle;">
-            </a>
-            <span> | </span>
-            <a class="contact-links" href="https://github.com/farsaan-tech">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 30px; vertical-align: middle;">
-            </a>
-        </p>
-    </footer>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        window.addEventListener('scroll', () => {
-            const doodle = document.querySelector('.doodle');
-            const scrollY = window.scrollY;
-            doodle.style.transform = `translateY(${scrollY * 0.1}px)`;
-        });
+    
+</div>
 
-        setInterval(() => {
-            const doodle = document.querySelector('.doodle');
-            doodle.style.transform = `translateY(${parseFloat(doodle.style.transform.replace('translateY(', '').replace('px)', '')) - 0.1}px)`;
-        }, 1000 / 60);
+<footer>
+    <h2>&copy; <span id="year"></span> Farsaan Siddiqui Syed</h2>
+    <p class="text-center">Connect:
+    <a class="contact-links" href="mailto:syedfarsaan@gmail.com"><i class="fa-solid fa-envelope"></i> syedfarsaan@gmail.com</a>
+    <span> | </span>
+    <a class="contact-links" href="tel:+91-9533891979"><i class="fa-solid fa-phone"></i> 9533891979 </a>
+    <span> | </span>
+    <a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span> | </span>
+    <a class="contact-links" href="https://github.com/Farsaan-tech" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    </p>
+</footer>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const aboutSection = document.querySelector('.about-section');
-            setTimeout(() => {
-                aboutSection.classList.add('visible');
-            }, 100); 
-        });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Doodle movement on scroll
+    window.addEventListener('scroll', () => {
+        const doodle = document.querySelector('.doodle');
+        const scrollY = window.scrollY;
+        doodle.style.transform = `translateY(${scrollY * 0.1}px)`;
+    });
+    // Gentle continuous motion
+    setInterval(() => {
+        const doodle = document.querySelector('.doodle');
+        const current = parseFloat((doodle.style.transform || 'translateY(0px)').replace('translateY(', '').replace('px)', '')) || 0;
+        doodle.style.transform = `translateY(${current - 0.1}px)`;
+    }, 1000/60);
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
     </script>
- 
-</body>
 
+<script>
+  // Scroll-reveal for individual items (.sr)
+  (function(){
+    const items = Array.from(document.querySelectorAll('.sr'));
+    if(!items.length) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach((e)=>{
+        if(e.isIntersecting){
+          const el = e.target;
+          const idx = items.indexOf(el);
+          setTimeout(()=> el.classList.add('in-view'), (idx % 8) * 90);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+    items.forEach(el=> io.observe(el));
+  })();
+</script><script>
+      // IntersectionObserver to reveal sections smoothly
+      (function(){
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target);} });
+        },{threshold:0.15});
+        document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+      })();
+    </script><script>
+const skillSection=document.querySelector('#technical-skills');
+if(skillSection){
+ const skillObserver=new IntersectionObserver((entries)=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   document.querySelectorAll('#technical-skills .skill-icon').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('stagger-show'),i*120);
+   });
+   skillObserver.unobserve(skillSection);
+  }
+ });
+ },{threshold:0.2});
+ skillObserver.observe(skillSection);
+}
+</script><script>
+// ---- DARK MODE TOGGLE ----
+(function(){
+  const btn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('theme');
+  const startDark = saved ? (saved === 'dark') : true;
+  document.body.classList.toggle('dark', startDark);
+  if(btn){
+    btn.addEventListener('click',()=>{
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      btn.querySelector('i').className = document.body.classList.contains('dark') ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+    });
+    // set icon on load
+    btn.querySelector('i').className = document.body.classList.contains('dark') ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+  }
+})();
+
+// ---- HERO TILT (desktop only) ----
+(function(){
+  const tilt = document.querySelector('.hero-tilt');
+  const hero = document.getElementById('home') || document.querySelector('.hero');
+  if(!tilt || !hero) return;
+  let bounds; const max=6; // degrees
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+  if(isTouch) return; // disable on touch devices
+  function updateBounds(){ bounds = hero.getBoundingClientRect(); }
+  window.addEventListener('resize', updateBounds); updateBounds();
+  hero.addEventListener('mousemove', (e)=>{
+    const x = (e.clientX - bounds.left) / bounds.width; // 0..1
+    const y = (e.clientY - bounds.top) / bounds.height;
+    const rotY = (x - 0.5) * max * 2; // -max..max
+    const rotX = (0.5 - y) * max * 2;
+    tilt.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  });
+  hero.addEventListener('mouseleave', ()=>{ tilt.style.transform = 'rotateX(0deg) rotateY(0deg)'; });
+})();
+</script><script>
+// Attach ripple to elements with .ripple
+(function(){
+  function addRipple(e){
+    const target=e.currentTarget;
+    const rect=target.getBoundingClientRect();
+    const ink=document.createElement('span');
+    ink.className='ripple-ink';
+    const size=Math.max(rect.width, rect.height);
+    ink.style.width=ink.style.height=size+'px';
+    ink.style.left=(e.clientX-rect.left-size/2)+'px';
+    ink.style.top=(e.clientY-rect.top-size/2)+'px';
+    target.appendChild(ink);
+    setTimeout(()=>ink.remove(),600);
+  }
+  document.querySelectorAll('.ripple').forEach(el=>{
+    el.addEventListener('click', addRipple);
+  });
+  // Also apply ripple to contact link icons without changing layout
+  document.querySelectorAll('.contact-links').forEach(el=>{
+    el.classList.add('ripple');
+    el.addEventListener('click', addRipple);
+  });
+})();
+</script><script>
+// Page fade on load & before navigation
+(function(){
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.body.classList.add('loaded');
+  });
+  // Fade out on full navigations (non-hash, same tab)
+  document.addEventListener('click',function(e){
+    const a = e.target.closest('a');
+    if(!a) return;
+    const href = a.getAttribute('href');
+    const target = a.getAttribute('target');
+    const isHash = href && href.startsWith('#');
+    const isExternal = target === '_blank' || (href && href.startsWith('mailto:')) || (href && href.startsWith('tel:'));
+    if(!href || isHash || isExternal) return; // don't intercept
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(()=>{ window.location.href = href; }, 250);
+  }, true);
+})();
+</script><script>
+// Apply shimmer to headers and icons without changing markup
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.section-header').forEach(h=>h.classList.add('shimmer-always'));
+    document.querySelectorAll('.contact-links').forEach(a=>a.classList.add('shimmer-icon'));
+  });
+})();
+</script></body>
 </html>
