@@ -14,7 +14,7 @@
         .doodle{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.15;background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 2px, transparent 2px, transparent 12px), repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 2px, transparent 2px, transparent 10px);background-size:auto;background-repeat:repeat;transition:transform .5s ease;}
         .hero{background:linear-gradient(135deg,#0a1e17,#0f3a2a);color:#fff;padding:80px 40px;display:flex;align-items:center;perspective:1000px;}
         .hero .text-content{flex:1;padding-left:20px}
-        .hero h1{font-size:3.2rem;font-weight:800;color:#61190c}
+        .hero h1{font-size:3.2rem;font-weight:800;color:#fff;}
         .hero img{width:340px;border:7px solid transparent;border-image:url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Zigzag_pattern.svg') 12 stretch;border-radius:7px;box-shadow:0 8px 10px rgba(144,58,58,.5);border:10px solid #fff}
         .section-header{margin-bottom:20px;font-family:'Oswald', sans-serif;font-size:2.2rem;font-weight:800;color:#0b1220;text-shadow:none;} 
         .section-description{font-size:1.25rem;margin-bottom:10px;color:#b09999}
@@ -24,6 +24,8 @@
         .skill-icon:hover{transform:translateY(-8px) scale(1.05) rotate(0deg); box-shadow:0 16px 34px rgba(142,45,226,0.35);} 
         .skill-icon:hover{transform:translateY(-8px) scale(1.05) rotate(0deg); box-shadow:0 16px 34px rgba(142,45,226,0.35);} 
         .skill-icon i{font-size:38px}
+.skill-icon h5{font-size:0.9rem!important;margin-top:6px;}
+.skill-icon p, .skill-icon small{font-size:0.8rem!important;}
         .project-card{background:linear-gradient(#fff,#f3f3f3);border-radius:12px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:22px;margin-bottom:22px}
         .project-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 16px 36px rgba(0,0,0,0.26);}
         nav, footer{background:none;color:#000;font-family:'Comic Neue', cursive;font-size:1.3rem;font-weight:700}
@@ -96,6 +98,69 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
 .ripple{position:relative;overflow:hidden}
 .ripple-ink{position:absolute;border-radius:50%;transform:scale(0);background:rgba(0,255,120,.35);animation:ripple .6s linear;pointer-events:none}
 @keyframes ripple{to{transform:scale(3.5);opacity:0}}
+/* ===== Live Terminal Typing Banner ===== */
+.terminal-banner{max-width:780px;margin:18px 0 0 0;border-radius:12px;border:1px solid rgba(0,255,120,.45);background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 26px rgba(0,0,0,.18), 0 0 18px rgba(0,255,120,.18)}
+.term-header{height:34px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:8px;padding:0 12px}
+.term-header::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:#ff5f56;box-shadow:18px 0 0 #ffbd2e,36px 0 0 #27c93f;opacity:.9}
+.term-body{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; padding:14px 16px; font-size:1rem; color:#0b1220;}
+.prompt{color:#0aa66e;font-weight:700;margin-right:6px}
+.caret{display:inline-block;width:10px;background:#0aa66e;margin-left:2px;animation:blink .9s steps(1,end) infinite;}
+@keyframes blink{50%{opacity:0}}
+/* Dark mode look */
+body.dark .terminal-banner{background:rgba(18,24,22,0.6);border-color:rgba(0,255,120,.55);box-shadow:0 0 22px rgba(0,255,120,.22), inset 0 0 10px rgba(0,255,120,.12)}
+body.dark .term-header{border-bottom:1px solid rgba(255,255,255,.06)}
+body.dark .term-body{color:#e6e6e6}
+/* Neon Pulse for hero name */
+.hero-name{animation:neonPulse 3s ease-in-out infinite;}
+@keyframes neonPulse{0%{text-shadow:0 0 6px rgba(0,255,120,.4),0 0 14px rgba(0,255,120,.25);}50%{text-shadow:0 0 14px rgba(0,255,120,.7),0 0 28px rgba(0,255,120,.45);}100%{text-shadow:0 0 6px rgba(0,255,120,.4),0 0 14px rgba(0,255,120,.25);}}
+/* Smooth scroll */
+html{scroll-behavior:smooth}
+/* Contact section styling */
+.contact-section{padding:60px 20px}
+.contact-card{max-width:900px;margin:0 auto;border-radius:14px;background:rgba(255,255,255,0.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(0,255,120,.45);box-shadow:0 0 20px rgba(0,255,120,.2), inset 0 0 10px rgba(0,255,120,.12);padding:24px}
+.contact-card label{font-weight:600;margin-bottom:6px}
+.contact-card .form-control, .contact-card .form-select{background:rgba(255,255,255,0.85);border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:12px}
+.contact-card .form-control:focus{outline:none;box-shadow:0 0 0 4px rgba(0,255,120,.18);border-color:rgba(0,255,120,.5)}
+.submit-row{display:flex;gap:10px;align-items:center}
+/* Floating contact pill */
+.contact-pills{position:fixed;right:18px;bottom:18px;z-index:1000}
+.contact-pills .btn{border-radius:999px}
+body.dark .contact-card{background:rgba(15,18,17,0.6);border-color:rgba(0,255,120,.55);box-shadow:0 0 22px rgba(0,255,120,.22), inset 0 0 10px rgba(0,255,120,.12)}
+body.dark .contact-card .form-control{background:rgba(255,255,255,0.08);color:#e6e6e6;border:1px solid rgba(255,255,255,.12)}
+/* Icon hover neon glow */
+.contact-links i{transition:transform .25s ease, filter .25s ease, text-shadow .25s ease}
+.contact-links:hover i{transform:translateY(-1px) scale(1.06);filter:drop-shadow(0 0 6px rgba(0,255,120,.65)) drop-shadow(0 0 14px rgba(0,255,120,.45));text-shadow:0 0 8px rgba(0,255,120,.6)}
+
+/* Footer wave styles */
+body.dark .contact-pills .btn-neon{background:rgba(0,255,120,0.18)!important;color:#eafff1!important;border-color:rgba(0,255,120,.65)!important;box-shadow:0 0 22px rgba(0,255,120,.45)!important;}
+/* Footer wave styles */
+.footer-wave-wrap{position:relative;height:82px;overflow:hidden;margin-top:14px}
+.footer-wave{position:absolute;left:0;top:0;width:200%;height:100%;transform:translateX(0);animation:waveX 9s linear infinite}
+.footer-wave path{fill:rgba(0,255,120,.22)}
+.footer-wave.wave2{opacity:.55;animation-duration:12s;animation-direction:reverse}
+@keyframes waveX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+body.dark .footer-wave path{fill:rgba(0,255,120,.32)}
+/* ===== Mini CLI Playground ===== */
+.mini-terminal{max-width:980px;margin:28px auto 0;border-radius:12px;border:1px solid rgba(0,255,120,.45);background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 26px rgba(0,0,0,0.18), 0 0 18px rgba(0,255,120,0.18)}
+.mini-term-header{height:36px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;align-items:center;gap:8px;padding:0 12px;justify-content:space-between}
+.mini-term-header .dots{position:relative;width:40px;height:10px}
+.mini-term-header .dots::before{content:"";position:absolute;left:0;top:0;width:10px;height:10px;border-radius:50%;background:#ff5f56;box-shadow:18px 0 0 #ffbd2e,36px 0 0 #27c93f;opacity:.9}
+.mini-term-actions button{border:none;background:transparent;color:#0b1220;opacity:.7}
+body.dark .mini-terminal{background:rgba(18,24,22,0.6);border-color:rgba(0,255,120,.55);box-shadow:0 0 22px rgba(0,255,120,.22), inset 0 0 10px rgba(0,255,120,.12)}
+body.dark .mini-term-header{border-bottom:1px solid rgba(255,255,255,.06)}
+body.dark .mini-term-actions button{color:#e6e6e6}
+.mini-term-body{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; padding:14px 16px; font-size:0.95rem; color:#0b1220;}
+.mini-term-body .prompt{color:#0aa66e;font-weight:700;margin-right:6px}
+#cliCaret{display:inline-block;width:9px;background:#0aa66e;margin-left:2px;animation:blink .9s steps(1,end) infinite;height:1.05em}
+.mini-term-toolbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px dashed rgba(0,0,0,.08)}
+.mini-term-toolbar .btn-mini{border:1px solid rgba(0,255,120,.45);border-radius:999px;padding:6px 10px;background:transparent;color:#0b1220;box-shadow:0 0 8px rgba(0,255,120,.18)}
+.mini-term-toolbar .btn-mini:hover{box-shadow:0 0 14px rgba(0,255,120,.4)}
+body.dark .mini-term-body{color:#e6e6e6}
+body.dark .mini-term-toolbar .btn-mini{color:#e6e6e6;border-color:rgba(0,255,120,.6)}
+.term-out{padding:12px 16px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,0.04);font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:0.92rem; max-height:220px; overflow:auto}
+body.dark .term-out{background:rgba(255,255,255,0.04)}
+.copy-btn{border:none;background:transparent;color:inherit;opacity:.8}
+.copy-btn:hover{opacity:1}
 </style>
 
 </head>
@@ -103,7 +168,7 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
     <div class="doodle"></div>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Farsaan Siddiqui Syed</a>
+            <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -121,7 +186,7 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
                     <li class="nav-item"><a class="contact-links" href="mailto:syedfarsaan@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
                     <li class="nav-item"><a class="contact-links" href="tel:+91-9533891979" title="Call"><i class="fa-solid fa-phone"></i></a></li>
                     <li class="nav-item"><a class="contact-links" href="https://www.linkedin.com/in/farsaan-siddiqui" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
-                </ul>
+                <li class="nav-item"><a class="contact-links" href="https://github.com/farsaan-tech" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
                 <button id="themeBtn" class="theme-toggle btn-neon ripple ms-2" title="Toggle theme"><i class="fa-regular fa-moon"></i><span class="d-none d-md-inline">Theme</span></button>
             </div>
         </div>
@@ -132,8 +197,10 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
             <img src="code.jpg" alt="Profile Picture" style="width:340px;border-radius:12px;margin-right:30px;object-fit:cover;">
             
             <div class="text-content hero-tilt">
-                <h1 class="text-white fw-bold">Farsaan Siddiqui Syed</h1>
-                <p class="text-white section-description mb-2">DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
+                <h1 class="text-white fw-bold hero-name">Farsaan Siddiqui Syed </h1>
+                <p class="hero-sub" style="font-size:1.05rem; opacity:0.9; margin-top:4px;">DevOps Engineer | Cloud Enthusiast | Tech Innovator</p>
+                
+                <div class="terminal-banner reveal"><div class="term-header"></div><div class="term-body"><span class="prompt">$</span><span id="termText"></span><span class="caret" style="height:1.1em"></span></div></div>
                 
             </div>
         </section>
@@ -153,8 +220,7 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
                     </div>
                 </div>
             </div>
-        </section>
-
+        
         <section id="technical-skills" class="mt-5 pt-5 reveal">
             <h2 class="text-center fw-bold section-header">Technical Skills</h2>
             <div class="row mt-4 justify-content-center">
@@ -307,14 +373,21 @@ body.dark .section-header::after{background:linear-gradient(90deg, rgba(0,255,12
                     </div>
                 </div>
             </div>
-        </section>
+        
+        
+        </div>
 
         
 
-        
-    </div>
-
-    <footer>
+        <div class="footer-wave-wrap" aria-hidden="true">
+  <svg class="footer-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C 180,64 360,0 540,32 C 720,64 900,0 1080,32 C 1260,64 1440,16 1440,16 L1440,120 L0,120 Z"></path>
+  </svg>
+  <svg class="footer-wave wave2" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,48 C 200,80 400,24 600,48 C 800,72 1000,24 1200,48 C 1300,60 1440,40 1440,40 L1440,120 L0,120 Z"></path>
+  </svg>
+</div>
+<footer>
         <h2>&copy; <span id="year"></span> Farsaan Siddiqui Syed</h2>
         <p class="text-center">Connect:
         <a class="contact-links" href="mailto:syedfarsaan@gmail.com"><i class="fa-solid fa-envelope"></i> syedfarsaan@gmail.com</a>
@@ -428,6 +501,130 @@ if(skillSection){
     el.classList.add('ripple');
     el.addEventListener('click', addRipple);
   });
+})();
+</script>
+<script>
+// ==== Live Terminal Typing Banner ====
+(function(){
+  const el = document.getElementById('termText');
+  if(!el) return;
+  const phrases = [
+    'Deploying on AWS with Terraform',
+    'Kubernetes rollouts & Helm upgrades',
+    'CI/CD pipelines with Jenkins & Argo CD',
+    'Observability with Prometheus & Grafana',
+    'Automation using Ansible & Bash'
+  ];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){ el.textContent = phrases[0]; return; }
+  let p = 0, i = 0, typing = true;
+  const typeSpd = 55, delSpd = 32, hold = 1200;
+  function tick(){
+    const text = phrases[p];
+    if(typing){
+      i++;
+      el.textContent = text.slice(0,i);
+      if(i === text.length){ typing = false; setTimeout(tick, hold); return; }
+      setTimeout(tick, typeSpd);
+    } else {
+      i--;
+      el.textContent = text.slice(0,i);
+      if(i === 0){ typing = true; p = (p+1)%phrases.length; setTimeout(tick, 400); return; }
+      setTimeout(tick, delSpd);
+    }
+  }
+  tick();
+})();
+</script>
+<script>
+// Contact form -> mailto link
+(function(){
+  const form=document.getElementById('contactForm');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const name=encodeURIComponent(document.getElementById('name').value.trim());
+    const email=encodeURIComponent(document.getElementById('email').value.trim());
+    const subject=encodeURIComponent(document.getElementById('subject').value.trim()||'New inquiry');
+    const message=encodeURIComponent(document.getElementById('message').value.trim());
+    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+    window.location.href=`mailto:syedfarsaan@gmail.com?subject=${subject}&body=${body}`;
+  });
+})();
+</script>
+<div class="contact-pills"><a href="mailto:syedfarsaan@gmail.com" class="btn btn-neon ripple" title="Contact Me"><i class="fa-solid fa-message"></i> Contact Me</a></div>
+<script>
+// ===== Mini CLI Playground Logic =====
+(function(){
+  const textEl = document.getElementById('cliText');
+  const outEl = document.getElementById('cliOut');
+  const pauseBtn = document.getElementById('cliPause');
+  const copyBtn = document.getElementById('cliCopy');
+  const buttons = document.querySelectorAll('#cli-lab .btn-mini');
+  if(!textEl || !outEl) return;
+
+  const outputs = {
+    'farsaan --skills': `• Git, GitHub
+• Jenkins, Argo CD
+• Docker, Kubernetes
+• Terraform, Ansible
+• AWS (EC2, ECR, VPC, IAM)
+• Tomcat, Nginx
+• Linux (RHEL, Ubuntu)
+• MySQL/RDS, Bash` ,
+    'farsaan --tools': `• Grafana, Prometheus
+• Nexus, Maven
+• Shell Scripting
+• Auto Scaling, ECR` ,
+    'farsaan --experience': `Frontline Login System Pvt Ltd — DevOps Engineer (Dec 2021–Present)
+• CI/CD, container orchestration, infra automation, monitoring.`,
+    'farsaan --projects': `• K8s on AWS with Terraform & Ansible
+• AWS Migration (DMS, CloudWatch, IAM)
+• Jenkins + Argo CD delivery pipelines`,
+    'contact --email': `Open email: syedfarsaan@gmail.com`,
+    'contact --linkedin': `Open LinkedIn: linkedin.com/in/farsaan-siddiqui`
+  };
+
+  let paused = false; let typing=false; let queue=[]; let i=0; let current="";
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function typeLine(line, cb){
+    if(reduceMotion){ textEl.textContent = line; cb && cb(); return; }
+    typing = true; i=0; current=line; textEl.textContent="";
+    (function step(){
+      if(paused){ setTimeout(step,120); return; }
+      textEl.textContent = current.slice(0, ++i);
+      if(i < current.length){ setTimeout(step, 24); }
+      else { typing=false; cb && cb(); }
+    })();
+  }
+
+  function run(cmd){
+    if(typing){ queue.push(cmd); return; }
+    typeLine(cmd, ()=>{
+      const out = outputs[cmd] || `Command not found: ${cmd}`;
+      outEl.textContent = out + "
+" + outEl.textContent;
+      if(cmd==='contact --email') window.location.href='mailto:syedfarsaan@gmail.com';
+      if(cmd==='contact --linkedin') window.open('https://www.linkedin.com/in/farsaan-siddiqui','_blank');
+      if(queue.length){ run(queue.shift()); }
+    });
+  }
+
+  buttons.forEach(b=> b.addEventListener('click', ()=> run(b.dataset.cmd)));
+  pauseBtn && pauseBtn.addEventListener('click', ()=>{ paused=!paused; pauseBtn.innerHTML = paused? '<i class="fa-solid fa-play"></i>': '<i class="fa-solid fa-pause"></i>'; });
+  copyBtn && copyBtn.addEventListener('click', ()=>{
+    navigator.clipboard.writeText(outEl.textContent||'').then(()=>{
+      copyBtn.innerHTML='<i class="fa-solid fa-check"></i>';
+      setTimeout(()=> copyBtn.innerHTML='<i class="fa-regular fa-copy"></i>', 900);
+    });
+  });
+
+  // Initial demo
+  setTimeout(()=>{
+    run('farsaan --skills');
+    setTimeout(()=> run('farsaan --tools'), 1200);
+  }, 400);
 })();
 </script>
 </body>
