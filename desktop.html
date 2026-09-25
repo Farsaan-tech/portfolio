@@ -451,6 +451,67 @@ section.hero .heroTerminal{
 }
 @keyframes terminalBlink{50%{opacity:0}}
 </style>
+
+<style id="desktop-fullscreen-sections-fix">
+@media (min-width: 1051px){
+  .section.wrap,
+  .skillsLabSquare{
+    width:92vw!important;
+    max-width:1400px!important;
+  }
+
+  .section.wrap{
+    min-height:70vh!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    padding:70px 0!important;
+    margin-top:35px!important;
+    margin-bottom:35px!important;
+  }
+
+  #projects .projects{
+    gap:24px!important;
+  }
+  #projects .project{
+    min-height:300px!important;
+    padding:28px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+  }
+  #projects .project h3{font-size:22px!important}
+  #projects .project p{font-size:15px!important;line-height:1.7!important}
+
+  #experience .exp{
+    min-height:300px!important;
+    padding:38px!important;
+    display:flex!important;
+    align-items:center!important;
+  }
+  #experience .exp h3{font-size:22px!important}
+  #experience .exp li{font-size:15px!important;line-height:1.8!important}
+
+  #quicklab .deck{gap:24px!important}
+  #quicklab .cardFlip{min-height:280px!important}
+
+  #skills-lab-square{
+    min-height:100vh!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+  }
+  .squareStage{height:min(78vh,900px)!important;min-height:760px!important}
+  .squareFrame{width:min(760px,62vw)!important;height:min(760px,62vw)!important}
+}
+
+@media (min-width:1500px){
+  .section.wrap,.skillsLabSquare{max-width:1500px!important}
+  .hero{min-height:88vh!important}
+}
+</style>
 </head><body><div id="top"></div>
 <header class="desktopNav" style="position:sticky;top:12px;z-index:100;max-width:1240px;margin:12px auto 0;padding:12px 18px;border:1px solid rgba(57,255,136,.22);border-radius:14px;background:rgba(2,8,5,.78);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 45px rgba(0,0,0,.35)">
  <a href="#top" style="text-decoration:none;color:#39ff88;font:700 14px ui-monospace,monospace;letter-spacing:.08em">FARSAAN.TECH</a>
@@ -462,7 +523,7 @@ section.hero .heroTerminal{
   <a href="#projects" style="text-decoration:none;color:#9dbda7;font:11px ui-monospace,monospace;padding:7px 9px">PROJECTS</a>
  </nav>
 </header>
-<section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img class="pfp" src="code.jpg" alt="Profile"><div class="eyebrow">DEVOPS ENGINEER / CLOUD / AUTOMATION</div><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div class="heroTerminal" aria-label="Interactive terminal">
+<section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img class="pfp" src="code.jpg" alt="Profile"><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div class="heroTerminal" aria-label="Interactive terminal">
   <div class="heroTerminalTop"><span>●</span><span>●</span><span>●</span><b>farsaan@portfolio:~</b></div>
   <div class="heroTerminalBody">
   <div><span class="prompt">$</span> <span id="heroCmd">git status</span><span class="cursor"></span></div>
@@ -530,6 +591,71 @@ window.addEventListener('deviceorientation',e=>{if(e.gamma==null)return;document
    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';e.target.style.filter='none'}
  }),{threshold:.08,rootMargin:'0px 0px -8% 0px'});
  sections.forEach(s=>io.observe(s));
+})();
+</script>
+
+<script id="deployment-lab-click-fix">
+(function(){
+  function initDeploymentLab(){
+    const run=document.getElementById('run');
+    if(!run || run.dataset.interactiveFixed==='1') return;
+    run.dataset.interactiveFixed='1';
+
+    run.addEventListener('click', async function(){
+      if(run.dataset.running==='1') return;
+      run.dataset.running='1';
+      run.disabled=true;
+
+      const stages=[...document.querySelectorAll('#lab .node')];
+      const progress=document.getElementById('progress');
+      const lines=document.getElementById('terminalLines');
+      const state=document.getElementById('buildState');
+
+      const logs=[
+        ['Git hook received','commit 8f2a1c detected'],
+        ['Jenkins started','pipeline: build → test'],
+        ['Docker image built','farsaan/portfolio:latest'],
+        ['Kubernetes rollout','pods: 3/3 ready'],
+        ['AWS healthy','deployment verified ✓']
+      ];
+
+      stages.forEach(n=>n.classList.remove('active','done'));
+      if(progress) progress.style.width='0%';
+      if(lines) lines.innerHTML='';
+      if(state) state.textContent='RUNNING';
+
+      for(let i=0;i<stages.length;i++){
+        stages[i].classList.add('active');
+        if(progress) progress.style.width=((i+1)/stages.length*100)+'%';
+
+        if(lines){
+          const row=document.createElement('div');
+          row.innerHTML='<span style="color:#54d9ff">['+
+            String(i+1).padStart(2,'0')+']</span> '+logs[i][0];
+          const detail=document.createElement('div');
+          detail.style.color='#617b91';
+          detail.textContent='↳ '+logs[i][1];
+          lines.append(row,detail);
+          lines.scrollTop=lines.scrollHeight;
+        }
+
+        await new Promise(r=>setTimeout(r,650));
+        stages[i].classList.remove('active');
+        stages[i].classList.add('done');
+      }
+
+      if(state) state.textContent='SUCCESS';
+      run.textContent='✓ Deployment complete — run again';
+      run.disabled=false;
+      run.dataset.running='0';
+    });
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initDeploymentLab);
+  }else{
+    initDeploymentLab();
+  }
 })();
 </script>
 </body></html>
