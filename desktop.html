@@ -38,24 +38,66 @@ footer{padding:22px 0 40px;text-align:center;color:#7890a6;font-size:10px}.socia
 .heroTerminalTop span{font-size:8px}.heroTerminalTop span:first-child{color:#39ff88}.heroTerminalTop b{margin-left:auto;color:#658b74;font-weight:600;font-size:9px}
 .heroTerminalBody{padding:10px 12px;color:#b9d9c5}.heroTerminal .prompt{color:#39ff88}.heroTerminal .cursor{background:#39ff88}.heroTerminal .ok{color:#39ff88}
 </style>
-<script>
-(function(){
- const cmds=[
-  ["git status","On branch main","✓ working tree ready"],
-  ["kubectl get pods","NAME    STATUS","✓ all pods running"],
-  ["terraform plan","Plan: 0 to add, 0 to change","✓ infrastructure synced"],
-  ["docker ps","CONTAINER   STATUS","✓ containers healthy"]
- ];
- let i=0;
- function run(){
-   const c=cmds[i++%cmds.length], el=document.getElementById("heroCmd"), out=document.getElementById("heroOutput");
-   if(!el||!out)return;
-   el.textContent="";
-   out.innerHTML="";
-   let n=0;
-   const t=setInterval(()=>{el.textContent=c[0].slice(0,++n);if(n>=c[0].length){clearInterval(t);out.innerHTML=c[1]+"<br><span class='ok'>"+c[2]+"</span>";setTimeout(run,2200)}},32);
- }
- run();
+<script id="working-terminal-loop">
+(function () {
+  function startTerminal() {
+    const commandEl = document.getElementById("heroCmd");
+    const outputEl = document.getElementById("heroOutput");
+    if (!commandEl || !outputEl) return;
+
+    const commands = [
+      {cmd:"git status", out:["On branch main","Your branch is up to date with 'origin/main'.","nothing to commit, working tree clean","✓ repository ready"]},
+      {cmd:"git push origin main", out:["Enumerating objects: 12, done.","Counting objects: 100% (12/12), done.","Writing objects: 100% (12/12), done.","✓ pushed to origin/main"]},
+      {cmd:"docker build -t portfolio .", out:["[+] Building 8.4s (12/12)","exporting layers...","writing image sha256:7d3a...","✓ image built successfully"]},
+      {cmd:"kubectl get pods", out:["NAME              READY   STATUS","portfolio-web      1/1     Running","portfolio-api      1/1     Running","✓ 2/2 pods healthy"]},
+      {cmd:"terraform plan", out:["Refreshing AWS infrastructure...","aws_vpc.main       unchanged","aws_instance.web   unchanged","Plan: 0 to add, 0 to change","✓ infrastructure synced"]},
+      {cmd:"terraform apply", out:["Initializing provider plugins...","aws resources validated","Apply complete! Resources: 0 added, 0 changed, 0 destroyed.","✓ deployment complete"]},
+      {cmd:"docker ps", out:["CONTAINER       STATUS","portfolio-web   Up 2 hours","portfolio-api   Up 2 hours","nginx           Up 2 hours","✓ containers healthy"]},
+      {cmd:"systemctl status nginx", out:["● nginx.service - A high performance web server","Active: active (running)","Main PID: 1842","✓ service healthy"]}
+    ];
+
+    let index = 0;
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+    async function typeCommand(text) {
+      commandEl.textContent = "";
+      for (let i = 0; i <= text.length; i++) {
+        commandEl.textContent = text.slice(0, i);
+        await wait(45);
+      }
+    }
+
+    async function showOutput(lines) {
+      outputEl.innerHTML = "";
+      for (const text of lines) {
+        const line = document.createElement("div");
+        line.textContent = text;
+        if (text.startsWith("✓")) line.className = "ok";
+        outputEl.appendChild(line);
+        await wait(140);
+      }
+    }
+
+    async function cycle() {
+      const item = commands[index];
+      index = (index + 1) % commands.length;
+
+      await typeCommand(item.cmd);
+      await wait(350);
+      await showOutput(item.out);
+      await wait(1800);
+
+      cycle();
+    }
+
+    cycle();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startTerminal);
+  } else {
+    startTerminal();
+  }
 })();
 </script>
 
@@ -243,6 +285,172 @@ section.hero .heroTerminal{
   section.hero .heroTerminal{margin-top:24px !important;}
 }
 </style>
+
+<style id="desktop-final-fix">
+.hero{min-height:820px!important;padding:55px 42px 70px!important}
+.heroCard{
+  overflow:visible!important;
+  min-height:560px!important;
+  display:grid!important;
+  grid-template-columns:minmax(280px,.72fr) minmax(520px,1.28fr)!important;
+  grid-template-rows:auto auto auto auto!important;
+  align-items:center!important;
+  column-gap:58px!important;
+  row-gap:8px!important;
+  padding:42px!important;
+}
+.heroCard .pfp{
+  grid-column:1!important;grid-row:1!important;
+  width:150px!important;height:150px!important;
+  display:block!important;visibility:visible!important;opacity:1!important;
+  object-fit:cover!important;
+}
+.heroCard .eyebrow{grid-column:1!important;grid-row:2!important}
+.heroCard h1{grid-column:1!important;grid-row:3!important}
+.heroCard .role{grid-column:1!important;grid-row:4!important}
+.heroCard .status{grid-column:1!important;grid-row:5!important}
+.heroCard .heroTerminal{
+  grid-column:2!important;grid-row:1 / span 5!important;
+  width:100%!important;min-height:250px!important;
+  height:auto!important;max-height:none!important;
+  overflow:hidden!important;margin:0!important;
+  align-self:center!important;
+  display:block!important;visibility:visible!important;opacity:1!important;
+}
+.heroCard .terminal{min-height:180px!important;height:auto!important;overflow:visible!important}
+.heroCard .heroTerminalBody{min-height:145px!important;height:auto!important;overflow:visible!important}
+.heroCard.reveal{opacity:1!important;transform:none!important;filter:none!important;visibility:visible!important}
+@media(max-width:900px){
+ .hero{min-height:auto!important}
+ .heroCard{display:block!important;min-height:0!important;padding:28px!important}
+ .heroCard .pfp,.heroCard .eyebrow,.heroCard h1,.heroCard .role,.heroCard .status{display:block!important}
+ .heroCard .heroTerminal{margin-top:24px!important}
+}
+</style>
+
+<style id="perfect-16-square-css">
+.skillsLabSquare{max-width:1280px!important;margin:70px auto!important;padding:20px 20px 60px!important}
+.squareHeading{text-align:center;margin-bottom:18px}
+.squareEyebrow{font:10px ui-monospace,monospace;letter-spacing:.18em;color:#39ff88}
+.squareHeading h2{margin:6px 0 3px;font-size:32px}
+.squareHeading p{margin:0;color:#86a993;font-size:13px}
+.squareStage{position:relative;width:100%;height:820px}
+.squareFrame{position:absolute;left:50%;top:50%;width:760px;height:760px;
+ transform:translate(-50%,-50%);border:1px solid rgba(57,255,136,.14);
+ border-radius:16px;box-shadow:inset 0 0 80px rgba(57,255,136,.025)}
+.squareLab{position:absolute;z-index:20;left:50%;top:50%;width:500px;transform:translate(-50%,-50%)}
+.squareLab .lab{margin:0!important;max-width:none!important}
+.squareTools{position:absolute;inset:0;z-index:10}
+.squareTool{
+ position:absolute;width:128px;height:52px;box-sizing:border-box;
+ display:flex;align-items:center;justify-content:center;gap:8px;
+ padding:7px 9px;border:1px solid rgba(57,255,136,.22);
+ border-radius:8px;background:rgba(3,13,8,.95);
+ transform:translate(-50%,-50%);
+}
+.toolIcon{width:24px;height:24px;flex:0 0 24px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.toolIcon img,.toolIcon svg,.toolIcon i{
+ max-width:22px!important;max-height:22px!important;width:auto!important;height:auto!important;
+ object-fit:contain!important;display:block!important;
+}
+.toolName{font:600 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+ color:#c8f5d4;white-space:nowrap;text-align:left}
+.squareTool:hover{border-color:#39ff88;box-shadow:0 0 18px rgba(57,255,136,.12)}
+/* A mathematically even square perimeter:
+   4 corners + 3 equally spaced cards between each pair of corners. */
+.squareTool:nth-child(1){left:calc(50% - 380px);top:calc(50% - 380px)}
+.squareTool:nth-child(2){left:calc(50% - 126.67px);top:calc(50% - 380px)}
+.squareTool:nth-child(3){left:calc(50% + 126.67px);top:calc(50% - 380px)}
+.squareTool:nth-child(4){left:calc(50% + 380px);top:calc(50% - 380px)}
+
+.squareTool:nth-child(5){left:calc(50% + 380px);top:calc(50% - 126.67px)}
+.squareTool:nth-child(6){left:calc(50% + 380px);top:calc(50%)}
+.squareTool:nth-child(7){left:calc(50% + 380px);top:calc(50% + 126.67px)}
+
+.squareTool:nth-child(8){left:calc(50% + 380px);top:calc(50% + 380px)}
+.squareTool:nth-child(9){left:calc(50% + 126.67px);top:calc(50% + 380px)}
+.squareTool:nth-child(10){left:calc(50% - 126.67px);top:calc(50% + 380px)}
+.squareTool:nth-child(11){left:calc(50% - 380px);top:calc(50% + 380px)}
+
+.squareTool:nth-child(12){left:calc(50% - 380px);top:calc(50% + 126.67px)}
+.squareTool:nth-child(13){left:calc(50% - 380px);top:calc(50%)}
+.squareTool:nth-child(14){left:calc(50% - 380px);top:calc(50% - 126.67px)}
+
+.squareTool:nth-child(15){left:calc(50% - 126.67px);top:calc(50%)}
+.squareTool:nth-child(16){left:calc(50% + 126.67px);top:calc(50%)}
+
+/* Put the two additional midline tools on the vertical center only when needed:
+   they are shifted to the inner side of the square to avoid duplicating the
+   perimeter. */
+.squareTool:nth-child(15){left:calc(50% - 126.67px);top:calc(50% - 380px)}
+.squareTool:nth-child(16){left:calc(50% + 126.67px);top:calc(50% + 380px)}
+
+@media(max-width:900px){
+ .squareStage{height:auto;display:block}.squareFrame{display:none}
+ .squareLab{position:relative;left:auto;top:auto;width:100%;transform:none}
+ .squareTools{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+ .squareTool{position:relative!important;left:auto!important;top:auto!important;transform:none!important;width:100%;height:52px}
+}
+</style>
+
+<style id="square-16-final-positions">
+@media(min-width:901px){
+ .squareTool:nth-child(1){left:calc(50% - 380px);top:calc(50% - 380px)}
+ .squareTool:nth-child(2){left:calc(50% - 126.67px);top:calc(50% - 380px)}
+ .squareTool:nth-child(3){left:calc(50% + 126.67px);top:calc(50% - 380px)}
+ .squareTool:nth-child(4){left:calc(50% + 380px);top:calc(50% - 380px)}
+ .squareTool:nth-child(5){left:calc(50% + 380px);top:calc(50% - 126.67px)}
+ .squareTool:nth-child(6){left:calc(50% + 380px);top:calc(50% + 126.67px)}
+ .squareTool:nth-child(7){left:calc(50% + 380px);top:calc(50% + 380px)}
+ .squareTool:nth-child(8){left:calc(50% + 126.67px);top:calc(50% + 380px)}
+ .squareTool:nth-child(9){left:calc(50% - 126.67px);top:calc(50% + 380px)}
+ .squareTool:nth-child(10){left:calc(50% - 380px);top:calc(50% + 380px)}
+ .squareTool:nth-child(11){left:calc(50% - 380px);top:calc(50% + 126.67px)}
+ .squareTool:nth-child(12){left:calc(50% - 380px);top:calc(50% - 126.67px)}
+ .squareTool:nth-child(13){left:calc(50% - 126.67px);top:calc(50% - 380px)}
+ .squareTool:nth-child(14){left:calc(50% + 126.67px);top:calc(50% + 380px)}
+ .squareTool:nth-child(15){left:calc(50% - 380px);top:calc(50%)}
+ .squareTool:nth-child(16){left:calc(50% + 380px);top:calc(50%)}
+}
+</style>
+
+<style id="final-perfect-square">
+@media(min-width:901px){
+ .squareTool:nth-child(1){left:calc(50% - 380px);top:calc(50% - 380px)}
+ .squareTool:nth-child(2){left:calc(50% - 190px);top:calc(50% - 380px)}
+ .squareTool:nth-child(3){left:calc(50%);top:calc(50% - 380px)}
+ .squareTool:nth-child(4){left:calc(50% + 190px);top:calc(50% - 380px)}
+ .squareTool:nth-child(5){left:calc(50% + 380px);top:calc(50% - 380px)}
+ .squareTool:nth-child(6){left:calc(50% + 380px);top:calc(50% - 190px)}
+ .squareTool:nth-child(7){left:calc(50% + 380px);top:calc(50%)}
+ .squareTool:nth-child(8){left:calc(50% + 380px);top:calc(50% + 190px)}
+ .squareTool:nth-child(9){left:calc(50% + 380px);top:calc(50% + 380px)}
+ .squareTool:nth-child(10){left:calc(50% + 190px);top:calc(50% + 380px)}
+ .squareTool:nth-child(11){left:calc(50%);top:calc(50% + 380px)}
+ .squareTool:nth-child(12){left:calc(50% - 190px);top:calc(50% + 380px)}
+ .squareTool:nth-child(13){left:calc(50% - 380px);top:calc(50% + 380px)}
+ .squareTool:nth-child(14){left:calc(50% - 380px);top:calc(50% + 190px)}
+ .squareTool:nth-child(15){left:calc(50% - 380px);top:calc(50%)}
+ .squareTool:nth-child(16){left:calc(50% - 380px);top:calc(50% - 190px)}
+}
+</style>
+<style id="hero-terminal-full">
+.heroTerminal{min-height:250px!important}
+.heroTerminalBody{min-height:190px!important;padding:18px 20px!important}
+.heroTerminalBody #heroOutput{display:flex;flex-direction:column;gap:5px;min-height:120px}
+.heroTerminalBody .prompt{color:#39ff88}
+.heroTerminalBody .ok{color:#39ff88}
+.squareTool .toolIcon svg{width:25px!important;height:25px!important;display:block}
+</style>
+<style id="working-terminal-css">
+#heroCmd{display:inline-block;min-height:1.2em}
+#heroOutput{min-height:6.2em!important}
+.heroTerminalBody .cursor{
+  display:inline-block;width:7px;height:1.05em;margin-left:3px;
+  vertical-align:-2px;background:#39ff88;animation:terminalBlink .8s steps(1) infinite;
+}
+@keyframes terminalBlink{50%{opacity:0}}
+</style>
 </head><body><div id="top"></div>
 <header class="desktopNav" style="position:sticky;top:12px;z-index:100;max-width:1240px;margin:12px auto 0;padding:12px 18px;border:1px solid rgba(57,255,136,.22);border-radius:14px;background:rgba(2,8,5,.78);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 45px rgba(0,0,0,.35)">
  <a href="#top" style="text-decoration:none;color:#39ff88;font:700 14px ui-monospace,monospace;letter-spacing:.08em">FARSAAN.TECH</a>
@@ -257,11 +465,33 @@ section.hero .heroTerminal{
 <section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img class="pfp" src="code.jpg" alt="Profile"><div class="eyebrow">DEVOPS ENGINEER / CLOUD / AUTOMATION</div><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div class="heroTerminal" aria-label="Interactive terminal">
   <div class="heroTerminalTop"><span>●</span><span>●</span><span>●</span><b>farsaan@portfolio:~</b></div>
   <div class="heroTerminalBody">
-    <div><span class="prompt">$</span> <span id="heroCmd">git status</span><span class="cursor"></span></div>
-    <div id="heroOutput">On branch main<br><span class="ok">✓ working tree ready</span></div>
+  <div><span class="prompt">$</span> <span id="heroCmd">git status</span><span class="cursor"></span></div>
+  <div id="heroOutput">
+    <div>On branch main</div>
+    <div>Changes not staged: 0</div>
+    <div>Working tree clean</div>
+    <div>Remote: origin/main</div>
+    <div class="ok">✓ repository ready</div>
   </div>
-</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="skills"><div class="sectionHead"><h2>Technical Skills</h2><span>TAP A MODULE</span></div><div class="skills">
-<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><div><h6>Version Control — Git</h6><small>Git & GitHub</small></div></div><div class="skill"><img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg"><div><h6>Build Tool — Maven</h6><small>Java builds</small></div></div><div class="skill"><img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg"><div><h6>CI/CD — Argo CD</h6><small>GitOps deployments</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg"><div><h6>CI/CD — Jenkins</h6><small>Pipelines</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"><div><h6>Containerization — Docker</h6><small>Images & Compose</small></div></div><div class="skill"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg"><div><h6>Orchestration — Kubernetes</h6><small>Clusters & Helm</small></div></div><div class="skill"><img src="https://www.svgrepo.com/show/349298/ansible.svg"><div><h6>Configuration — Ansible</h6><small>Playbooks</small></div></div><div class="skill"><i class="fa-brands fa-aws"></i><div><h6>Cloud — AWS</h6><small>EC2 • ECR • VPC</small></div></div><div class="skill"><img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png"><div><h6>App Server — Apache Tomcat</h6><small>Servlets</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg"><div><h6>App Server — Nginx</h6><small>Reverse proxy</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"><div><h6>IaC — Terraform</h6><small>Modules</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg"><div><h6>OS — Linux, CentOS</h6><small>Admin</small></div></div><div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg"><div><h6>OS — Windows, Ubuntu</h6><small>Desktop/Server</small></div></div><div class="skill"><i class="fa-solid fa-database"></i><div><h6>Database — MySQL, RDS</h6><small>Basics</small></div></div><div class="skill"><i class="fa-solid fa-terminal"></i><div><h6>Scripting — Bash / Shell</h6><small>Automation</small></div></div></div></section><section class="lab wrap reveal" id="lab"><div class="labHead"><div><div class="kicker">LIVE SIMULATION / 01</div><div class="labTitle">Deployment Lab</div></div><div class="hint">Tap. Observe. Learn.</div></div><div class="console"><div class="consoleTop"><div class="lights"><i></i><i></i><i></i></div><div class="consoleTitle">pipeline@farsaan:~</div><span class="kicker" id="buildState">READY</span></div><div class="terminal" id="terminal"><div><span class="prompt">$</span> <span class="cmd">git push origin main</span></div><div id="terminalLines"><span style="color:#617b91">Waiting for deployment trigger...</span></div><div><span class="prompt">$</span> <span class="cursor"></span></div></div><div class="pipeline"><div class="track"><i id="progress"></i></div><div class="nodes" id="nodes"><div class="node"><div class="nicon"><i class="fa-brands fa-github"></i></div><small>GIT</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-gears"></i></div><small>BUILD</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-docker"></i></div><small>IMAGE</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-cubes"></i></div><small>K8S</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-aws"></i></div><small>AWS</small></div></div></div><button class="run" id="run">▶ Push code & run pipeline</button></div></section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2021 — PRESENT</span></div><div class="glass exp"><div class="expLine"><i class="expDot"></i><h3>DevOps Engineer — Frontline Login System Pvt. Ltd.</h3><div class="date">Dec 2021 – Present • Hyderabad</div><ul><li>Designed & operated scalable, secure systems on AWS & Kubernetes.</li><li>Implemented CI/CD with Jenkins & Argo CD; improved deployment speed.</li><li>Monitoring, incident response, & performance optimization.</li></ul></div></div></section><section class="section wrap reveal" id="projects"><div class="sectionHead"><h2>Projects</h2><span>SWIPE →</span></div><div class="projects"><article class="glass project"><h3>Kubernetes Cluster Deployment</h3><p>Deployed a Kubernetes cluster on AWS using Terraform & Ansible. CI/CD with Jenkins & Argo CD.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span></div></article><article class="glass project"><h3>AWS Cloud Migration</h3><p>Migrated on‑prem app to AWS. Security & monitoring with IAM, CloudTrail, CloudWatch.</p><div class="tags"><span class="tag">AWS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div></article><article class="glass project"><h3>CI/CD Pipeline Implementation</h3><p>Built CI/CD pipelines; integrated Docker & Kubernetes for deployments.</p><div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></article></div></section><section class="section wrap reveal" id="quicklab"><div class="sectionHead"><h2>DevOps Quick Lab</h2><span>TAP TO FLIP</span></div><div class="deck"><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why CI/CD?</b><small>Tap to reveal</small></div><div class="face back"><b>Fast feedback</b><small>Automate build, test and delivery.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why Docker?</b><small>Tap to reveal</small></div><div class="face back"><b>Consistency</b><small>Package app + dependencies together.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why K8s?</b><small>Tap to reveal</small></div><div class="face back"><b>Orchestration</b><small>Schedule, scale and heal workloads.</small></div></div></div></div></section><script>
+</div></div>
+</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="projects"><div class="sectionHead"><h2>Projects</h2><span>SWIPE →</span></div><div class="projects"><article class="glass project"><h3>Kubernetes Cluster Deployment</h3><p>Deployed a Kubernetes cluster on AWS using Terraform & Ansible. CI/CD with Jenkins & Argo CD.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span></div></article><article class="glass project"><h3>AWS Cloud Migration</h3><p>Migrated on‑prem app to AWS. Security & monitoring with IAM, CloudTrail, CloudWatch.</p><div class="tags"><span class="tag">AWS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div></article><article class="glass project"><h3>CI/CD Pipeline Implementation</h3><p>Built CI/CD pipelines; integrated Docker & Kubernetes for deployments.</p><div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></article></div></section><section id="skills-lab-square" class="skillsLabSquare">
+<div class="squareHeading">
+ <div class="squareEyebrow">MY SKILLS</div>
+ <h2>My Skills</h2>
+ <p>Tools and technologies I work with.</p>
+</div>
+<div class="squareStage">
+ <div class="squareFrame"></div>
+ <div class="squareLab"><section class="lab wrap reveal" id="lab"><div class="labHead"><div><div class="kicker">LIVE SIMULATION / 01</div><div class="labTitle">Deployment Lab</div></div><div class="hint">Tap. Observe. Learn.</div></div><div class="console"><div class="consoleTop"><div class="lights"><i></i><i></i><i></i></div><div class="consoleTitle">pipeline@farsaan:~</div><span class="kicker" id="buildState">READY</span></div><div class="terminal" id="terminal"><div><span class="prompt">$</span> <span class="cmd">git push origin main</span></div><div id="terminalLines"><span style="color:#617b91">Waiting for deployment trigger...</span></div><div><span class="prompt">$</span> <span class="cursor"></span></div></div><div class="pipeline"><div class="track"><i id="progress"></i></div><div class="nodes" id="nodes"><div class="node"><div class="nicon"><i class="fa-brands fa-github"></i></div><small>GIT</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-gears"></i></div><small>BUILD</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-docker"></i></div><small>IMAGE</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-cubes"></i></div><small>K8S</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-aws"></i></div><small>AWS</small></div></div></div><button class="run" id="run">▶ Push code & run pipeline</button></div></section></div>
+ <div class="squareTools"><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt=""></div><span class="toolName">Git</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt=""></div><span class="toolName">Maven</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt=""></div><span class="toolName">Argo CD</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt=""></div><span class="toolName">Jenkins</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt=""></div><span class="toolName">Docker</span></div><div class="squareTool"><div class="toolIcon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt=""></div><span class="toolName">Kubernetes</span></div><div class="squareTool"><div class="toolIcon"><img src="https://www.svgrepo.com/show/349298/ansible.svg" alt=""></div><span class="toolName">Ansible</span></div><div class="squareTool"><div class="toolIcon">
+<svg viewBox="0 0 64 40" aria-label="AWS logo" role="img">
+  <text x="3" y="23" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#ffffff">aws</text>
+  <path d="M8 29 C22 38, 39 38, 56 28" fill="none" stroke="#ff9900" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M51 25 L57 28 L52 32" fill="none" stroke="#ff9900" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div><span class="toolName">AWS</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt=""></div><span class="toolName">Apache Tomcat</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt=""></div><span class="toolName">Nginx</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt=""></div><span class="toolName">Terraform</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg" alt=""></div><span class="toolName">Linux / CentOS</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt=""></div><span class="toolName">Windows / Ubuntu</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt=""></div><span class="toolName">MySQL / RDS</span></div><div class="squareTool"><div class="toolIcon"><i class="fa-solid fa-terminal"></i></div><span class="toolName">Bash / Shell</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt=""></div><span class="toolName">Azure</span></div></div></div>
+</div>
+</section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2021 — PRESENT</span></div><div class="glass exp"><div class="expLine"><i class="expDot"></i><h3>DevOps Engineer — Frontline Login System Pvt. Ltd.</h3><div class="date">Dec 2021 – Present • Hyderabad</div><ul><li>Designed & operated scalable, secure systems on AWS & Kubernetes.</li><li>Implemented CI/CD with Jenkins & Argo CD; improved deployment speed.</li><li>Monitoring, incident response, & performance optimization.</li></ul></div></div></section><section class="section wrap reveal" id="quicklab"><div class="sectionHead"><h2>DevOps Quick Lab</h2><span>TAP TO FLIP</span></div><div class="deck"><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why CI/CD?</b><small>Tap to reveal</small></div><div class="face back"><b>Fast feedback</b><small>Automate build, test and delivery.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why Docker?</b><small>Tap to reveal</small></div><div class="face back"><b>Consistency</b><small>Package app + dependencies together.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why K8s?</b><small>Tap to reveal</small></div><div class="face back"><b>Orchestration</b><small>Schedule, scale and heal workloads.</small></div></div></div></div></section><script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 $('#y').textContent=new Date().getFullYear();
 // reveal
