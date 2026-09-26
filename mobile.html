@@ -1614,6 +1614,148 @@ pre,code{max-width:100%!important;overflow-x:auto!important;}
   .achievementToast{max-width:calc(100vw - 22px)!important;}
 }
 </style>
+
+
+
+
+<style id="mobile-profile-final">
+@media (max-width:600px){
+  section.hero .heroCard{
+    text-align:left!important;
+    padding:20px 16px 17px!important;
+  }
+
+  /* Force image + name/details into one horizontal row */
+  section.hero .heroIdentity{
+    display:grid!important;
+    grid-template-columns:118px minmax(0,1fr)!important;
+    align-items:center!important;
+    column-gap:16px!important;
+    width:100%!important;
+  }
+
+  section.hero .pfp{
+    display:block!important;
+    width:118px!important;
+    height:118px!important;
+    min-width:118px!important;
+    max-width:118px!important;
+    margin:0!important;
+    border-radius:21px!important;
+  }
+
+  section.hero .heroIdentityText{
+    min-width:0!important;
+    width:100%!important;
+  }
+
+  section.hero .heroIdentityText .eyebrow{
+    margin:0 0 5px!important;
+  }
+
+  section.hero .heroIdentityText h1{
+    margin:0 0 7px!important;
+    font-size:clamp(25px,7.8vw,34px)!important;
+    line-height:1.02!important;
+    white-space:normal!important;
+  }
+
+  section.hero .heroIdentityText .role{
+    margin:0!important;
+    max-width:none!important;
+  }
+
+  section.hero .heroIdentityText .status{
+    margin-top:8px!important;
+  }
+}
+
+@media (max-width:380px){
+  section.hero .heroCard{
+    padding:17px 13px 15px!important;
+  }
+  section.hero .heroIdentity{
+    grid-template-columns:104px minmax(0,1fr)!important;
+    column-gap:12px!important;
+  }
+  section.hero .pfp{
+    width:104px!important;
+    height:104px!important;
+    min-width:104px!important;
+    max-width:104px!important;
+  }
+  section.hero .heroIdentityText h1{
+    font-size:23px!important;
+  }
+}
+</style>
+
+
+<style id="mobile-profile-final-correct">
+@media (max-width:600px){
+  section.hero .heroCard{
+    display:grid!important;
+    grid-template-columns:112px minmax(0,1fr)!important;
+    grid-template-rows:auto auto auto auto auto!important;
+    column-gap:14px!important;
+    row-gap:5px!important;
+    align-items:center!important;
+    padding:18px 14px 16px!important;
+    min-height:0!important;
+    text-align:left!important;
+  }
+  section.hero .heroCard .pfp{
+    grid-column:1!important;
+    grid-row:1 / span 4!important;
+    width:112px!important;
+    height:112px!important;
+    min-width:112px!important;
+    max-width:112px!important;
+    margin:0!important;
+    align-self:center!important;
+  }
+  section.hero .heroCard .eyebrow{
+    grid-column:2!important;grid-row:1!important;
+    margin:0!important;
+    font-size:7.5px!important;
+    line-height:1.35!important;
+  }
+  section.hero .heroCard h1{
+    grid-column:2!important;grid-row:2!important;
+    margin:0!important;
+    font-size:clamp(23px,7vw,31px)!important;
+    line-height:1.02!important;
+    word-break:normal!important;
+  }
+  section.hero .heroCard .role{
+    grid-column:2!important;grid-row:3!important;
+    margin:0!important;
+    font-size:9.5px!important;
+    line-height:1.4!important;
+  }
+  section.hero .heroCard .status{
+    grid-column:2!important;grid-row:4!important;
+    justify-self:start!important;
+    margin:3px 0 0!important;
+    font-size:7px!important;
+    padding:6px 8px!important;
+    white-space:nowrap!important;
+  }
+  section.hero .heroCard .heroTerminal{
+    grid-column:1 / -1!important;
+    grid-row:5!important;
+    width:100%!important;
+    margin-top:14px!important;
+  }
+}
+@media (max-width:380px){
+  section.hero .heroCard{grid-template-columns:100px minmax(0,1fr)!important;column-gap:11px!important;padding:16px 12px 14px!important}
+  section.hero .heroCard .pfp{width:100px!important;height:100px!important;min-width:100px!important;max-width:100px!important}
+  section.hero .heroCard h1{font-size:22px!important}
+  section.hero .heroCard .role{font-size:8.5px!important}
+}
+</style>
+
 </head><body>
 <div aria-label="Loading portfolio" class="siteLoader" id="siteLoader"><div class="loaderBox"><div class="loaderLogo">FARSAAN<span>.</span>DEVOPS</div><div class="loaderText" id="loaderText">INITIALIZING PORTFOLIO</div><div class="loaderTrack"><div class="loaderBar"></div></div><div class="loaderDots"><i></i><i></i><i></i></div></div></div>
 <div aria-hidden="true" class="fxModal" id="fxModal">
