@@ -498,7 +498,7 @@ section.hero .heroTerminal{
   #skills-lab-square .squareTool:hover{border-color:rgba(57,255,136,.55)!important;box-shadow:0 0 24px rgba(57,255,136,.12),0 10px 35px rgba(0,0,0,.4)!important;z-index:40}
   #skills-lab-square .squareLab{width:540px!important}
   #skills-lab-square .squareLab .console{border-radius:18px!important;border-color:rgba(57,255,136,.24)!important;background:#010403!important;box-shadow:0 30px 90px rgba(0,0,0,.62),0 0 50px rgba(57,255,136,.055)!important}
-  #skills-lab-square .squareLab .terminal{min-height:210px!important;padding:18px!important}
+  #skills-lab-square .squareLab .terminal{height:210px!important;min-height:210px!important;max-height:210px!important;padding:18px!important;overflow-y:auto!important;box-sizing:border-box!important}
   #skills-lab-square .squareLab .pipeline{padding:0 18px 18px!important}
   #skills-lab-square .squareLab .run{margin:16px 18px 18px!important;width:calc(100% - 36px)!important;border-color:rgba(57,255,136,.35)!important;background:linear-gradient(90deg,rgba(57,255,136,.09),rgba(84,217,255,.05))!important}
 
@@ -550,7 +550,114 @@ section.hero .heroTerminal{
 .winSpark{position:fixed;z-index:114;width:4px;height:4px;border-radius:50%;background:#39ff88;pointer-events:none;animation:winSpark .9s ease-out forwards;box-shadow:0 0 10px #39ff88}
 @keyframes winSpark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.15)}}
 @media(max-width:600px){.achievementToast{bottom:18px;width:max-content;max-width:calc(100vw - 30px)} }
-</style><style id="experience-accordion">.accordionExp{padding:8px 18px!important}.expItem{border-bottom:1px solid rgba(57,255,136,.09);padding:15px 2px}.expItem:last-child{border-bottom:0}.expItem summary{list-style:none;cursor:pointer}.expItem summary::-webkit-details-marker{display:none}.expSummary{display:flex;align-items:center;justify-content:space-between;gap:12px}.expSummary h3{font-size:18px!important;margin:0}.expSummary .date{font:600 9px "JetBrains Mono";color:var(--cyan);margin-top:6px}.expChevron{width:30px;height:30px;border:1px solid rgba(57,255,136,.16);border-radius:8px;display:grid;place-items:center;color:#39ff88;transition:transform .25s}.expItem[open] .expChevron{transform:rotate(180deg)}.expDetails{overflow:hidden;animation:expOpen .3s ease}.expDetails ul{padding-left:18px;margin:14px 0 3px;color:#819b8b;font-size:13px;line-height:1.9}@keyframes expOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}@media(max-width:600px){.accordionExp{padding:5px 14px!important}.expSummary h3{font-size:15px!important}.expDetails ul{font-size:12px;line-height:1.7}}</style><style id="experience-rich-css">.expProject{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 4px;padding:10px 12px;border:1px solid rgba(57,255,136,.12);border-radius:10px;background:rgba(57,255,136,.035)}.expProject strong{font:700 11px "JetBrains Mono";color:#caffdf}.expProject span{font:600 9px "JetBrains Mono";color:var(--cyan);text-transform:uppercase}.expDetails li{margin-bottom:4px}.expDetails li:last-child{margin-bottom:0}@media(max-width:600px){.expProject{align-items:flex-start;flex-direction:column;gap:4px}.expProject strong{font-size:10px}.expProject span{font-size:8px}}</style><style id="hard-interaction-layer">#skills-lab-square .squareStage,#skills-lab-square .squareLab{position:relative;z-index:100}#skills-lab-square .squareTools{position:relative;z-index:2}#skills-lab-square #run{position:relative;z-index:1000;pointer-events:auto!important;touch-action:manipulation!important;-webkit-user-select:none;user-select:none}#skills-lab-square #nodes .node{position:relative;z-index:1000;pointer-events:auto!important;touch-action:manipulation!important}</style><style id="profile-image-final">@media(min-width:901px){section.hero .heroCard .pfp{width:270px!important;height:270px!important;margin-bottom:4px!important}section.hero .heroCard h1{margin-top:4px!important}}</style></head><body>
+</style><style id="experience-accordion">.accordionExp{padding:8px 18px!important}.expItem{border-bottom:1px solid rgba(57,255,136,.09);padding:15px 2px}.expItem:last-child{border-bottom:0}.expItem summary{list-style:none;cursor:pointer}.expItem summary::-webkit-details-marker{display:none}.expSummary{display:flex;align-items:center;justify-content:space-between;gap:12px}.expSummary h3{font-size:18px!important;margin:0}.expSummary .date{font:600 9px "JetBrains Mono";color:var(--cyan);margin-top:6px}.expChevron{width:30px;height:30px;border:1px solid rgba(57,255,136,.16);border-radius:8px;display:grid;place-items:center;color:#39ff88;transition:transform .25s}.expItem[open] .expChevron{transform:rotate(180deg)}.expDetails{overflow:hidden;animation:expOpen .3s ease}.expDetails ul{padding-left:18px;margin:14px 0 3px;color:#819b8b;font-size:13px;line-height:1.9}@keyframes expOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}@media(max-width:600px){.accordionExp{padding:5px 14px!important}.expSummary h3{font-size:15px!important}.expDetails ul{font-size:12px;line-height:1.7}}</style><style id="experience-rich-css">.expProject{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 4px;padding:10px 12px;border:1px solid rgba(57,255,136,.12);border-radius:10px;background:rgba(57,255,136,.035)}.expProject strong{font:700 11px "JetBrains Mono";color:#caffdf}.expProject span{font:600 9px "JetBrains Mono";color:var(--cyan);text-transform:uppercase}.expDetails li{margin-bottom:4px}.expDetails li:last-child{margin-bottom:0}@media(max-width:600px){.expProject{align-items:flex-start;flex-direction:column;gap:4px}.expProject strong{font-size:10px}.expProject span{font-size:8px}}</style><style id="hard-interaction-layer">#skills-lab-square .squareStage,#skills-lab-square .squareLab{position:relative;z-index:100}#skills-lab-square .squareTools{position:relative;z-index:2}#skills-lab-square #run{position:relative;z-index:1000;pointer-events:auto!important;touch-action:manipulation!important;-webkit-user-select:none;user-select:none}#skills-lab-square #nodes .node{position:relative;z-index:1000;pointer-events:auto!important;touch-action:manipulation!important}</style><style id="profile-image-final">@media(min-width:901px){section.hero .heroCard .pfp{width:270px!important;height:270px!important;margin-bottom:4px!important}section.hero .heroCard h1{margin-top:4px!important}}</style>
+<style id="responsive-last-section-fix">
+/* Final section: responsive + reliable reveal/trigger */
+@media (max-width: 900px) {
+  #contact, #contact.section, section:last-of-type {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  #contact .wrap, #contact .glass,
+  section:last-of-type .wrap, section:last-of-type .glass {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 600px) {
+  #contact, section:last-of-type {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  #contact .glass, section:last-of-type .glass {
+    padding: 18px !important;
+  }
+  #contact .grid, #contact .contactGrid,
+  section:last-of-type .grid, section:last-of-type .contactGrid {
+    grid-template-columns: 1fr !important;
+  }
+  #contact input, #contact textarea, #contact button,
+  section:last-of-type input, section:last-of-type textarea,
+  section:last-of-type button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+</style>
+
+
+<style id="devops-lab-responsive-fix">
+/* DevOps Quick Lab — keep the lab contained on every screen */
+#lab, #deploymentLab, .deploymentLab, .lab, .quickLab {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+#lab *, #deploymentLab *, .deploymentLab *, .lab *, .quickLab * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+.console, .terminal, .pipeline, .consoleTop, .nodes {
+  max-width: 100%;
+}
+.terminal {
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  #lab, #deploymentLab, .deploymentLab, .lab, .quickLab {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  .console {
+    width: 100% !important;
+  }
+  .consoleTop {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .consoleTitle {
+    min-width: 0 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nodes {
+    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 10px !important;
+  }
+}
+@media (max-width: 600px) {
+  #lab, #deploymentLab, .deploymentLab, .lab, .quickLab {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .terminal {
+    font-size: 11px !important;
+    white-space: pre-wrap !important;
+  }
+  .pipeline {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+  .nodes {
+    min-width: 0 !important;
+  }
+  .node {
+    flex: 0 1 auto !important;
+  }
+  .run {
+    width: 100% !important;
+  }
+}
+</style>
+
+</head><body>
 <div class="siteLoader" id="siteLoader" aria-label="Loading portfolio"><div class="loaderBox"><div class="loaderLogo">FARSAAN<span>.</span>DEVOPS</div><div class="loaderText" id="loaderText">INITIALIZING PORTFOLIO</div><div class="loaderTrack"><div class="loaderBar"></div></div><div class="loaderDots"><i></i><i></i><i></i></div></div></div>
 <div class="fxRail" aria-label="Section navigation">
  <a href="#top" title="Home"></a><a href="#about" title="About"></a><a href="#projects" title="Projects"></a><a href="#skills-lab-square" title="Skills"></a><a href="#experience" title="Experience"></a><a href="#quicklab" title="Quick Lab"></a>
@@ -591,19 +698,19 @@ section.hero .heroTerminal{
     <div class="ok">✓ repository ready</div>
   </div>
 </div></div>
-</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2023 — PRESENT</span></div><div class="glass exp accordionExp">
-<details class="expItem" open><summary><div class="expSummary"><div><h3>DevOps Engineer</h3><div class="date">Jan 2026 – Present</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>AR Surgical Integrade · SEDERA</strong><span>DevOps Engineer</span></div><p class="expIntro">Working on the DevOps side of the AR Surgical Integrade project, supporting the integration of AR Surgical solutions and applying DevOps practices to the project environment.</p><ul><li>Applied DevOps practices around application delivery, deployment workflows, automation, cloud and infrastructure operations.</li><li>Supported reliable software delivery by working with structured deployment and operational workflows.</li><li>Contributed to improving project efficiency and scalability through automation-oriented DevOps practices.</li><li>Worked with the project environment and DevOps toolchain to support integration and delivery requirements.</li></ul><div class="expKnowledge"><span>KNOWLEDGE APPLIED</span><div class="tags"><span class="tag">DevOps</span><span class="tag">Automation</span><span class="tag">Cloud</span><span class="tag">Infrastructure</span><span class="tag">Deployment</span><span class="tag">Integration</span><span class="tag">Scalability</span></div></div></div></details>
-<details class="expItem"><summary><div class="expSummary"><div><h3>Junior DevOps Associate</h3><div class="date">May 2025 – Dec 2025</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>mHealth</strong><span>Junior DevOps Associate</span></div><p class="expIntro">Worked on the mHealth project while moving into hands-on DevOps responsibilities across build, CI/CD, application environments, infrastructure automation and deployment.</p><ul><li>Used <strong>Git</strong> for source control and supported the software delivery workflow.</li><li>Worked with <strong>Maven</strong> for application builds and <strong>Jenkins</strong> for CI/CD automation.</li><li>Used <strong>Bash scripting</strong> for operational and automation tasks.</li><li>Worked with <strong>Tomcat</strong> application environments and <strong>Linux/Ubuntu</strong> systems.</li><li>Worked with <strong>AWS and EBS</strong> within the project infrastructure environment.</li><li>Applied <strong>Ansible</strong> and <strong>Terraform</strong> for automation and infrastructure management.</li><li>Worked with <strong>Kubernetes</strong> for container orchestration and application deployment.</li></ul><div class="expKnowledge"><span>KNOWLEDGE APPLIED</span><div class="tags"><span class="tag">Git</span><span class="tag">Maven</span><span class="tag">Jenkins</span><span class="tag">Bash</span><span class="tag">Tomcat</span><span class="tag">Linux</span><span class="tag">AWS</span><span class="tag">EBS</span><span class="tag">Ansible</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span></div></div></div></details>
-<details class="expItem"><summary><div class="expSummary"><div><h3>Software Associate</h3><div class="date">Jul 2024 – Apr 2025</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>mHealth</strong><span>Software Associate</span></div><p class="expIntro">Worked on the mHealth project as a Software Associate, building hands-on experience with the application build, source-control and delivery environment that later developed into broader DevOps responsibilities.</p><ul><li>Worked with <strong>Git</strong> as part of the source-control and software delivery workflow.</li><li>Used <strong>Maven</strong> for application build activities.</li><li>Worked with <strong>Jenkins</strong> in the project delivery environment and gained practical exposure to CI/CD workflows.</li><li>Used <strong>Bash scripting</strong> for project-related operational tasks.</li><li>Worked with <strong>Tomcat</strong> application environments and <strong>Linux/Ubuntu</strong> systems.</li><li>Built a practical foundation in application delivery and DevOps workflows within the mHealth project.</li></ul><div class="expKnowledge"><span>KNOWLEDGE APPLIED</span><div class="tags"><span class="tag">Git</span><span class="tag">Maven</span><span class="tag">Jenkins</span><span class="tag">Bash</span><span class="tag">Tomcat</span><span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">CI/CD</span></div></div></div></details>
-<details class="expItem"><summary><div class="expSummary"><div><h3>Sys Administrator</h3><div class="date">Dec 2023 – Jun 2024 • Remote</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>System Administration</strong><span>Remote</span></div><p class="expIntro">System administration role preceding the mHealth project experience.</p><ul><li>Worked in a remote system administration environment.</li></ul><div class="expKnowledge"><span>ROLE</span><div class="tags"><span class="tag">System Administration</span><span class="tag">Remote</span></div></div></div></details>
+</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2023 — AUG 2026</span></div><div class="glass exp accordionExp">
+<div style="font-size:18px;font-weight:800;margin:4px 2px 18px;color:#eafff1">FRONTLINE LOGIN SYSTEM PRIVATE LIMITED</div>
+<details class="expItem" open><summary><div class="expSummary"><div><h3>Junior DevOps Engineer</h3><div class="date">Dec 2023 – Aug 2026</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>AR Surgical Integrate (SEDERA)</strong><span>Jan 2026 – Aug 2026</span></div><ul><li>Supported DevOps and cloud engineering activities across application delivery, deployment and operational environments as part of a 6-member engineering team.</li><li>Contributed to infrastructure automation and repeatable deployment practices, helping improve application uptime by approximately 15%.</li><li>Supported integration and delivery of AR Surgical solutions with a focus on reliable, scalable and maintainable application environments.</li><li>Worked across Linux, cloud infrastructure, deployment workflows and operational troubleshooting as part of day-to-day DevOps activities.</li></ul></div></details>
+<details class="expItem"><summary><div class="expSummary"><div><h3>Software Associate</h3><div class="date">Jul 2024 – Dec 2025</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>mHealth</strong><span>Software Associate</span></div><ul><li>Worked with Git, Maven and Jenkins-based CI/CD workflows supporting application builds, deployments and release processes across test and production environments.</li><li>Automated recurring operational tasks using Bash across Linux/Ubuntu environments, cutting manual effort on routine activities by approximately 23%.</li><li>Worked with AWS services and EBS-backed infrastructure supporting 5–9 servers across test and production application environments.</li><li>Used Terraform and Ansible for infrastructure automation and repeatable environment management.</li><li>Supported Kubernetes-based application deployment, container orchestration and Apache Tomcat application environments.</li></ul></div></details>
+<details class="expItem"><summary><div class="expSummary"><div><h3>System Administrator (Remote)</h3><div class="date">Dec 2023 – Jun 2024</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><ul><li>Supported Linux/system administration, application environments and day-to-day infrastructure operations.</li></ul></div></details>
 </div></section><section class="section wrap reveal" id="education"><div class="sectionHead"><h2>Education</h2><span>ACADEMIC RECORD</span></div><div class="educationGrid"><article class="glass eduCard" id="eduGraduation"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-graduation-cap"></i></div><span class="eduBadge">UNDERGRADUATE</span></div><div class="eduBody"><h3>Bachelor of Commerce (B.Com.)</h3><div class="eduUni">Osmania University</div><div class="eduMeta">DECEMBER 2021 · CGPA 7.72</div><p class="eduDesc">Medium of instruction: English. Completed under the Choice Based Credit System.</p></div></div><button class="certificateBtn" type="button" data-certificate="images/graduation.jpg" data-title="Bachelor of Commerce — Certificate"><i class="fa-regular fa-file-image"></i> View Certificate</button></article><article class="glass eduCard pg" id="eduPg"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-award"></i></div><span class="eduBadge">POSTGRADUATE</span></div><div class="eduBody"><h3>Postgraduate Certificate</h3><div class="eduUni">Roehampton University</div><div class="eduMeta">GLOBAL BUSINESS MANAGEMENT · 06 SEP 2023</div><p class="eduDesc">Postgraduate Certificate in Global Business Management, awarded after completion of the programme of study.</p></div></div><button class="certificateBtn" type="button" data-certificate="images/pg-certificate.jpg" data-title="Postgraduate Certificate — Global Business Management"><i class="fa-regular fa-file-image"></i> View Certificate</button></article></div></section><section id="skills-lab-square" class="skillsLabSquare">
 <div class="squareHeading">
  <h2>My Skills</h2>
  <p>Tools and technologies I work with.</p>
 </div>
-<div class="squareStage"><svg class="fxSquareLines" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none"><defs><linearGradient id="fxLine" x1="0" x2="1"><stop stop-color="#39ff88" stop-opacity=".06"/><stop offset=".5" stop-color="#39ff88" stop-opacity=".35"/><stop offset="1" stop-color="#54d9ff" stop-opacity=".08"/></linearGradient><filter id="fxGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g fill="none" stroke="url(#fxLine)" stroke-width="1"><path d="M75 45 H925 V815 H75 Z"/><path d="M75 45 L430 430 M925 45 L570 430 M925 815 L570 430 M75 815 L430 430"/><path d="M265 45 L465 430 M735 45 L535 430 M735 815 L535 430 M265 815 L465 430"/></g><g fill="#39ff88" filter="url(#fxGlow)"><circle cx="430" cy="430" r="2"/><circle cx="570" cy="430" r="2"/></g></svg>
+<div class="squareStage">
  <div class="squareFrame"></div>
- <div class="squareLab"><section class="lab wrap reveal" id="lab"><div class="labHead"><div><div class="kicker">LIVE SIMULATION / 01</div><div class="labTitle">Deployment Lab</div></div><div class="hint">Tap. Observe. Learn.</div></div><div class="console"><div class="consoleTop"><div class="lights"><i></i><i></i><i></i></div><div class="consoleTitle">pipeline@farsaan:~</div><span class="kicker" id="buildState">READY</span></div><div class="terminal" id="terminal"><div><span class="prompt">$</span> <span class="cmd">git push origin main</span></div><div id="terminalLines"><span style="color:#617b91">Waiting for deployment trigger...</span></div><div><span class="prompt">$</span> <span class="cursor"></span></div></div><div class="pipeline"><div class="track"><i id="progress"></i></div><div class="nodes" id="nodes"><div class="node"><div class="nicon"><i class="fa-brands fa-github"></i></div><small>GIT</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-gears"></i></div><small>BUILD</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-docker"></i></div><small>IMAGE</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-cubes"></i></div><small>K8S</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-aws"></i></div><small>AWS</small></div></div></div><button class="run" id="run" type="button" onclick="if(window.runDeploymentPipeline){window.runDeploymentPipeline();}">▶ Push code & run pipeline</button></div></section></div>
+ <div class="squareLab"><section class="lab wrap reveal" id="lab"><div class="labHead"><div><div class="kicker">LIVE SIMULATION / 01</div><div class="labTitle">Deployment Lab</div></div><div class="hint">Tap. Observe. Learn.</div></div><div class="console"><div class="consoleTop"><div class="lights"><i></i><i></i><i></i></div><div class="consoleTitle">pipeline@farsaan:~</div><span class="kicker" id="buildState">READY</span></div><div class="terminal" id="terminal"><div><span class="prompt">$</span> <span class="cmd">git push origin main</span></div><div id="terminalLines"><span style="color:#617b91">Waiting for deployment trigger...</span></div><div><span class="prompt">$</span> <span class="cursor"></span></div></div><div class="pipeline"><div class="track"><i id="progress"></i></div><div class="nodes" id="nodes"><div class="node"><div class="nicon"><i class="fa-brands fa-github"></i></div><small>GIT</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-gears"></i></div><small>BUILD</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-docker"></i></div><small>IMAGE</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-cubes"></i></div><small>K8S</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-aws"></i></div><small>AWS</small></div></div></div><button class="run" id="run">▶ Push code & run pipeline</button></div></section></div>
  <div class="squareTools"><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt=""></div><span class="toolName">Git</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt=""></div><span class="toolName">Maven</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt=""></div><span class="toolName">Argo CD</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt=""></div><span class="toolName">Jenkins</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt=""></div><span class="toolName">Docker</span></div><div class="squareTool"><div class="toolIcon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt=""></div><span class="toolName">Kubernetes</span></div><div class="squareTool"><div class="toolIcon"><img src="https://www.svgrepo.com/show/349298/ansible.svg" alt=""></div><span class="toolName">Ansible</span></div><div class="squareTool"><div class="toolIcon">
 <svg viewBox="0 0 64 40" aria-label="AWS logo" role="img">
   <text x="3" y="23" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#ffffff">aws</text>
@@ -637,13 +744,13 @@ document.addEventListener('click',e=>{const card=e.target.closest('.cardFlip');i
   const stages=[...document.querySelectorAll('#nodes .node')],progress=document.getElementById('progress'),lines=document.getElementById('terminalLines'),state=document.getElementById('buildState'),run=document.getElementById('run');
   if(!stages.length||!progress||!lines||!state||!run)return;
   busy=true;run.disabled=true;state.textContent='RUNNING';run.textContent='⟳ Running deployment pipeline...';
-  stages.forEach(n=>n.classList.remove('active','done'));progress.style.width='0%';lines.innerHTML='<div style="color:#54d9ff">[00] Trigger accepted</div><div style="color:#617b91">↳ Starting deployment pipeline...</div>';
+  stages.forEach(n=>n.classList.remove('active','done'));progress.style.width='0%';lines.innerHTML='<div style="color:#54d9ff">[00] Trigger accepted</div><div style="color:#617b91">↳ Starting deployment pipeline...</div>';document.getElementById('terminal').scrollTop=document.getElementById('terminal').scrollHeight;
   for(let i=0;i<stages.length;i++){
    stages[i].classList.add('active');progress.style.width=((i+1)*20)+'%';
-   const [a,b]=logs[i];lines.innerHTML+=`<div><span style="color:#54d9ff">[${String(i+1).padStart(2,'0')}]</span> ${a}</div><div style="color:#617b91">↳ ${b}</div>`;lines.scrollTop=lines.scrollHeight;
+   const [a,b]=logs[i];lines.innerHTML+=`<div><span style="color:#54d9ff">[${String(i+1).padStart(2,'0')}]</span> ${a}</div><div style="color:#617b91">↳ ${b}</div>`;document.getElementById('terminal').scrollTo({top:document.getElementById('terminal').scrollHeight,behavior:'smooth'});
    await new Promise(r=>setTimeout(r,750));stages[i].classList.remove('active');stages[i].classList.add('done');
   }
-  state.textContent='SUCCESS';run.textContent='✓ Deployment complete — run again';busy=false;run.disabled=false;lines.innerHTML+='<div style="color:#39ff88;margin-top:6px">✓ Pipeline completed successfully</div>';
+  state.textContent='SUCCESS';run.textContent='✓ Deployment complete — run again';busy=false;run.disabled=false;lines.innerHTML+='<div style="color:#39ff88;margin-top:6px">✓ Pipeline completed successfully</div>';document.getElementById('terminal').scrollTo({top:document.getElementById('terminal').scrollHeight,behavior:'smooth'});
  }
  window.runDeploymentPipeline=runPipeline;
  document.addEventListener('click',e=>{const run=e.target.closest('#run');if(run){e.preventDefault();e.stopImmediatePropagation();runPipeline();}},true);
@@ -804,14 +911,14 @@ window.addEventListener('deviceorientation',e=>{if(e.gamma==null)return;document
     run.textContent='⟳ Running deployment pipeline...';
     stages.forEach(function(n){n.classList.remove('active','done');});
     progress.style.width='0%';
-    lines.innerHTML='<div style="color:#54d9ff">[00] Push received</div><div style="color:#617b91">↳ Triggering CI/CD pipeline...</div>';
+    lines.innerHTML='<div style="color:#54d9ff">[00] Push received</div><div style="color:#617b91">↳ Triggering CI/CD pipeline...</div>';document.getElementById('terminal').scrollTop=document.getElementById('terminal').scrollHeight;
 
     for(var i=0;i<stages.length;i++){
       stages[i].classList.add('active');
       progress.style.width=((i+1)*20)+'%';
       lines.innerHTML += '<div><span style="color:#54d9ff">['+String(i+1).padStart(2,'0')+']</span> '+logs[i][0]+'</div>'+
                          '<div style="color:#617b91">↳ '+logs[i][1]+'</div>';
-      lines.scrollTop=lines.scrollHeight;
+      document.getElementById('terminal').scrollTo({top:document.getElementById('terminal').scrollHeight,behavior:'smooth'});
       await sleep(700);
       stages[i].classList.remove('active');
       stages[i].classList.add('done');
@@ -842,4 +949,44 @@ window.addEventListener('deviceorientation',e=>{if(e.gamma==null)return;document
 })();
 </script>
 
-<script id="experience-accordion-js">document.querySelectorAll('#experience .expItem').forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;document.querySelectorAll('#experience .expItem').forEach(function(other){if(other!==item)other.open=false})})});</script></body></html>
+<script id="experience-accordion-js">document.querySelectorAll('#experience .expItem').forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;document.querySelectorAll('#experience .expItem').forEach(function(other){if(other!==item)other.open=false})})});</script>
+<script id="last-section-trigger-fix">
+(function () {
+  function revealLastSection() {
+    var sections = document.querySelectorAll('section');
+    var last = sections[sections.length - 1];
+    if (!last) return;
+    last.classList.add('reveal');
+    requestAnimationFrame(function () {
+      last.classList.add('visible', 'active', 'show', 'in-view');
+    });
+  }
+
+  function initLastSectionFix() {
+    revealLastSection();
+
+    var sections = document.querySelectorAll('section');
+    var last = sections[sections.length - 1];
+    if (!last) return;
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible', 'active', 'show', 'in-view');
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+      observer.observe(last);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLastSectionFix);
+  } else {
+    initLastSectionFix();
+  }
+})();
+</script>
+
+</body></html>
