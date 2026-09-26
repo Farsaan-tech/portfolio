@@ -24,7 +24,7 @@
 /* experience */
 .exp{padding:16px}.expLine{position:relative;padding-left:20px}.expLine:before{content:"";position:absolute;left:4px;top:5px;bottom:4px;width:1px;background:linear-gradient(var(--cyan),transparent)}.expDot{position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px rgba(84,217,255,.8)}.exp h3{font-size:1rem;margin:0}.exp .date{font:600 9px "JetBrains Mono";color:var(--cyan);margin:5px 0 10px}.exp ul{padding-left:16px;margin:0;color:#a9bdd0;font-size:.82rem;line-height:1.7}
 /* mini knowledge interactions */
-.deck{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.cardFlip{min-height:96px;perspective:800px}.flipInner{height:100%;position:relative;transition:transform .55s;transform-style:preserve-3d}.cardFlip.open .flipInner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);border-radius:15px;background:rgba(10,21,35,.7);padding:10px;display:flex;flex-direction:column;justify-content:center}.face b{font-size:10px}.face small{color:var(--muted);font-size:8px;margin-top:5px}.back{transform:rotateY(180deg);border-color:rgba(66,245,167,.25);background:rgba(14,39,32,.65);color:#c9ffe8}.back small{color:#a9dfc7}
+.deck{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.cardFlip{height:180px;min-height:180px;perspective:800px;cursor:pointer}.flipInner{height:100%;position:relative;transition:transform .55s;transform-style:preserve-3d}.cardFlip.open .flipInner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);border-radius:15px;background:rgba(10,21,35,.7);padding:10px;display:flex;flex-direction:column;justify-content:center}.face b{font-size:10px}.face small{color:var(--muted);font-size:8px;margin-top:5px}.back{transform:rotateY(180deg);border-color:rgba(66,245,167,.25);background:rgba(14,39,32,.65);color:#c9ffe8}.back small{color:#a9dfc7}
 footer{padding:22px 0 40px;text-align:center;color:#7890a6;font-size:10px}.social{display:flex;justify-content:center;gap:8px;margin-bottom:10px}
 .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}.reveal.show{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
@@ -452,67 +452,121 @@ section.hero .heroTerminal{
 @keyframes terminalBlink{50%{opacity:0}}
 </style>
 
-<style id="desktop-fullscreen-sections-fix">
-@media (min-width: 1051px){
-  .section.wrap,
-  .skillsLabSquare{
-    width:92vw!important;
-    max-width:1400px!important;
-  }
+<style id="farsaan-advanced-desktop">
+@media(min-width:901px){
+  body{background:#010403!important}
+  .desktopNav{max-width:1320px!important;margin:16px auto 0!important;padding:11px 16px!important;border-color:rgba(57,255,136,.18)!important;box-shadow:0 0 0 1px rgba(57,255,136,.025),0 18px 70px rgba(0,0,0,.45)!important}
+  .desktopNav nav a{position:relative;transition:.22s!important}
+  .desktopNav nav a:after{content:"";position:absolute;left:9px;right:9px;bottom:1px;height:1px;background:#39ff88;transform:scaleX(0);transform-origin:left;transition:.22s}
+  .desktopNav nav a:hover{color:#d9ffe8!important}.desktopNav nav a:hover:after{transform:scaleX(1)}
+  section.hero{max-width:1320px!important;margin:0 auto!important;padding:76px 0 100px!important;min-height:800px!important}
+  section.hero>.wrap{max-width:none!important;padding:0!important}
+  section.hero .heroCard{min-height:620px!important;padding:58px!important;border-radius:30px!important;border-color:rgba(57,255,136,.17)!important;background:radial-gradient(circle at 74% 45%,rgba(57,255,136,.07),transparent 30%),linear-gradient(135deg,rgba(6,19,12,.98),rgba(2,7,5,.93))!important;box-shadow:0 40px 120px rgba(0,0,0,.58),inset 0 0 90px rgba(57,255,136,.025)!important}
+  section.hero .heroCard:after{content:"01 / BOOT SEQUENCE";position:absolute;right:24px;top:18px;color:#335746;font:8px ui-monospace,monospace;letter-spacing:.2em}
+  section.hero .pfp{width:190px!important;height:190px!important;border-radius:28px!important;border:1px solid rgba(57,255,136,.25)!important;box-shadow:0 0 0 8px rgba(57,255,136,.02),0 20px 80px rgba(0,0,0,.5),0 0 45px rgba(57,255,136,.09)!important}
+  section.hero .eyebrow,section.hero .role{display:none!important}
+  section.hero h1{font:800 clamp(52px,6vw,88px)/.94 Inter,sans-serif!important;letter-spacing:-.055em!important;color:#ecfff3!important;margin:20px 0 14px!important}
+  section.hero h1:after{content:"";display:block;width:105px;height:2px;margin-top:22px;background:linear-gradient(90deg,#39ff88,transparent)}
+  section.hero .status{margin-top:18px!important;border-radius:8px!important;padding:9px 12px!important;background:rgba(57,255,136,.035)!important;border-color:rgba(57,255,136,.18)!important}
+  section.hero .heroTerminal{min-height:330px!important;border-radius:18px!important;border-color:rgba(57,255,136,.25)!important;background:#010302!important}
+  section.hero .heroTerminalBody{min-height:270px!important;padding:20px 22px!important;font-size:11px!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+  #heroOutput{min-height:190px!important;max-height:205px!important;overflow:hidden!important}
 
-  .section.wrap{
-    min-height:70vh!important;
-    display:flex!important;
-    flex-direction:column!important;
-    justify-content:center!important;
-    box-sizing:border-box!important;
-    padding:70px 0!important;
-    margin-top:35px!important;
-    margin-bottom:35px!important;
-  }
+  .section.wrap,.lab.wrap,.skillsLabSquare{max-width:1320px!important}
+  .section{margin-top:110px!important;margin-bottom:110px!important}
+  .sectionHead{margin-bottom:22px!important}
+  .sectionHead h2{font-size:26px!important;letter-spacing:-.025em!important}
+  .sectionHead span{color:#496858!important}
 
-  #projects .projects{
-    gap:24px!important;
-  }
-  #projects .project{
-    min-height:300px!important;
-    padding:28px!important;
-    display:flex!important;
-    flex-direction:column!important;
-    justify-content:center!important;
-  }
-  #projects .project h3{font-size:22px!important}
-  #projects .project p{font-size:15px!important;line-height:1.7!important}
+  #about .about{max-width:1000px!important;padding:25px 28px!important;font-size:15px!important;line-height:1.9!important;border-radius:18px!important;border-color:rgba(57,255,136,.14)!important;background:linear-gradient(120deg,rgba(7,20,13,.82),rgba(3,9,6,.62))!important}
 
-  #experience .exp{
-    min-height:300px!important;
-    padding:38px!important;
-    display:flex!important;
-    align-items:center!important;
-  }
-  #experience .exp h3{font-size:22px!important}
-  #experience .exp li{font-size:15px!important;line-height:1.8!important}
+  #projects .projects{display:grid!important;grid-template-columns:repeat(3,1fr)!important;overflow:visible!important;gap:18px!important}
+  #projects .project{min-width:0!important;min-height:250px!important;padding:25px!important;border-radius:18px!important;border-color:rgba(57,255,136,.12)!important;background:linear-gradient(145deg,rgba(7,20,13,.88),rgba(2,8,5,.76))!important}
+  #projects .project h3{font-size:17px!important;margin-bottom:13px!important}
+  #projects .project p{font-size:12px!important;line-height:1.8!important;color:#7e998a!important}
+  #projects .project .tags{margin-top:22px!important}
+  #projects .project:before{content:"OPEN ARCHITECTURE →";position:absolute;bottom:22px;right:22px;font:8px ui-monospace,monospace;color:#456554;letter-spacing:.12em}
 
-  #quicklab .deck{gap:24px!important}
-  #quicklab .cardFlip{min-height:280px!important}
+  #skills-lab-square{margin:130px auto!important;padding:0 0 30px!important}
+  #skills-lab-square .squareHeading h2{font-size:36px!important}
+  #skills-lab-square .squareHeading p{font-size:12px!important;color:#577262!important}
+  #skills-lab-square .squareStage{height:860px!important}
+  #skills-lab-square .squareFrame{width:850px!important;height:850px!important;border-color:rgba(57,255,136,.09)!important;box-shadow:inset 0 0 100px rgba(57,255,136,.025),0 0 70px rgba(57,255,136,.025)!important}
+  #skills-lab-square .squareTool{width:142px!important;height:54px!important;background:rgba(2,10,6,.96)!important;border-color:rgba(57,255,136,.16)!important;box-shadow:0 10px 35px rgba(0,0,0,.32)!important}
+  #skills-lab-square .squareTool:hover{border-color:rgba(57,255,136,.55)!important;box-shadow:0 0 24px rgba(57,255,136,.12),0 10px 35px rgba(0,0,0,.4)!important;z-index:40}
+  #skills-lab-square .squareLab{width:540px!important}
+  #skills-lab-square .squareLab .console{border-radius:18px!important;border-color:rgba(57,255,136,.24)!important;background:#010403!important;box-shadow:0 30px 90px rgba(0,0,0,.62),0 0 50px rgba(57,255,136,.055)!important}
+  #skills-lab-square .squareLab .terminal{min-height:210px!important;padding:18px!important}
+  #skills-lab-square .squareLab .pipeline{padding:0 18px 18px!important}
+  #skills-lab-square .squareLab .run{margin:16px 18px 18px!important;width:calc(100% - 36px)!important;border-color:rgba(57,255,136,.35)!important;background:linear-gradient(90deg,rgba(57,255,136,.09),rgba(84,217,255,.05))!important}
 
-  #skills-lab-square{
-    min-height:100vh!important;
-    display:flex!important;
-    flex-direction:column!important;
-    justify-content:center!important;
-    box-sizing:border-box!important;
-  }
-  .squareStage{height:min(78vh,900px)!important;min-height:760px!important}
-  .squareFrame{width:min(760px,62vw)!important;height:min(760px,62vw)!important}
+  #experience .exp{padding:28px 32px!important;border-radius:18px!important;border-color:rgba(57,255,136,.13)!important;background:linear-gradient(145deg,rgba(7,20,13,.84),rgba(2,8,5,.7))!important}
+  #experience .exp h3{font-size:18px!important}
+  #experience .exp ul{font-size:13px!important;line-height:1.9!important;color:#819b8b!important}
+
+  #quicklab .deck{grid-template-columns:repeat(3,1fr)!important;gap:16px!important}
+  #quicklab .cardFlip{height:180px!important;min-height:180px!important;cursor:pointer!important}
+  #quicklab .face{padding:22px!important;border-radius:16px!important;background:linear-gradient(145deg,rgba(7,20,13,.84),rgba(2,8,5,.7))!important}
+  #quicklab .face b{font:700 15px ui-monospace,monospace!important}
+  #quicklab .face small{font-size:10px!important;line-height:1.6!important}
+
+  .fxRail{display:flex!important}
 }
+@media(max-width:900px){.fxModal{padding:12px!important}.fxModalBox{width:100%!important}}
 
-@media (min-width:1500px){
-  .section.wrap,.skillsLabSquare{max-width:1500px!important}
-  .hero{min-height:88vh!important}
-}
+.fxHud{position:fixed;right:18px;bottom:18px;z-index:70;padding:8px 11px;border:1px solid rgba(57,255,136,.12);border-radius:8px;background:rgba(1,6,3,.78);backdrop-filter:blur(10px);font:8px ui-monospace,monospace;color:#527060;letter-spacing:.08em}.fxHud b{color:#39ff88;font-weight:600}.fxHud i{display:inline-block;width:5px;height:5px;background:#39ff88;border-radius:50%;margin-right:5px;box-shadow:0 0 8px #39ff88}
+.fxModal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;background:rgba(0,3,2,.78);backdrop-filter:blur(18px);padding:30px}.fxModal.open{display:flex}.fxModalBox{width:min(1000px,92vw);max-height:88vh;overflow:auto;border:1px solid rgba(57,255,136,.24);border-radius:20px;background:linear-gradient(145deg,#06120b,#020604);box-shadow:0 40px 130px rgba(0,0,0,.75)}
+.fxModalTop{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgba(57,255,136,.1);font:10px ui-monospace,monospace;color:#648172}.fxClose{border:1px solid rgba(57,255,136,.18);background:#06110a;color:#9ec4ad;border-radius:7px;padding:6px 10px;cursor:pointer}.fxModalBody{padding:25px}.fxModalBody h2{font-size:28px;margin:0 0 7px}.fxModalBody .sub{font:10px ui-monospace,monospace;color:#4f715e;margin-bottom:25px}.fxArch{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:center}.fxNode{position:relative;text-align:center;padding:20px 8px;border:1px solid rgba(57,255,136,.14);border-radius:12px;background:rgba(57,255,136,.025);font:10px ui-monospace,monospace}.fxNode:not(:last-child):after{content:"→";position:absolute;right:-15px;top:50%;color:#39ff88}.fxNode strong{display:block;color:#d9ffe6;font-size:11px}.fxNode span{display:block;color:#50715e;font-size:8px;margin-top:5px}.fxCode{margin-top:22px;padding:18px;border:1px solid rgba(57,255,136,.11);border-radius:12px;background:#010302;color:#8eab99;font:10px/1.9 ui-monospace,monospace}.fxCode b{color:#39ff88}.fxStats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.fxStat{padding:14px;border:1px solid rgba(57,255,136,.1);border-radius:10px}.fxStat small{display:block;color:#456252;font:8px ui-monospace,monospace}.fxStat strong{color:#c9e8d3;font:700 16px ui-monospace,monospace}
+.fxIncident{margin-top:16px;padding:20px;border:1px solid rgba(255,200,87,.18);border-radius:14px;background:linear-gradient(135deg,rgba(55,35,5,.25),rgba(3,8,5,.8))}.fxIncident h3{margin:0 0 8px;color:#ffc857;font:700 12px ui-monospace,monospace}.fxIncident p{margin:0;color:#78907f;font:10px/1.7 ui-monospace,monospace}.fxActions{display:flex;gap:8px;margin-top:13px}.fxAction{border:1px solid rgba(57,255,136,.18);background:#06110a;color:#91b29e;padding:8px 10px;border-radius:7px;font:9px ui-monospace,monospace;cursor:pointer}.fxAction:hover{border-color:#39ff88;color:#dffff0}.fxResult{margin-top:10px;min-height:20px;color:#39ff88;font:9px ui-monospace,monospace}
 </style>
-</head><body><div id="top"></div>
+<style id="creative-upgrades">
+/* education cards + certificate viewer */
+.educationGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.eduCard{position:relative;overflow:hidden;padding:18px;min-height:245px;display:flex;flex-direction:column;justify-content:space-between}
+.eduCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(84,217,255,.13),transparent 32%),linear-gradient(135deg,transparent,rgba(255,255,255,.018));pointer-events:none}
+.eduCard.pg:before{background:radial-gradient(circle at 90% 10%,rgba(156,124,255,.16),transparent 32%),linear-gradient(135deg,transparent,rgba(255,255,255,.018))}
+.eduTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;position:relative;z-index:1}
+.eduIcon{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(84,217,255,.28);border-radius:13px;background:rgba(84,217,255,.07);color:var(--cyan);font-size:18px;box-shadow:0 0 22px rgba(84,217,255,.08)}
+.eduCard.pg .eduIcon{border-color:rgba(156,124,255,.32);background:rgba(156,124,255,.08);color:var(--violet)}
+.eduBadge{font:700 8px "JetBrains Mono";letter-spacing:1px;color:#bcefff;border:1px solid rgba(84,217,255,.2);background:rgba(84,217,255,.05);padding:6px 8px;border-radius:999px}
+.eduCard.pg .eduBadge{color:#d8cbff;border-color:rgba(156,124,255,.24);background:rgba(156,124,255,.05)}
+.eduBody{position:relative;z-index:1;margin-top:18px}.eduBody h3{font-size:1.05rem;line-height:1.35;margin:0 0 8px}.eduUni{font-weight:700;color:#dcecff;font-size:.82rem}.eduMeta{font:600 9px "JetBrains Mono";color:var(--cyan);margin-top:7px}.eduCard.pg .eduMeta{color:#bdaaff}.eduDesc{font-size:.8rem;line-height:1.6;color:#9fb4c8;margin:12px 0 0}.certificateBtn{position:relative;z-index:1;margin-top:18px;width:100%;border:1px solid rgba(84,217,255,.32);background:linear-gradient(135deg,rgba(84,217,255,.11),rgba(66,245,167,.06));color:#eaf8ff;border-radius:12px;padding:10px 12px;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:.22s}.eduCard.pg .certificateBtn{border-color:rgba(156,124,255,.32);background:linear-gradient(135deg,rgba(156,124,255,.12),rgba(84,217,255,.05))}.certificateBtn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(84,217,255,.10)}.certificateBtn:active{transform:scale(.98)}
+@media(max-width:650px){.educationGrid{grid-template-columns:1fr}.eduCard{min-height:225px}}
+/* opening loader */
+.siteLoader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#050b14;transition:opacity .55s ease,visibility .55s ease}.siteLoader.hide{opacity:0;visibility:hidden;pointer-events:none}.loaderBox{width:min(360px,82vw);padding:22px;border:1px solid rgba(84,217,255,.2);border-radius:20px;background:rgba(8,18,31,.88);box-shadow:0 25px 80px rgba(0,0,0,.45);text-align:center}.loaderLogo{font:800 24px "JetBrains Mono";letter-spacing:2px;color:#eaf4ff}.loaderLogo span{color:var(--cyan)}.loaderText{margin-top:9px;font:600 9px "JetBrains Mono";letter-spacing:1.6px;color:var(--muted)}.loaderTrack{height:3px;margin-top:17px;border-radius:10px;background:#182a3c;overflow:hidden}.loaderBar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));box-shadow:0 0 16px var(--cyan);animation:loadBar 1.15s cubic-bezier(.65,.05,.35,1) forwards}@keyframes loadBar{to{width:100%}}.loaderDots{display:flex;justify-content:center;gap:5px;margin-top:13px}.loaderDots i{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:loaderDot 1s infinite}.loaderDots i:nth-child(2){animation-delay:.15s}.loaderDots i:nth-child(3){animation-delay:.3s}@keyframes loaderDot{50%{opacity:.25;transform:translateY(3px)}}
+/* certificate modal */
+.certModal{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(1,6,12,.86);backdrop-filter:blur(12px)}.certModal.open{display:flex}.certWindow{position:relative;width:min(900px,96vw);height:min(88vh,900px);border:1px solid rgba(84,217,255,.25);border-radius:20px;background:#07111f;box-shadow:0 30px 100px rgba(0,0,0,.6);overflow:hidden}.certHead{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--line);font:700 10px "JetBrains Mono";color:#b8d1e5}.certClose{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer}.certImageWrap{height:calc(100% - 52px);display:grid;place-items:center;padding:12px;overflow:auto}.certImageWrap img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 15px 50px rgba(0,0,0,.35)}
+</style>
+<style id="scroll-achievement-css">
+/* Scroll achievement system — replaces the old side SYS navigation. */
+.achievementToast{position:fixed;left:50%;bottom:30px;z-index:115;transform:translate(-50%,18px) scale(.94);opacity:0;pointer-events:none;display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(57,255,136,.28);border-radius:14px;background:rgba(2,10,6,.88);backdrop-filter:blur(16px);box-shadow:0 18px 60px rgba(0,0,0,.5),0 0 35px rgba(57,255,136,.08);font:700 10px ui-monospace,monospace;letter-spacing:.08em;color:#cffff0;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.achievementToast.show{opacity:1;transform:translate(-50%,0) scale(1)}
+.achievementIcon{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;color:#031008;background:#39ff88;box-shadow:0 0 20px rgba(57,255,136,.38);font-size:13px}
+.achievementText small{display:block;color:#547665;font-size:7px;margin-bottom:3px}.achievementText b{font-size:10px;color:#dffff0}
+.scrollWin{position:relative}.scrollWin:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#39ff88,transparent);box-shadow:0 0 18px #39ff88;transition:transform 1s ease}.scrollWin.completed:after{transform:scaleX(1)}
+.section.completed .sectionHead h2:after{content:" ✓";color:#39ff88;font-size:.7em}
+.winSpark{position:fixed;z-index:114;width:4px;height:4px;border-radius:50%;background:#39ff88;pointer-events:none;animation:winSpark .9s ease-out forwards;box-shadow:0 0 10px #39ff88}
+@keyframes winSpark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.15)}}
+@media(max-width:600px){.achievementToast{bottom:18px;width:max-content;max-width:calc(100vw - 30px)} }
+</style></head><body>
+<div class="siteLoader" id="siteLoader" aria-label="Loading portfolio"><div class="loaderBox"><div class="loaderLogo">FARSAAN<span>.</span>DEVOPS</div><div class="loaderText" id="loaderText">INITIALIZING PORTFOLIO</div><div class="loaderTrack"><div class="loaderBar"></div></div><div class="loaderDots"><i></i><i></i><i></i></div></div></div>
+<div class="fxRail" aria-label="Section navigation">
+ <a href="#top" title="Home"></a><a href="#about" title="About"></a><a href="#projects" title="Projects"></a><a href="#skills-lab-square" title="Skills"></a><a href="#experience" title="Experience"></a><a href="#quicklab" title="Quick Lab"></a>
+</div>
+<div class="fxHud"><i></i>SYSTEM <b>ONLINE</b> · <span id="fxClock">--:--:--</span></div>
+<div class="fxModal" id="fxModal" aria-hidden="true">
+ <div class="fxModalBox">
+  <div class="fxModalTop"><span id="fxModalLabel">PROJECT / ARCHITECTURE</span><button class="fxClose" id="fxClose">ESC / CLOSE</button></div>
+  <div class="fxModalBody">
+   <h2 id="fxTitle">Project Architecture</h2><div class="sub" id="fxSub">INTERACTIVE SYSTEM VIEW</div>
+   <div class="fxArch" id="fxArch"></div>
+   <div class="fxStats"><div class="fxStat"><small>DELIVERY</small><strong>CI/CD</strong></div><div class="fxStat"><small>RUNTIME</small><strong>CONTAINERS</strong></div><div class="fxStat"><small>PLATFORM</small><strong>CLOUD</strong></div></div>
+   <div class="fxCode" id="fxCode"></div>
+   <div class="fxIncident"><h3>PRODUCTION SIMULATION / OPTIONAL</h3><p>Investigate a simulated service issue using the same workflow used in real operations.</p><div class="fxActions"><button class="fxAction" data-act="logs">INSPECT LOGS</button><button class="fxAction" data-act="pods">CHECK PODS</button><button class="fxAction" data-act="health">RUN HEALTHCHECK</button></div><div class="fxResult" id="fxResult"></div></div>
+  </div>
+ </div>
+</div>
+<div id="top"></div><div class="achievementToast" id="achievementToast" aria-live="polite"><div class="achievementIcon">✓</div><div class="achievementText"><small id="achievementLabel">MISSION PROGRESS</small><b id="achievementMessage">Section complete</b></div></div>
 <header class="desktopNav" style="position:sticky;top:12px;z-index:100;max-width:1240px;margin:12px auto 0;padding:12px 18px;border:1px solid rgba(57,255,136,.22);border-radius:14px;background:rgba(2,8,5,.78);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 45px rgba(0,0,0,.35)">
  <a href="#top" style="text-decoration:none;color:#39ff88;font:700 14px ui-monospace,monospace;letter-spacing:.08em">FARSAAN.TECH</a>
  <nav style="display:flex;gap:8px;flex-wrap:wrap">
@@ -523,7 +577,7 @@ section.hero .heroTerminal{
   <a href="#projects" style="text-decoration:none;color:#9dbda7;font:11px ui-monospace,monospace;padding:7px 9px">PROJECTS</a>
  </nav>
 </header>
-<section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img class="pfp" src="code.jpg" alt="Profile"><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div class="heroTerminal" aria-label="Interactive terminal">
+<section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img class="pfp" src="code.jpg" alt="Profile"><div class="eyebrow">DEVOPS ENGINEER / CLOUD / AUTOMATION</div><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div class="heroTerminal" aria-label="Interactive terminal">
   <div class="heroTerminalTop"><span>●</span><span>●</span><span>●</span><b>farsaan@portfolio:~</b></div>
   <div class="heroTerminalBody">
   <div><span class="prompt">$</span> <span id="heroCmd">git status</span><span class="cursor"></span></div>
@@ -535,13 +589,12 @@ section.hero .heroTerminal{
     <div class="ok">✓ repository ready</div>
   </div>
 </div></div>
-</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="projects"><div class="sectionHead"><h2>Projects</h2><span>SWIPE →</span></div><div class="projects"><article class="glass project"><h3>Kubernetes Cluster Deployment</h3><p>Deployed a Kubernetes cluster on AWS using Terraform & Ansible. CI/CD with Jenkins & Argo CD.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span></div></article><article class="glass project"><h3>AWS Cloud Migration</h3><p>Migrated on‑prem app to AWS. Security & monitoring with IAM, CloudTrail, CloudWatch.</p><div class="tags"><span class="tag">AWS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div></article><article class="glass project"><h3>CI/CD Pipeline Implementation</h3><p>Built CI/CD pipelines; integrated Docker & Kubernetes for deployments.</p><div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></article></div></section><section id="skills-lab-square" class="skillsLabSquare">
+</div><div class="status"><i class="dot"></i> Interactive environment online</div></div></div></section><section class="section wrap reveal" id="about"><div class="sectionHead"><h2>About</h2><span>PROFILE</span></div><div class="glass about">I'm <strong>Farsaan Siddiqui Syed</strong>, a DevOps Engineer specializing in cloud services, CI/CD, and container orchestration using <strong>AWS</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>. I'm focused on automation, reliability, and efficient delivery. I love exploring new tech, contributing to open source, and mentoring.</div></section><section class="section wrap reveal" id="projects"><div class="sectionHead"><h2>Projects</h2><span>SWIPE →</span></div><div class="projects"><article class="glass project"><h3>Kubernetes Cluster Deployment</h3><p>Deployed a Kubernetes cluster on AWS using Terraform & Ansible. CI/CD with Jenkins & Argo CD.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span></div></article><article class="glass project"><h3>AWS Cloud Migration</h3><p>Migrated on‑prem app to AWS. Security & monitoring with IAM, CloudTrail, CloudWatch.</p><div class="tags"><span class="tag">AWS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div></article><article class="glass project"><h3>CI/CD Pipeline Implementation</h3><p>Built CI/CD pipelines; integrated Docker & Kubernetes for deployments.</p><div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></article></div></section><section class="section wrap reveal" id="education"><div class="sectionHead"><h2>Education</h2><span>ACADEMIC RECORD</span></div><div class="educationGrid"><article class="glass eduCard" id="eduGraduation"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-graduation-cap"></i></div><span class="eduBadge">UNDERGRADUATE</span></div><div class="eduBody"><h3>Bachelor of Commerce (B.Com.)</h3><div class="eduUni">Osmania University</div><div class="eduMeta">DECEMBER 2021 · CGPA 7.72</div><p class="eduDesc">Medium of instruction: English. Completed under the Choice Based Credit System.</p></div></div><button class="certificateBtn" type="button" data-certificate="images/graduation.jpg" data-title="Bachelor of Commerce — Certificate"><i class="fa-regular fa-file-image"></i> View Certificate</button></article><article class="glass eduCard pg" id="eduPg"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-award"></i></div><span class="eduBadge">POSTGRADUATE</span></div><div class="eduBody"><h3>Postgraduate Certificate</h3><div class="eduUni">Roehampton University</div><div class="eduMeta">GLOBAL BUSINESS MANAGEMENT · 06 SEP 2023</div><p class="eduDesc">Postgraduate Certificate in Global Business Management, awarded after completion of the programme of study.</p></div></div><button class="certificateBtn" type="button" data-certificate="images/pg-certificate.jpg" data-title="Postgraduate Certificate — Global Business Management"><i class="fa-regular fa-file-image"></i> View Certificate</button></article></div></section><section id="skills-lab-square" class="skillsLabSquare">
 <div class="squareHeading">
- <div class="squareEyebrow">MY SKILLS</div>
  <h2>My Skills</h2>
  <p>Tools and technologies I work with.</p>
 </div>
-<div class="squareStage">
+<div class="squareStage"><svg class="fxSquareLines" viewBox="0 0 1000 860" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none"><defs><linearGradient id="fxLine" x1="0" x2="1"><stop stop-color="#39ff88" stop-opacity=".06"/><stop offset=".5" stop-color="#39ff88" stop-opacity=".35"/><stop offset="1" stop-color="#54d9ff" stop-opacity=".08"/></linearGradient><filter id="fxGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g fill="none" stroke="url(#fxLine)" stroke-width="1"><path d="M75 45 H925 V815 H75 Z"/><path d="M75 45 L430 430 M925 45 L570 430 M925 815 L570 430 M75 815 L430 430"/><path d="M265 45 L465 430 M735 45 L535 430 M735 815 L535 430 M265 815 L465 430"/></g><g fill="#39ff88" filter="url(#fxGlow)"><circle cx="430" cy="430" r="2"/><circle cx="570" cy="430" r="2"/></g></svg>
  <div class="squareFrame"></div>
  <div class="squareLab"><section class="lab wrap reveal" id="lab"><div class="labHead"><div><div class="kicker">LIVE SIMULATION / 01</div><div class="labTitle">Deployment Lab</div></div><div class="hint">Tap. Observe. Learn.</div></div><div class="console"><div class="consoleTop"><div class="lights"><i></i><i></i><i></i></div><div class="consoleTitle">pipeline@farsaan:~</div><span class="kicker" id="buildState">READY</span></div><div class="terminal" id="terminal"><div><span class="prompt">$</span> <span class="cmd">git push origin main</span></div><div id="terminalLines"><span style="color:#617b91">Waiting for deployment trigger...</span></div><div><span class="prompt">$</span> <span class="cursor"></span></div></div><div class="pipeline"><div class="track"><i id="progress"></i></div><div class="nodes" id="nodes"><div class="node"><div class="nicon"><i class="fa-brands fa-github"></i></div><small>GIT</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-gears"></i></div><small>BUILD</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-docker"></i></div><small>IMAGE</small></div><div class="node"><div class="nicon"><i class="fa-solid fa-cubes"></i></div><small>K8S</small></div><div class="node"><div class="nicon"><i class="fa-brands fa-aws"></i></div><small>AWS</small></div></div></div><button class="run" id="run">▶ Push code & run pipeline</button></div></section></div>
  <div class="squareTools"><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt=""></div><span class="toolName">Git</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Apache-Maven.svg" alt=""></div><span class="toolName">Maven</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/svg/Argo-CD.svg" alt=""></div><span class="toolName">Argo CD</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt=""></div><span class="toolName">Jenkins</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt=""></div><span class="toolName">Docker</span></div><div class="squareTool"><div class="toolIcon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt=""></div><span class="toolName">Kubernetes</span></div><div class="squareTool"><div class="toolIcon"><img src="https://www.svgrepo.com/show/349298/ansible.svg" alt=""></div><span class="toolName">Ansible</span></div><div class="squareTool"><div class="toolIcon">
@@ -552,19 +605,42 @@ section.hero .heroTerminal{
 </svg>
 </div><span class="toolName">AWS</span></div><div class="squareTool"><div class="toolIcon"><img src="https://icon.icepanel.io/Technology/png-shadow-512/Apache-Tomcat.png" alt=""></div><span class="toolName">Apache Tomcat</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt=""></div><span class="toolName">Nginx</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt=""></div><span class="toolName">Terraform</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg" alt=""></div><span class="toolName">Linux / CentOS</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt=""></div><span class="toolName">Windows / Ubuntu</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt=""></div><span class="toolName">MySQL / RDS</span></div><div class="squareTool"><div class="toolIcon"><i class="fa-solid fa-terminal"></i></div><span class="toolName">Bash / Shell</span></div><div class="squareTool"><div class="toolIcon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt=""></div><span class="toolName">Azure</span></div></div></div>
 </div>
-</section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2021 — PRESENT</span></div><div class="glass exp"><div class="expLine"><i class="expDot"></i><h3>DevOps Engineer — Frontline Login System Pvt. Ltd.</h3><div class="date">Dec 2021 – Present • Hyderabad</div><ul><li>Designed & operated scalable, secure systems on AWS & Kubernetes.</li><li>Implemented CI/CD with Jenkins & Argo CD; improved deployment speed.</li><li>Monitoring, incident response, & performance optimization.</li></ul></div></div></section><section class="section wrap reveal" id="quicklab"><div class="sectionHead"><h2>DevOps Quick Lab</h2><span>TAP TO FLIP</span></div><div class="deck"><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why CI/CD?</b><small>Tap to reveal</small></div><div class="face back"><b>Fast feedback</b><small>Automate build, test and delivery.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why Docker?</b><small>Tap to reveal</small></div><div class="face back"><b>Consistency</b><small>Package app + dependencies together.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why K8s?</b><small>Tap to reveal</small></div><div class="face back"><b>Orchestration</b><small>Schedule, scale and heal workloads.</small></div></div></div></div></section><script>
+</section><section class="section wrap reveal" id="experience"><div class="sectionHead"><h2>Experience</h2><span>DEC 2023 — PRESENT</span></div><div class="glass exp"><div class="expLine"><i class="expDot"></i><h3>DevOps Engineer</h3><div class="date">Jan 2026 – Present</div><ul><li>Working on DevOps engineering, cloud infrastructure, automation, CI/CD, containers, and deployment operations.</li></ul></div><div class="expLine" style="margin-top:24px"><i class="expDot"></i><h3>Junior DevOps Associate</h3><div class="date">May 2025 – Dec 2025</div><ul><li>Worked on DevOps practices, CI/CD, infrastructure, and deployment support.</li></ul></div><div class="expLine" style="margin-top:24px"><i class="expDot"></i><h3>Software Associate</h3><div class="date">Jul 2024 – Apr 2025</div><ul><li>Worked in software development and application support activities.</li></ul></div><div class="expLine" style="margin-top:24px"><i class="expDot"></i><h3>Sys Administrator</h3><div class="date">Dec 2023 – Jun 2024 • Remote</div><ul><li>Worked on system administration and IT infrastructure support.</li></ul></div></div></section><div class="certModal" id="certModal" aria-hidden="true"><div class="certWindow" role="dialog" aria-modal="true" aria-label="Certificate viewer"><div class="certHead"><span id="certTitle">CERTIFICATE</span><button class="certClose" id="certClose" type="button" aria-label="Close certificate">×</button></div><div class="certImageWrap"><img id="certImage" src="" alt="Certificate"></div></div></div><section class="section wrap reveal" id="quicklab"><div class="sectionHead"><h2>DevOps Quick Lab</h2><span>TAP TO FLIP</span></div><div class="deck"><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why CI/CD?</b><small>Tap to reveal</small></div><div class="face back"><b>Fast feedback</b><small>Automate build, test and delivery.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why Docker?</b><small>Tap to reveal</small></div><div class="face back"><b>Consistency</b><small>Package app + dependencies together.</small></div></div></div><div class="cardFlip"><div class="flipInner"><div class="face"><b>Why K8s?</b><small>Tap to reveal</small></div><div class="face back"><b>Orchestration</b><small>Schedule, scale and heal workloads.</small></div></div></div></div></section><script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+// opening animation
+window.addEventListener('load',()=>{setTimeout(()=>$('#siteLoader')?.classList.add('hide'),1250)});
+// certificate viewer
+const certModal=$('#certModal'), certImage=$('#certImage'), certTitle=$('#certTitle');
+$$('.certificateBtn').forEach(btn=>btn.addEventListener('click',()=>{certImage.src=btn.dataset.certificate;certImage.alt=btn.dataset.title;certTitle.textContent=btn.dataset.title.toUpperCase();certModal.classList.add('open');certModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}));
+const closeCert=()=>{certModal.classList.remove('open');certModal.setAttribute('aria-hidden','true');certImage.src='';document.body.style.overflow=''};
+$('#certClose').addEventListener('click',closeCert);certModal.addEventListener('click',e=>{if(e.target===certModal)closeCert()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&certModal.classList.contains('open'))closeCert()});
 $('#y').textContent=new Date().getFullYear();
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});$$('.reveal').forEach(e=>io.observe(e));
 // skill tilt/touch response
 $$('.skill').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(500px) rotateX(${y*-3}deg) rotateY(${x*3}deg) translateY(-2px)`});el.addEventListener('pointerleave',()=>el.style.transform='');el.addEventListener('click',()=>{el.animate([{transform:'scale(.97)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:280})})});
 // flip cards
-$$('.cardFlip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
-// deployment simulation
-const stages=$$('.node'),progress=$('#progress'),lines=$('#terminalLines'),state=$('#buildState'),run=$('#run');let busy=false;
-const logs=[['Git hook received','commit 8f2a1c detected'],['Jenkins started','pipeline: build → test'],['Docker image built','farsaan/portfolio:latest'],['Kubernetes rollout','pods: 3/3 ready'],['AWS healthy','deployment verified ✓']];
-run.addEventListener('click',async()=>{if(busy)return;busy=true;run.disabled=true;state.textContent='RUNNING';stages.forEach(n=>n.className='node');progress.style.width='0';lines.innerHTML='';for(let i=0;i<stages.length;i++){stages[i].classList.add('active');progress.style.width=(i*25+25)+'%';const [a,b]=logs[i];lines.innerHTML+=`<div><span style="color:#54d9ff">[${String(i+1).padStart(2,'0')}]</span> ${a}</div><div style="color:#617b91">↳ ${b}</div>`;await new Promise(r=>setTimeout(r,650));stages[i].classList.remove('active');stages[i].classList.add('done')}state.textContent='SUCCESS';run.textContent='✓ Deployment complete — run again';busy=false;run.disabled=false;});
+document.addEventListener('click',e=>{const card=e.target.closest('.cardFlip');if(!card)return;e.preventDefault();card.classList.toggle('open');});
+// deployment simulation — robust interactive pipeline
+(function(){
+ const logs=[['Git hook received','commit 8f2a1c detected'],['Jenkins started','pipeline: build → test'],['Docker image built','farsaan/portfolio:latest'],['Kubernetes rollout','pods: 3/3 ready'],['AWS healthy','deployment verified ✓']];
+ let busy=false;
+ async function runPipeline(){
+  if(busy)return;
+  const stages=[...document.querySelectorAll('#nodes .node')],progress=document.getElementById('progress'),lines=document.getElementById('terminalLines'),state=document.getElementById('buildState'),run=document.getElementById('run');
+  if(!stages.length||!progress||!lines||!state||!run)return;
+  busy=true;run.disabled=true;state.textContent='RUNNING';run.textContent='⟳ Running deployment pipeline...';
+  stages.forEach(n=>n.classList.remove('active','done'));progress.style.width='0%';lines.innerHTML='<div style="color:#54d9ff">[00] Trigger accepted</div><div style="color:#617b91">↳ Starting deployment pipeline...</div>';
+  for(let i=0;i<stages.length;i++){
+   stages[i].classList.add('active');progress.style.width=((i+1)*20)+'%';
+   const [a,b]=logs[i];lines.innerHTML+=`<div><span style="color:#54d9ff">[${String(i+1).padStart(2,'0')}]</span> ${a}</div><div style="color:#617b91">↳ ${b}</div>`;lines.scrollTop=lines.scrollHeight;
+   await new Promise(r=>setTimeout(r,750));stages[i].classList.remove('active');stages[i].classList.add('done');
+  }
+  state.textContent='SUCCESS';run.textContent='✓ Deployment complete — run again';busy=false;run.disabled=false;lines.innerHTML+='<div style="color:#39ff88;margin-top:6px">✓ Pipeline completed successfully</div>';
+ }
+ window.runDeploymentPipeline=runPipeline;
+ document.addEventListener('click',e=>{const run=e.target.closest('#run');if(run){e.preventDefault();e.stopImmediatePropagation();runPipeline();}},true);
+})();
 // theme
 const themeBtn=$('#themeBtn');themeBtn.addEventListener('click',()=>{document.body.classList.toggle('light');if(document.body.classList.contains('light')){document.documentElement.style.setProperty('--bg','#eef5fa');document.documentElement.style.setProperty('--text','#081522');document.documentElement.style.setProperty('--panel','rgba(255,255,255,.72)');themeBtn.innerHTML='<i class="fa-regular fa-moon"></i>'}else{document.documentElement.style.setProperty('--bg','#050b14');document.documentElement.style.setProperty('--text','#eaf4ff');themeBtn.innerHTML='<i class="fa-regular fa-sun"></i>'}});
 // subtle parallax on background
@@ -594,68 +670,169 @@ window.addEventListener('deviceorientation',e=>{if(e.gamma==null)return;document
 })();
 </script>
 
-<script id="deployment-lab-click-fix">
+<script id="farsaan-advanced-js">
 (function(){
-  function initDeploymentLab(){
-    const run=document.getElementById('run');
-    if(!run || run.dataset.interactiveFixed==='1') return;
-    run.dataset.interactiveFixed='1';
-
-    run.addEventListener('click', async function(){
-      if(run.dataset.running==='1') return;
-      run.dataset.running='1';
-      run.disabled=true;
-
-      const stages=[...document.querySelectorAll('#lab .node')];
-      const progress=document.getElementById('progress');
-      const lines=document.getElementById('terminalLines');
-      const state=document.getElementById('buildState');
-
-      const logs=[
-        ['Git hook received','commit 8f2a1c detected'],
-        ['Jenkins started','pipeline: build → test'],
-        ['Docker image built','farsaan/portfolio:latest'],
-        ['Kubernetes rollout','pods: 3/3 ready'],
-        ['AWS healthy','deployment verified ✓']
-      ];
-
-      stages.forEach(n=>n.classList.remove('active','done'));
-      if(progress) progress.style.width='0%';
-      if(lines) lines.innerHTML='';
-      if(state) state.textContent='RUNNING';
-
-      for(let i=0;i<stages.length;i++){
-        stages[i].classList.add('active');
-        if(progress) progress.style.width=((i+1)/stages.length*100)+'%';
-
-        if(lines){
-          const row=document.createElement('div');
-          row.innerHTML='<span style="color:#54d9ff">['+
-            String(i+1).padStart(2,'0')+']</span> '+logs[i][0];
-          const detail=document.createElement('div');
-          detail.style.color='#617b91';
-          detail.textContent='↳ '+logs[i][1];
-          lines.append(row,detail);
-          lines.scrollTop=lines.scrollHeight;
-        }
-
-        await new Promise(r=>setTimeout(r,650));
-        stages[i].classList.remove('active');
-        stages[i].classList.add('done');
-      }
-
-      if(state) state.textContent='SUCCESS';
-      run.textContent='✓ Deployment complete — run again';
-      run.disabled=false;
-      run.dataset.running='0';
-    });
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',initDeploymentLab);
-  }else{
-    initDeploymentLab();
-  }
+ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+ const modal=$('#fxModal'), title=$('#fxTitle'), sub=$('#fxSub'), arch=$('#fxArch'), code=$('#fxCode'), result=$('#fxResult');
+ const projects=[
+  {t:'Kubernetes Cluster Deployment',s:'AWS / TERRAFORM / ANSIBLE / JENKINS / ARGO CD',n:['GIT','JENKINS','DOCKER','KUBERNETES','AWS'],c:['git push origin main','terraform apply','ansible-playbook deploy.yml','kubectl rollout status deploy/app','✓ deployment verified']},
+  {t:'AWS Cloud Migration',s:'MIGRATION / IAM / CLOUDTRAIL / CLOUDWATCH',n:['ON-PREM','VPC','IAM','CLOUDWATCH','AWS'],c:['terraform plan','aws iam get-role','aws cloudwatch put-metric-data','aws cloudtrail lookup-events','✓ environment monitored']},
+  {t:'CI/CD Pipeline Implementation',s:'JENKINS / DOCKER / KUBERNETES / AUTOMATION',n:['COMMIT','BUILD','TEST','IMAGE','DEPLOY'],c:['git push origin main','jenkins build','docker build && push','kubectl rollout','✓ pipeline complete']}
+ ];
+ function openProject(i){const p=projects[i];title.textContent=p.t;sub.textContent=p.s;arch.innerHTML=p.n.map((n,j)=>`<div class="fxNode"><strong>${n}</strong><span>STAGE ${String(j+1).padStart(2,'0')}</span></div>`).join('');code.innerHTML=p.c.map((x,j)=>`<div><b>${j===p.c.length-1?'':'$'}</b> ${x}</div>`).join('');result.textContent='';modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+ function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+ $$('.project').forEach((el,i)=>{el.addEventListener('click',()=>openProject(i));el.setAttribute('tabindex','0');el.addEventListener('keydown',e=>{if(e.key==='Enter')openProject(i)})});
+ $('#fxClose').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+ $$('.fxAction').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.act;result.textContent=a==='logs'?'[logs] upstream timeout → retry policy triggered':a==='pods'?'[pods] 4/5 ready → one pod restarting':'[health] /api/health → HTTP 200 · latency 184ms'}));
+ // Scroll-aware rail.
+ const sections=['top','about','projects','skills-lab-square','experience','quicklab'].map(id=>$('#'+id)).filter(Boolean), dots=$$('.fxRail a');
+ const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dots.forEach((d,j)=>d.classList.toggle('active',j===i))}}),{threshold:.35});sections.forEach(x=>sio.observe(x));
+ function clock(){const d=new Date();$('#fxClock').textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':')}clock();setInterval(clock,1000);
+ // Keep the square centered and responsive to pointer position without rotating it.
+ const stage=$('#skills-lab-square'); if(stage) stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();stage.style.setProperty('--fxx',((e.clientX-r.left)/r.width*100)+'%');stage.style.setProperty('--fxy',((e.clientY-r.top)/r.height*100)+'%')});
+ // Interactive pipeline: allow clicking individual deployment stages.
+ $$('#nodes .node').forEach(n=>n.addEventListener('click',e=>{e.preventDefault();if(window.runDeploymentPipeline)window.runDeploymentPipeline();}));
 })();
 </script>
+<script id="scroll-achievement-js">
+(function(){
+ const toast=document.getElementById('achievementToast');
+ if(!toast)return;
+ const label=document.getElementById('achievementLabel'), msg=document.getElementById('achievementMessage');
+ const targets=[
+  ['about','PROFILE LOADED','ABOUT MODULE COMPLETE'],
+  ['projects','PROJECTS SCANNED','PROJECT ARCHITECTURE UNLOCKED'],
+  ['skills-lab-square','SKILLS VERIFIED','TOOLCHAIN MISSION COMPLETE'],
+  ['experience','CAREER LOG SYNCED','EXPERIENCE MILESTONE COMPLETE'],
+  ['quicklab','KNOWLEDGE CHECKED','DEVOPS LAB COMPLETE']
+ ];
+ const seen=new Set(); let timer;
+ function sparks(){
+   for(let i=0;i<14;i++){
+    const s=document.createElement('i');s.className='winSpark';
+    s.style.left=(window.innerWidth/2)+'px';s.style.bottom='48px';
+    s.style.setProperty('--sx',((Math.random()-.5)*180)+'px');s.style.setProperty('--sy',(-30-Math.random()*90)+'px');
+    document.body.appendChild(s);setTimeout(()=>s.remove(),950);
+   }
+ }
+ function complete(id,l,m){
+   if(seen.has(id))return; seen.add(id);
+   const el=document.getElementById(id); if(el){el.classList.add('scrollWin','completed'); if(el.classList.contains('section'))el.classList.add('completed');}
+   label.textContent=l;msg.textContent=m;toast.classList.add('show');sparks();
+   clearTimeout(timer);timer=setTimeout(()=>toast.classList.remove('show'),1900);
+ }
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=targets.find(x=>x[0]===e.target.id);if(t)complete(...t)}}),{threshold:.35,rootMargin:'0px 0px -12% 0px'});
+ targets.forEach(t=>{const el=document.getElementById(t[0]);if(el)io.observe(el)});
+})();
+</script>
+
+<style id="interaction-repair-css">
+/* Reliable touch interactions for mobile browsers */
+#quicklab .cardFlip{
+  position:relative;
+  z-index:30;
+  pointer-events:auto;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+#quicklab .flipInner{pointer-events:none;}
+#quicklab .face{pointer-events:none;}
+#skills-lab-square .squareLab{z-index:50;pointer-events:auto;}
+#skills-lab-square #lab,
+#skills-lab-square #lab .console,
+#skills-lab-square #lab .run,
+#skills-lab-square #lab .node{pointer-events:auto;}
+#skills-lab-square #run{position:relative;z-index:80;touch-action:manipulation;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+</style>
+<script id="interaction-repair-js">
+(function(){
+  'use strict';
+
+  // --- DevOps Quick Lab: direct, mobile-safe click handling ---
+  document.querySelectorAll('#quicklab .cardFlip').forEach(function(card){
+    if(card.dataset.repairedFlip === '1') return;
+    card.dataset.repairedFlip = '1';
+    card.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      card.classList.toggle('open');
+    }, false);
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        card.classList.toggle('open');
+      }
+    });
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+  });
+
+  // --- Deployment Lab: self-contained pipeline trigger ---
+  var run=document.getElementById('run');
+  if(!run || run.dataset.repairedPipeline === '1') return;
+  run.dataset.repairedPipeline='1';
+
+  var logs=[
+    ['Git hook received','commit 8f2a1c detected'],
+    ['Jenkins started','pipeline: build → test'],
+    ['Docker image built','farsaan/portfolio:latest'],
+    ['Kubernetes rollout','pods: 3/3 ready'],
+    ['AWS healthy','deployment verified ✓']
+  ];
+  var busy=false;
+  var sleep=function(ms){return new Promise(function(resolve){setTimeout(resolve,ms);});};
+
+  async function deploy(){
+    if(busy) return;
+    var stages=Array.from(document.querySelectorAll('#nodes .node'));
+    var progress=document.getElementById('progress');
+    var lines=document.getElementById('terminalLines');
+    var state=document.getElementById('buildState');
+    if(!stages.length || !progress || !lines || !state) return;
+
+    busy=true;
+    run.disabled=true;
+    run.setAttribute('aria-busy','true');
+    state.textContent='RUNNING';
+    run.textContent='⟳ Running deployment pipeline...';
+    stages.forEach(function(n){n.classList.remove('active','done');});
+    progress.style.width='0%';
+    lines.innerHTML='<div style="color:#54d9ff">[00] Push received</div><div style="color:#617b91">↳ Triggering CI/CD pipeline...</div>';
+
+    for(var i=0;i<stages.length;i++){
+      stages[i].classList.add('active');
+      progress.style.width=((i+1)*20)+'%';
+      lines.innerHTML += '<div><span style="color:#54d9ff">['+String(i+1).padStart(2,'0')+']</span> '+logs[i][0]+'</div>'+
+                         '<div style="color:#617b91">↳ '+logs[i][1]+'</div>';
+      lines.scrollTop=lines.scrollHeight;
+      await sleep(700);
+      stages[i].classList.remove('active');
+      stages[i].classList.add('done');
+    }
+
+    state.textContent='SUCCESS';
+    run.textContent='✓ Deployment complete — run again';
+    lines.innerHTML += '<div style="color:#39ff88;margin-top:6px">✓ Pipeline completed successfully</div>';
+    busy=false;
+    run.disabled=false;
+    run.removeAttribute('aria-busy');
+  }
+
+  run.addEventListener('click',function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    deploy();
+  },false);
+
+  // Allow each pipeline stage to be used as a trigger too.
+  document.querySelectorAll('#nodes .node').forEach(function(node){
+    node.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      deploy();
+    },false);
+  });
+})();
+</script>
+
 </body></html>
