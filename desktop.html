@@ -732,12 +732,13 @@ section.hero .heroTerminal{
 </div>
 </section><section class="section wrap reveal" id="projects"><div class="sectionHead"><h2>Projects</h2><span>SWIPE →</span></div><div class="projects"><article class="glass project"><h3>Kubernetes Cluster Deployment</h3><p>Deployed a Kubernetes cluster on AWS using Terraform & Ansible. CI/CD with Jenkins & Argo CD.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span></div></article><article class="glass project"><h3>AWS Cloud Migration</h3><p>Migrated on‑prem app to AWS. Security & monitoring with IAM, CloudTrail, CloudWatch.</p><div class="tags"><span class="tag">AWS</span><span class="tag">IAM</span><span class="tag">CloudWatch</span></div></article><article class="glass project"><h3>CI/CD Pipeline Implementation</h3><p>Built CI/CD pipelines; integrated Docker & Kubernetes for deployments.</p><div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div></article></div></section><div class="certModal" id="certModal" aria-hidden="true"><div class="certWindow" role="dialog" aria-modal="true" aria-label="Certificate viewer"><div class="certHead"><span id="certTitle">CERTIFICATE</span><button class="certClose" id="certClose" type="button" aria-label="Close certificate">×</button></div><div class="certImageWrap"><img id="certImage" src="" alt="Certificate"></div></div></div><section class="section wrap reveal" id="contact">
   <style>
-    #contact .contactLogoRow{display:flex;justify-content:center;align-items:center;gap:clamp(22px,5vw,48px);flex-wrap:wrap;margin:30px auto 10px}
-    #contact .contactLogo{width:76px;height:76px;display:grid;place-items:center;border:1px solid rgba(132,180,220,.22);border-radius:22px;background:rgba(10,21,36,.78);color:var(--text);font-size:36px;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;box-shadow:0 10px 30px rgba(0,0,0,.18)}
-    #contact .contactLogo:hover,#contact .contactLogo:focus-visible{transform:translateY(-5px);border-color:var(--green);box-shadow:0 0 24px rgba(66,245,167,.16);outline:none}
-    #contact .gmailMark{width:39px;height:30px;display:block}
-    #contact .contactLogo:focus-visible{outline:2px solid var(--green);outline-offset:4px}
-    @media(max-width:600px){#contact .contactLogoRow{gap:18px;margin-top:24px}#contact .contactLogo{width:66px;height:66px;border-radius:18px;font-size:31px}}
+    #contact .contactLogoRow{display:flex;justify-content:center;align-items:center;gap:clamp(10px,3vw,22px);flex-wrap:nowrap;width:100%;margin:26px auto 8px}
+    #contact .contactLogo{flex:0 1 58px;width:58px;height:58px;min-width:0;display:grid;place-items:center;border:1px solid rgba(132,180,220,.22);border-radius:16px;background:rgba(10,21,36,.78);color:var(--text);font-size:27px;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    #contact .contactLogo:hover,#contact .contactLogo:focus-visible{transform:translateY(-3px);border-color:var(--green);box-shadow:0 0 20px rgba(66,245,167,.16);outline:none}
+    #contact .gmailMark{width:29px;height:22px;display:block}
+    #contact .contactLogo:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+    @media(max-width:600px){#contact .contactLogoRow{gap:clamp(9px,3vw,14px);margin-top:22px}#contact .contactLogo{flex:0 1 54px;width:54px;height:54px;border-radius:15px;font-size:25px}#contact .gmailMark{width:27px;height:21px}}
+    @media(max-width:360px){#contact .contactLogoRow{gap:8px}#contact .contactLogo{flex-basis:48px;width:48px;height:48px;font-size:23px}#contact .gmailMark{width:25px;height:19px}}
   </style>
   <div class="sectionHead"><h2>Contact Me</h2><span>LET'S CONNECT</span></div>
   <div class="glass" style="padding:30px 22px;text-align:center">
