@@ -1,39 +1,41 @@
-🚀 Farsaan | Personal Portfolio
+Farsaan Siddiqui | Portfolio
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Portfolio-Personal%20Website-0D1117?style=for-the-badge&logo=github&logoColor=white" alt="Personal Portfolio"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
-</p>👨‍💻 About
+  <strong>PERSONAL PORTFOLIO WEBSITE</strong>
+  <br>
+  Showcasing my skills, projects, and journey in technology.
+  <br><br>
+  <a href="https://github.com/Farsaan-tech">
+    <img src="https://img.shields.io/badge/GitHub-Farsaan--tech-181717?style=flat-square&logo=github" alt="GitHub">
+  </a>
+  <img src="https://img.shields.io/badge/HTML5-Structure-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-Styling-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-Interactivity-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+</p>---
 
-Welcome to my personal portfolio repository!
+Overview
 
-This project showcases my technical skills, projects, professional profile, and continuous learning journey in the technology industry.
+A personal portfolio website built to present my technical skills, projects, and professional profile in one place.
 
-The goal is to create a modern, responsive, and interactive website that provides recruiters and developers with a clear overview of my work and capabilities.
+The project focuses on a clean visual design, responsive layouts, and an engaging browsing experience across different devices.
 
-✨ Features
+Key Features
 
-- 🎨 Modern Design — A clean interface with a professional visual identity.
-- 📱 Responsive Layout — Designed for mobile, tablet, and desktop screens.
-- ⚡ Interactive Experience — Animations and interactive UI elements.
-- 🛠️ Technical Skills — A dedicated section highlighting my tools and technologies.
-- 🚀 Projects Showcase — A place to explore my technical projects and implementations.
-- 📄 Professional Profile — Information about my background and career goals.
-- 📬 Contact Links — Easy access to my professional profiles.
+Feature| Description
+Responsive UI| Layouts designed for desktop and mobile
+Interactive Design| Animations and interactive elements
+Skills Showcase| Presentation of technical skills and tools
+Projects| A dedicated space for project demonstrations
+Contact Links| Direct access to professional profiles
 
-🧰 Tech Stack
+Technology Stack
 
-Technology| Purpose
-HTML5| Website structure
-CSS3| Styling, layouts, and animations
-JavaScript| Interactivity and dynamic behavior
-Git| Version control
-GitHub| Source code management
-Netlify / Vercel / GitHub Pages| Website hosting options
+- HTML5 — Page structure
+- CSS3 — Styling, layouts, and animations
+- JavaScript — Interactive functionality
+- Git & GitHub — Version control and source code management
 
-📂 Project Structure
+Repository Structure
 
 portfolio/
 ├── index.html
@@ -42,60 +44,57 @@ portfolio/
 ├── styles.css
 └── README.md
 
-«Note: Update the file structure above if your repository contains additional files or directories.»
+Getting Started
 
-⚙️ Getting Started
+Prerequisites: A web browser. For editing, Visual Studio Code is recommended.
 
 1. Clone the repository
 
 git clone https://github.com/Farsaan-tech/portfolio.git
 
-2. Navigate to the project
+2. Open the project directory
 
 cd portfolio
 
-3. Run the website
+3. Launch the website
 
-Open "index.html" in your browser, or use Live Server in Visual Studio Code for local development.
+Open "index.html" in your browser, or launch it using the Live Server extension in Visual Studio Code.
 
 4. Customize
 
-Modify the HTML, CSS, and JavaScript files to update the content, styling, animations, and project information.
+Edit the relevant HTML, CSS, and JavaScript files to update the content, design, and project information.
 
-🌐 Deployment
+Deployment
 
-The portfolio can be deployed using any compatible static website hosting service:
+The website can be hosted on a static website platform, such as:
 
-- GitHub Pages
-- Netlify
-- Vercel
+- "GitHub Pages" (https://pages.github.com/)
+- "Netlify" (https://www.netlify.com/)
+- "Vercel" (https://vercel.com/)
 
-Configure the hosting provider to serve the correct HTML entry point and publish the website.
+Configure the selected platform to publish the correct website entry point.
 
-🎯 Future Enhancements
+Planned Improvements
 
-- [ ] Add detailed project case studies.
-- [ ] Include live demos and source code links.
-- [ ] Improve accessibility and performance.
-- [ ] Add a downloadable resume.
-- [ ] Integrate a functional contact form.
+- [ ] Add detailed project case studies
+- [ ] Include live demos and source code links
+- [ ] Add a downloadable resume
+- [ ] Improve accessibility and performance
 
-📫 Connect With Me
+Connect
 
-<p align="left">
+<p align="center">
   <a href="https://github.com/Farsaan-tech">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+    <img src="https://img.shields.io/badge/GitHub-View%20Profile-181717?style=for-the-badge&logo=github" alt="GitHub Profile">
   </a>
   <a href="https://linkedin.com/in/farsaan-siddiqui">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn Profile">
   </a>
   <a href="mailto:syedfarsaan@gmail.com">
-    <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+    <img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
   </a>
 </p>---
 
 <p align="center">
-  <i>"Building, learning, and improving — one project at a time."</i>
-</p><p align="center">
-  ⭐ If you find this project useful, consider giving the repository a star!
+  <sub>Built and maintained by Farsaan Siddiqui.</sub>
 </p>
