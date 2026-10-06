@@ -665,6 +665,29 @@ section.hero .heroTerminal{
 }
 </style>
 
+
+<style id="scroll-performance-fix">
+/* Keep the existing visual design while reducing repaint work during scrolling. */
+@media (max-width: 768px), (hover: none) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { touch-action: pan-y; }
+  .grid { animation: none !important; }
+  .orb { animation: none !important; filter: none !important; opacity: .07; }
+  .scan { display: none !important; }
+  .glass, .topbar, .desktopNav, .fxHud, .achievementToast {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .glass { box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  section { filter: none !important; transition: opacity .25s ease, transform .25s ease !important; }
+  .reveal { filter: none !important; transition: opacity .3s ease, transform .3s ease !important; }
+  .winSpark { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grid, .orb, .scan, .winSpark { animation: none !important; }
+}
+</style>
+
 </head><body>
 <div class="siteLoader" id="siteLoader" aria-label="Loading portfolio"><div class="loaderBox"><div class="loaderLogo">FARSAAN<span>.</span>DEVOPS</div><div class="loaderText" id="loaderText">INITIALIZING PORTFOLIO</div><div class="loaderTrack"><div class="loaderBar"></div></div><div class="loaderDots"><i></i><i></i><i></i></div></div></div>
 <div class="fxRail" aria-label="Section navigation">
