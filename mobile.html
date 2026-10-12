@@ -532,10 +532,16 @@ section.hero .heroTerminal{
 .eduCard.pg .eduBadge{color:#d8cbff;border-color:rgba(156,124,255,.24);background:rgba(156,124,255,.05)}
 .eduBody{position:relative;z-index:1;margin-top:18px}.eduBody h3{font-size:1.05rem;line-height:1.35;margin:0 0 8px}.eduUni{font-weight:700;color:#dcecff;font-size:.82rem}.eduMeta{font:600 9px "JetBrains Mono";color:var(--cyan);margin-top:7px}.eduCard.pg .eduMeta{color:#bdaaff}.eduDesc{font-size:.8rem;line-height:1.6;color:#9fb4c8;margin:12px 0 0}.certificateBtn{position:relative;z-index:1;margin-top:18px;width:100%;border:1px solid rgba(84,217,255,.32);background:linear-gradient(135deg,rgba(84,217,255,.11),rgba(66,245,167,.06));color:#eaf8ff;border-radius:12px;padding:10px 12px;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:.22s}.eduCard.pg .certificateBtn{border-color:rgba(156,124,255,.32);background:linear-gradient(135deg,rgba(156,124,255,.12),rgba(84,217,255,.05))}.certificateBtn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(84,217,255,.10)}.certificateBtn:active{transform:scale(.98)}
 @media(max-width:650px){.educationGrid{grid-template-columns:1fr}.eduCard{min-height:225px}}
+/* Professional certifications */
+.certificationGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.certificationCard{display:flex;align-items:flex-start;gap:15px;padding:20px;min-height:155px;position:relative;overflow:hidden}
+.certificationCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,rgba(84,217,255,.10),transparent 45%);pointer-events:none}
+.certificationIcon{position:relative;z-index:1;flex:0 0 48px;width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(84,217,255,.28);border-radius:14px;background:rgba(84,217,255,.08);color:var(--cyan);font-size:23px}
+.certificationIcon.tfCert{border-color:rgba(156,124,255,.3);background:rgba(156,124,255,.08);color:var(--violet)}
+.certificationBody{position:relative;z-index:1}.certificationType{font:700 8px "JetBrains Mono";letter-spacing:1px;color:var(--cyan)}.certificationBody h3{font-size:1rem;line-height:1.45;margin:8px 0}.certificationBody p{font-size:.8rem;color:#dcecff;margin:0}.certificationMeta{font:600 9px "JetBrains Mono";letter-spacing:.4px;color:#9fb4c8;margin-top:12px}.certificationVerify{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:8px 11px;border:1px solid rgba(84,217,255,.3);border-radius:9px;color:var(--cyan);font-size:.75rem;font-weight:800;text-decoration:none;transition:.2s}.certificationVerify:hover{transform:translateY(-2px);background:rgba(84,217,255,.08);border-color:var(--cyan)}.tfCertLink{border-color:rgba(156,124,255,.35);color:var(--violet)}
+@media(max-width:650px){.certificationGrid{grid-template-columns:1fr}.certificationCard{min-height:0;padding:17px}}
 /* opening loader */
 .siteLoader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#050b14;transition:opacity .55s ease,visibility .55s ease}.siteLoader.hide{opacity:0;visibility:hidden;pointer-events:none}.loaderBox{width:min(360px,82vw);padding:22px;border:1px solid rgba(84,217,255,.2);border-radius:20px;background:rgba(8,18,31,.88);box-shadow:0 25px 80px rgba(0,0,0,.45);text-align:center}.loaderLogo{font:800 24px "JetBrains Mono";letter-spacing:2px;color:#eaf4ff}.loaderLogo span{color:var(--cyan)}.loaderText{margin-top:9px;font:600 9px "JetBrains Mono";letter-spacing:1.6px;color:var(--muted)}.loaderTrack{height:3px;margin-top:17px;border-radius:10px;background:#182a3c;overflow:hidden}.loaderBar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));box-shadow:0 0 16px var(--cyan);animation:loadBar 1.15s cubic-bezier(.65,.05,.35,1) forwards}@keyframes loadBar{to{width:100%}}.loaderDots{display:flex;justify-content:center;gap:5px;margin-top:13px}.loaderDots i{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:loaderDot 1s infinite}.loaderDots i:nth-child(2){animation-delay:.15s}.loaderDots i:nth-child(3){animation-delay:.3s}@keyframes loaderDot{50%{opacity:.25;transform:translateY(3px)}}
-/* certificate modal */
-.certModal{position:fixed;inset:0;z-index:9998;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(1,6,12,.86);backdrop-filter:blur(12px)}.certModal.open{display:flex}.certWindow{position:relative;width:min(900px,96vw);height:min(88vh,900px);border:1px solid rgba(84,217,255,.25);border-radius:20px;background:#07111f;box-shadow:0 30px 100px rgba(0,0,0,.6);overflow:hidden}.certHead{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--line);font:700 10px "JetBrains Mono";color:#b8d1e5}.certClose{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer}.certImageWrap{height:calc(100% - 52px);display:grid;place-items:center;padding:12px;overflow:auto}.certImageWrap img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 15px 50px rgba(0,0,0,.35)}
 </style>
 <style id="scroll-achievement-css">
 /* Scroll achievement system — replaces the old side SYS navigation. */
@@ -1037,17 +1043,12 @@ section.hero .heroTerminal{
   }
 
   /* Modals fit small screens */
-  .certModal{padding:10px!important}
   .certWindow{
     width:100%!important;
     height:88vh!important;
     border-radius:15px!important;
   }
   .certHead{height:46px!important;padding:0 10px!important}
-  .certImageWrap{
-    height:calc(100% - 46px)!important;
-    padding:8px!important;
-  }
 
   .fxModal{padding:10px!important}
   .fxModalBox{
@@ -1515,9 +1516,6 @@ section.hero .heroTerminal{
   }
 
   /* Full-screen modals on phones */
-  .certModal,.fxModal{
-    padding:8px!important;
-  }
   .certWindow,.fxModalBox{
     width:100%!important;
     max-width:100%!important;
@@ -1525,10 +1523,6 @@ section.hero .heroTerminal{
   }
   .certWindow{height:91vh!important}
   .certHead{height:44px!important}
-  .certImageWrap{
-    height:calc(100% - 44px)!important;
-    padding:7px!important;
-  }
   .fxModalBox{max-height:94vh!important}
   .fxModalTop{padding:11px!important}
   .fxModalBody{padding:13px!important}
@@ -2173,7 +2167,7 @@ pre,code{max-width:100%!important;overflow-x:auto!important;}
 <a href="#projects" style="text-decoration:none;color:#9dbda7;font:11px ui-monospace,monospace;padding:7px 9px">PROJECTS</a>
 </nav>
 </header>
-<div aria-hidden="true" class="certModal" id="certModal"><div aria-label="Certificate viewer" aria-modal="true" class="certWindow" role="dialog"><div class="certHead"><span id="certTitle">CERTIFICATE</span><button aria-label="Close certificate" class="certClose" id="certClose" type="button">×</button></div><div class="certImageWrap"><img alt="Certificate" id="certImage" src=""/></div></div></div><section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img alt="Profile" class="pfp" src="code.jpg"/><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div aria-label="Interactive terminal" class="heroTerminal">
+<section class="hero" id="top"><div class="wrap"><div class="heroCard reveal"><img alt="Profile" class="pfp" src="code.jpg"/><h1>Farsaan Siddiqui Syed</h1><div class="role">DevOps Engineer • Cloud Enthusiast • Tech Innovator</div><div aria-label="Interactive terminal" class="heroTerminal">
 <div class="heroTerminalTop"><span>●</span><span>●</span><span>●</span><b>farsaan@portfolio:~</b></div>
 <div class="heroTerminalBody">
 <div><span class="prompt">$</span> <span id="heroCmd">git status</span><span class="cursor"></span></div>
@@ -2191,7 +2185,7 @@ pre,code{max-width:100%!important;overflow-x:auto!important;}
 <details class="expItem"><summary><div class="expSummary"><div><h3>Software Associate (Hybrid)</h3><div class="date">Jul 2024 – Aug 2025</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><div class="expProject"><strong>mHealth</strong><span>Project</span></div><ul><li>Worked with Git, Maven, and Jenkins-based CI/CD workflows supporting application builds, deployments, and release processes across test and production environments.</li><li>Automated recurring operational tasks using Bash across Linux and Ubuntu environments, reducing manual effort on routine activities by approximately 43%.</li><li>Worked with AWS services and EBS-backed infrastructure supporting 5–9 servers across test and production environments.</li><li>Used Terraform and Ansible for infrastructure automation and repeatable environment management.</li><li>Supported Kubernetes-based application deployment, container orchestration, and Apache Tomcat application environments.</li></ul><div class="expKnowledge"><span>KNOWLEDGE APPLIED</span><div class="tags"><span class="tag">Git</span><span class="tag">Maven</span><span class="tag">Jenkins</span><span class="tag">Bash</span><span class="tag">Linux</span><span class="tag">AWS</span><span class="tag">EBS</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span><span class="tag">Tomcat</span></div></div></div></details>
 <div style="font-size:18px;font-weight:800;margin:22px 2px 8px;color:#eafff1">PAPA JOHNS</div><div style="font-size:10px;color:#a9bdd0;margin:0 2px 14px">London, UK · Jun 2023 – Mar 2024</div>
 <details class="expItem"><summary><div class="expSummary"><div><h3>IT Support Assistant</h3><div class="date">Jun 2023 – Mar 2024</div></div><span class="expChevron">⌄</span></div></summary><div class="expDetails"><ul><li>Provided first-line IT support, resolving hardware, software, POS system, printer, and network connectivity issues.</li><li>Managed user accounts, password resets, routine system checks, software updates, and IT equipment maintenance.</li><li>Logged and tracked IT incidents, escalated complex technical issues, and minimised downtime to ensure smooth business operations.</li></ul><div class="expKnowledge"><span>KNOWLEDGE APPLIED</span><div class="tags"><span class="tag">IT Support</span><span class="tag">Networking</span><span class="tag">Troubleshooting</span><span class="tag">User Accounts</span></div></div></div></details>
-</div></section><section class="section wrap reveal" id="education"><div class="sectionHead"><h2>Education</h2><span>ACADEMIC RECORD</span></div><div class="educationGrid"><article class="glass eduCard" id="eduGraduation"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-graduation-cap"></i></div><span class="eduBadge">UNDERGRADUATE</span></div><div class="eduBody"><h3>Bachelor of Commerce (B.Com.)</h3><div class="eduUni">Osmania University</div><div class="eduMeta">DECEMBER 2021 · CGPA 7.72</div><p class="eduDesc">Medium of instruction: English. Completed under the Choice Based Credit System.</p></div></div><button class="certificateBtn" data-certificate="images/graduation.jpg" data-title="Bachelor of Commerce — Certificate" type="button"><i class="fa-regular fa-file-image"></i> View Certificate</button></article><article class="glass eduCard pg" id="eduPg"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-award"></i></div><span class="eduBadge">POSTGRADUATE</span></div><div class="eduBody"><h3>Postgraduate Certificate</h3><div class="eduUni">Roehampton University</div><div class="eduMeta">GLOBAL BUSINESS MANAGEMENT · 06 SEP 2023</div><p class="eduDesc">Postgraduate Certificate in Global Business Management, awarded after completion of the programme of study.</p></div></div><button class="certificateBtn" data-certificate="images/pg-certificate.jpg" data-title="Postgraduate Certificate — Global Business Management" type="button"><i class="fa-regular fa-file-image"></i> View Certificate</button></article></div></section><section class="section wrap reveal" id="skills"><div class="sectionHead"><h2>My Skills</h2><span>TOOLS & TECHNOLOGIES</span></div><div class="skills">
+</div></section><section class="section wrap reveal" id="education"><div class="sectionHead"><h2>Education</h2><span>ACADEMIC RECORD</span></div><div class="educationGrid"><article class="glass eduCard" id="eduGraduation"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-graduation-cap"></i></div><span class="eduBadge">UNDERGRADUATE</span></div><div class="eduBody"><h3>Bachelor of Commerce (B.Com.)</h3><div class="eduUni">Osmania University</div><div class="eduMeta">DECEMBER 2021 · CGPA 7.72</div><p class="eduDesc">Medium of instruction: English. Completed under the Choice Based Credit System.</p></div></div></article><article class="glass eduCard pg" id="eduPg"><div><div class="eduTop"><div class="eduIcon"><i class="fa-solid fa-award"></i></div><span class="eduBadge">POSTGRADUATE</span></div><div class="eduBody"><h3>Postgraduate Certificate</h3><div class="eduUni">Roehampton University</div><div class="eduMeta">GLOBAL BUSINESS MANAGEMENT · 06 SEP 2023</div><p class="eduDesc">Postgraduate Certificate in Global Business Management, awarded after completion of the programme of study.</p></div></div></article></div></section><section class="section wrap reveal" id="certifications"><div class="sectionHead"><h2>Certifications</h2><span>PROFESSIONAL CREDENTIALS</span></div><div class="certificationGrid"><article class="glass certificationCard"><div class="certificationIcon awsCert"><i class="fa-brands fa-aws"></i></div><div class="certificationBody"><span class="certificationType">CLOUD</span><h3>AWS Certified Solutions Architect – Associate</h3><p>Amazon Web Services</p><div class="certificationMeta">CLOUD ARCHITECTURE · AWS</div><a class="certificationVerify" href="https://www.credly.com/badges/b92ec034-3685-4759-acee-900bd11f0fbc/public_url" target="_blank" rel="noopener noreferrer">Verify credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article><article class="glass certificationCard"><div class="certificationIcon tfCert"><i class="fa-solid fa-cubes"></i></div><div class="certificationBody"><span class="certificationType">INFRASTRUCTURE AS CODE</span><h3>HashiCorp Certified: Terraform Associate</h3><p>HashiCorp</p><div class="certificationMeta">TERRAFORM · AUTOMATION</div><a class="certificationVerify tfCertLink" href="https://www.credly.com/badges/43375780-d7c5-4c7f-87b6-e680d82f65f0" target="_blank" rel="noopener noreferrer">Verify credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article></div></section><section class="section wrap reveal" id="skills"><div class="sectionHead"><h2>My Skills</h2><span>TOOLS & TECHNOLOGIES</span></div><div class="skills">
 <div class="skill"><i class="fa-brands fa-git-alt"></i><div><h6>Git</h6><small>Source control</small></div></div>
 <div class="skill"><i class="fa-solid fa-cubes"></i><div><h6>Maven</h6><small>Build automation</small></div></div>
 <div class="skill"><i class="fa-solid fa-code-branch"></i><div><h6>Argo CD</h6><small>GitOps delivery</small></div></div>
@@ -2235,11 +2229,6 @@ pre,code{max-width:100%!important;overflow-x:auto!important;}
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 // opening animation
 window.addEventListener('load',()=>{setTimeout(()=>$('#siteLoader')?.classList.add('hide'),1250)});
-// certificate viewer
-const certModal=$('#certModal'), certImage=$('#certImage'), certTitle=$('#certTitle');
-$$('.certificateBtn').forEach(btn=>btn.addEventListener('click',()=>{certImage.src=btn.dataset.certificate;certImage.alt=btn.dataset.title;certTitle.textContent=btn.dataset.title.toUpperCase();certModal.classList.add('open');certModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}));
-const closeCert=()=>{certModal.classList.remove('open');certModal.setAttribute('aria-hidden','true');certImage.src='';document.body.style.overflow=''};
-$('#certClose').addEventListener('click',closeCert);certModal.addEventListener('click',e=>{if(e.target===certModal)closeCert()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&certModal.classList.contains('open'))closeCert()});
 $('#y').textContent=new Date().getFullYear();
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});$$('.reveal').forEach(e=>io.observe(e));
